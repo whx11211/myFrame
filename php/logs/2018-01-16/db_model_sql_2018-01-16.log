@@ -1,0 +1,146 @@
+[SELECT]	2018-01-16 14:04:45	SELECT * FROM user WHERE `userName`=?	["whx"]	::1	{"c":"System","m":"login","pwd":"Whx920927","loginname":"whx"}
+[SELECT]	2018-01-16 14:04:45	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"login","pwd":"Whx920927","loginname":"whx"}
+[SELECT]	2018-01-16 14:04:45	SELECT `func` FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"login","pwd":"Whx920927","loginname":"whx"}
+[INSERT]	2018-01-16 14:04:45	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"2","LoginIp":"::1","loginTime":1516082685}	::1	{"c":"System","m":"login","pwd":"Whx920927","loginname":"whx"}
+[UPDATE]	2018-01-16 14:04:45	UPDATE user SET `lastLoginTime`=:lastLoginTime WHERE `id`='2';	{"lastLoginTime":1516082685}	::1	{"c":"System","m":"login","pwd":"Whx920927","loginname":"whx"}
+[SELECT]	2018-01-16 14:04:45	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:04:45	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:05:43	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:05:43	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:06:07	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:06:07	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:07:52	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:07:52	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:11:27	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:11:27	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:11:27	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-16 14:14:14	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:14:14	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:14:14	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-16 14:14:14	SELECT count(*) as sum FROM user WHERE `regtime` between ? AND ?	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 14:16:07	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:16:07	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:16:07	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-16 14:20:19	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2018-01-16 14:20:19	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-12-18 - 2018-01-16","orderby":{"id":"asc"}}
+[SELECT]	2018-01-16 14:20:19	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-12-18 - 2018-01-16","orderby":{"id":"asc"}}
+[SELECT]	2018-01-16 14:21:04	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:21:04	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:21:04	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-16 14:21:05	SELECT count(*) as sum FROM user WHERE `regtime` between ? AND ?	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:21:05	SELECT userid,username,regtime,email FROM user WHERE `regtime` between ? AND ? ORDER BY regtime desc LIMIT 0,10	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:23:23	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:23:23	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:23:23	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-16 14:23:23	SELECT count(*) as sum FROM user WHERE `regtime` between ? AND ?	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:23:23	SELECT userid,username,regtime,email FROM user WHERE `regtime` between ? AND ? ORDER BY regtime desc LIMIT 0,10	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:25:39	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:25:39	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:25:39	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-16 14:25:39	SELECT count(*) as sum FROM user WHERE `regtime` between ? AND ?	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:25:39	SELECT userid,username,regtime,email FROM user WHERE `regtime` between ? AND ? ORDER BY regtime desc LIMIT 0,10	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:25:53	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:25:53	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:25:53	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-16 14:25:53	SELECT count(*) as sum FROM user WHERE `regtime` between ? AND ?	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:25:53	SELECT userid,username,regtime,email FROM user WHERE `regtime` between ? AND ? ORDER BY regtime desc LIMIT 0,10	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:26:25	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:26:25	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:26:25	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-16 14:26:25	SELECT count(*) as sum FROM user WHERE `regtime` between ? AND ?	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:26:25	SELECT userid,username,regtime,email FROM user WHERE `regtime` between ? AND ? ORDER BY regtime desc LIMIT 0,10	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:27:01	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:27:01	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:27:01	SELECT count(*) as sum FROM user WHERE `regtime` between ? AND ?	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:27:01	SELECT userid,username,regtime,email FROM user WHERE `regtime` between ? AND ? ORDER BY regtime desc LIMIT 0,10	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:27:01	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-16 14:27:07	SELECT count(*) as sum FROM user WHERE `regtime` between ? AND ?	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","posttime":"","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:27:07	SELECT userid,username,regtime,email FROM user WHERE `regtime` between ? AND ? ORDER BY regtime desc LIMIT 0,10	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","posttime":"","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:28:14	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:28:14	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:28:14	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-16 14:28:14	SELECT count(*) as sum FROM user WHERE `regtime` between ? AND ?	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:28:14	SELECT userid,username,regtime,email FROM user WHERE `regtime` between ? AND ? ORDER BY regtime desc LIMIT 0,10	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:28:19	SELECT count(*) as sum FROM user	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:28:19	SELECT userid,username,regtime,email FROM user ORDER BY regtime desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:28:39	SELECT count(*) as sum FROM user	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:28:39	SELECT userid,username,regtime,email FROM user ORDER BY regtime desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"","orderby":{"regtime":"desc"}}
+[DELETE]	2018-01-16 14:29:34	DELETE FROM user WHERE `userid`=:userid;	{"userid":"3"}	::1	{"c":"MovieManage","m":"user","userid":"3","username":"3sss","regtime":"0","email":"","$$hashKey":"uiGrid-001F","a":"del"}
+[SELECT]	2018-01-16 14:29:35	SELECT count(*) as sum FROM user	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:29:35	SELECT userid,username,regtime,email FROM user ORDER BY regtime desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:30:04	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2018-01-16 14:30:04	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-12-18 - 2018-01-16","orderby":{"id":"asc"}}
+[SELECT]	2018-01-16 14:30:04	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-12-18 - 2018-01-16","orderby":{"id":"asc"}}
+[SELECT]	2018-01-16 14:30:11	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","posttime":"2017-12-18 - 2018-01-16","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 14:30:11	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,10	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","posttime":"2017-12-18 - 2018-01-16","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 14:30:22	SELECT count(*) as sum FROM repost WHERE `postid`=?	["12"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","a":"reply","postid":"12","posttime":"2017-12-18 - 2018-01-16","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 14:30:22	SELECT * FROM repost WHERE `postid`=? ORDER BY postid desc LIMIT 0,10	["12"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","a":"reply","postid":"12","posttime":"2017-12-18 - 2018-01-16","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 14:30:25	SELECT count(*) as sum FROM repost WHERE `postid`=?	["12"]	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","a":"reply","postid":"12","posttime":"2017-12-18 - 2018-01-16","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 14:30:25	SELECT * FROM repost WHERE `postid`=? ORDER BY postid desc LIMIT 10,10	["12"]	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","a":"reply","postid":"12","posttime":"2017-12-18 - 2018-01-16","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 14:31:02	SELECT count(*) as sum FROM user WHERE `regtime` between ? AND ?	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:31:02	SELECT userid,username,regtime,email FROM user WHERE `regtime` between ? AND ? ORDER BY regtime desc LIMIT 0,10	[1513526400,1516118399]	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","regtime":"2017-12-18 - 2018-01-16","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:31:33	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:31:33	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 14:31:33	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-16 14:31:33	SELECT count(*) as sum FROM user	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 14:31:33	SELECT userid,username,regtime,email FROM user ORDER BY regtime desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 16:25:56	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 16:25:56	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 16:28:26	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 16:28:26	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 16:31:04	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 16:31:04	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 16:31:04	SELECT count(*) as sum FROM user	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 16:31:04	SELECT userid,username,regtime,email FROM user ORDER BY regtime desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 16:35:43	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 16:35:43	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 16:35:43	SELECT count(*) as sum FROM user	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 16:35:43	SELECT userid,username,regtime,email FROM user ORDER BY regtime desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 16:42:49	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 16:42:49	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 16:42:49	SELECT count(*) as sum FROM user	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 16:42:49	SELECT userid,username,regtime,email FROM user ORDER BY regtime desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 17:15:00	SELECT * FROM menu ORDER BY sort	null	::1	{"c":"System","m":"role","a":"get_all_menu"}
+[SELECT]	2018-01-16 17:15:00	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2018-01-16 17:15:00	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2018-01-16 17:15:00	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[UPDATE]	2018-01-16 17:15:06	UPDATE role SET `roleName`=:roleName,`roleDesc`=:roleDesc,`privileges`=:privileges WHERE `id`='1';	{"roleName":"\u8d85\u7ea7\u7ba1\u7406\u5458","roleDesc":"","privileges":"1,2,10,3,12,14,13,15,6,7,8,9,11"}	::1	{"c":"System","m":"role","id":"1","roleName":"\u8d85\u7ea7\u7ba1\u7406\u5458","roleDesc":"","privileges":"1,2,10,3,12,14,13,15,6,7,8,9,11","a":"mod"}
+[SELECT]	2018-01-16 17:15:08	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2018-01-16 17:15:08	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2018-01-16 17:15:09	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:15:09	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,15,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:15:09	SELECT * FROM menu ORDER BY sort	null	::1	{"c":"System","m":"role","a":"get_all_menu"}
+[SELECT]	2018-01-16 17:15:09	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2018-01-16 17:15:09	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2018-01-16 17:15:09	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2018-01-16 17:15:12	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 17:15:12	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 17:16:50	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 17:16:50	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 17:17:25	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:17:25	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,15,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:17:25	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 17:17:25	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 17:17:27	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 17:17:27	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-16 17:19:17	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:19:17	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,15,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:19:23	SELECT count(*) as sum FROM user	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 17:19:23	SELECT userid,username,regtime,email FROM user ORDER BY regtime desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"user","page":"1","num":"10","orderby":{"regtime":"desc"}}
+[SELECT]	2018-01-16 17:20:20	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:20:20	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,15,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:22:42	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:22:42	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,15,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:22:58	SELECT * FROM user WHERE `userName`=?	["whx"]	::1	{"c":"System","m":"login","pwd":"Whx920927","loginname":"whx"}
+[SELECT]	2018-01-16 17:22:58	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"login","pwd":"Whx920927","loginname":"whx"}
+[SELECT]	2018-01-16 17:22:58	SELECT `func` FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,15,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"login","pwd":"Whx920927","loginname":"whx"}
+[INSERT]	2018-01-16 17:22:58	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"2","LoginIp":"::1","loginTime":1516094578}	::1	{"c":"System","m":"login","pwd":"Whx920927","loginname":"whx"}
+[UPDATE]	2018-01-16 17:22:58	UPDATE user SET `lastLoginTime`=:lastLoginTime WHERE `id`='2';	{"lastLoginTime":1516094578}	::1	{"c":"System","m":"login","pwd":"Whx920927","loginname":"whx"}
+[SELECT]	2018-01-16 17:22:59	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:22:59	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,15,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-16 17:23:02	SELECT count(*) as sum FROM repost	null	::1	{"c":"MovieManage","m":"repost","page":"1","num":"10","orderby":{"reposttime":"desc"}}
+[SELECT]	2018-01-16 17:23:02	SELECT * FROM repost ORDER BY reposttime desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"repost","page":"1","num":"10","orderby":{"reposttime":"desc"}}
+[SELECT]	2018-01-16 17:23:14	SELECT count(*) as sum FROM repost	null	::1	{"c":"MovieManage","m":"repost","page":"1","num":"10","reposttime":"2018-01-15 - 2018-01-15","orderby":{"reposttime":"desc"}}
+[SELECT]	2018-01-16 17:23:14	SELECT * FROM repost ORDER BY reposttime desc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"repost","page":"1","num":"10","reposttime":"2018-01-15 - 2018-01-15","orderby":{"reposttime":"desc"}}
+[SELECT]	2018-01-16 17:23:25	SELECT count(*) as sum FROM repost	null	::1	{"c":"MovieManage","m":"repost","page":"2","num":"10","reposttime":"2018-01-15 - 2018-01-15","orderby":{"reposttime":"desc"}}
+[SELECT]	2018-01-16 17:23:25	SELECT * FROM repost ORDER BY reposttime desc LIMIT 10,10	null	::1	{"c":"MovieManage","m":"repost","page":"2","num":"10","reposttime":"2018-01-15 - 2018-01-15","orderby":{"reposttime":"desc"}}

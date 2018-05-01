@@ -1,0 +1,18 @@
+<!-- ng-include后，该文件里面的$scope是新建的，如果需要使用页面变量，应该使用$parent处理 -->
+<div class="modal fade" id="modal_del" role="dialog" aria-labelledby="modal_success" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title text-danger">{{ langs.delTip }}</h4>
+            </div>
+            <div class="modal-body text-center text-danger">
+                {{ langs.modal_del_info }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"  data-ng-click="modal_del_ok()">{{ langs['submit']}}</button>
+                <button type="button" class="btn btn-default"  data-dismiss="modal">{{ langs['modal_close_btn']}}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

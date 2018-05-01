@@ -1,0 +1,9 @@
+[2]	2017-12-04 16:19:05	2	Unknown: apc.shm_size now uses M/G suffixes, please update your ini files	Unknown	0	::1	{"c":"System","m":"userInfo"}
+[2]	2017-12-04 16:19:18	2	Unknown: apc.shm_size now uses M/G suffixes, please update your ini files	Unknown	0	::1	{"c":"System","m":"userInfo"}
+[2]	2017-12-04 16:19:18	2	Unknown: apc.shm_size now uses M/G suffixes, please update your ini files	Unknown	0	::1	{"c":"System","m":"menu"}
+[2]	2017-12-04 16:19:21	2	Unknown: apc.shm_size now uses M/G suffixes, please update your ini files	Unknown	0	::1	{"c":"System","m":"menu"}
+[2]	2017-12-04 16:19:36	2	Unknown: apc.shm_size now uses M/G suffixes, please update your ini files	Unknown	0	::1	{"c":"System","m":"user","id":"4","userName":"whx1","lastLoginTime":"0","roleId":"1321","$$hashKey":"uiGrid-000R","a":"mod"}
+[2]	2017-12-04 16:22:27	2	Unknown: apc.shm_size now uses M/G suffixes, please update your ini files	Unknown	0	::1	{"c":"System","m":"menu"}
+[2]	2017-12-04 16:22:27	2	Unknown: apc.shm_size now uses M/G suffixes, please update your ini files	Unknown	0	::1	{"c":"System","m":"userInfo"}
+[2]	2017-12-04 16:22:27	2	Unknown: apc.shm_size now uses M/G suffixes, please update your ini files	Unknown	0	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[2]	2017-12-04 16:27:43	2	PDOStatement::execute(): SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'roleId' at row 1	E:\wamp64\www\myFrame\php\model\Model.class.php	453	::1	{"c":"System","m":"user","id":"9","userName":"admin23","lastLoginTime":"0","roleId":"2211222","a":"mod"}

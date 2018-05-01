@@ -1,0 +1,4 @@
+[2]	2017-11-17 11:01:22	2	Missing argument 1 for UserControl::login(), called in E:\wamp64\www\myFrame\php\index.php on line 12 and defined	E:\wamp64\www\myFrame\php\control\UserControl.class.php	6	::1	{"c":"User","m":"login"}
+[2]	2017-11-17 11:01:22	2	Missing argument 2 for UserControl::login(), called in E:\wamp64\www\myFrame\php\index.php on line 12 and defined	E:\wamp64\www\myFrame\php\control\UserControl.class.php	6	::1	{"c":"User","m":"login"}
+[2]	2017-11-17 11:01:40	2	Missing argument 1 for UserControl::login(), called in E:\wamp64\www\myFrame\php\index.php on line 12 and defined	E:\wamp64\www\myFrame\php\control\UserControl.class.php	6	::1	{"c":"User","m":"login"}
+[2]	2017-11-17 11:01:40	2	Missing argument 2 for UserControl::login(), called in E:\wamp64\www\myFrame\php\index.php on line 12 and defined	E:\wamp64\www\myFrame\php\control\UserControl.class.php	6	::1	{"c":"User","m":"login"}

@@ -1,0 +1,522 @@
+[SELECT]	2017-11-21 09:33:42	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 09:33:42	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511228022}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 09:33:43	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 09:33:43	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 09:33:49	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 10:06:19	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:06:19	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:06:20	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 10:07:40	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:07:40	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:07:40	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 10:10:11	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:10:11	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:10:11	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 10:10:57	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 10:11:16	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:11:16	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:11:16	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 10:12:13	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:12:13	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:13:09	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:13:09	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:13:19	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:13:19	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:17:09	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:17:09	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:17:13	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 10:22:24	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:22:24	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:25:26	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:25:26	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:25:47	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:25:47	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:28:18	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 10:32:05	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:32:05	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:32:46	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:32:46	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:45:00	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:45:00	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:45:45	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:45:45	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:46:36	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:46:36	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:48:19	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:48:19	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:48:57	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:48:57	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:49:45	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:49:45	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:50:09	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:50:09	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:58:12	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 10:58:12	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511233092}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 10:58:12	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 10:58:12	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:05:35	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 11:05:35	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511233535}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 11:05:36	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:05:36	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:09:28	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:09:28	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:09:28	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:13:10	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:13:10	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:13:10	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:15:23	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:15:23	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:15:23	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:15:54	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:15:54	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:15:54	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:16:44	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:16:44	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:16:44	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:17:20	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:17:20	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:17:20	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:17:31	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:17:31	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:19:42	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:19:42	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:20:34	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:20:34	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:21:14	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:21:14	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:22:12	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:22:12	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:22:22	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:22:22	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:22:54	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:22:54	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:24:42	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:24:42	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:24:59	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:24:59	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:25:28	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:25:28	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:27:11	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:27:11	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:28:11	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:28:11	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:28:14	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:33:06	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:33:06	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:33:06	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:33:48	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:33:48	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:33:48	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:35:36	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:35:36	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:35:36	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:43:51	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:43:51	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:44:02	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:45:51	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:51:57	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:51:57	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:51:57	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:53:02	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:53:02	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:53:02	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 11:55:01	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:55:01	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 11:55:02	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 13:23:38	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:23:38	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:25:17	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:25:17	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:25:32	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:25:32	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:37:04	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:37:04	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:37:31	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","loginname":"admin","pwd":"yr@123abc"}
+[INSERT]	2017-11-21 13:37:32	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511242651}	::1	{"c":"User","m":"login","loginname":"admin","pwd":"yr@123abc"}
+[SELECT]	2017-11-21 13:37:32	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:37:32	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:41:28	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:41:28	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:42:00	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:42:00	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:42:46	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:42:46	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:45:55	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:45:55	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:46:24	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 13:46:24	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511243184}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 13:46:24	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:46:24	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:46:32	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 13:46:32	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511243192}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 13:46:32	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:46:32	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 13:50:42	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:02:02	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","loginname":"admin","pwd":"yr@123abc"}
+[INSERT]	2017-11-21 14:02:02	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511244122}	::1	{"c":"User","m":"login","loginname":"admin","pwd":"yr@123abc"}
+[SELECT]	2017-11-21 14:02:03	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:02:03	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:02:44	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 14:02:44	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511244164}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 14:02:45	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:02:45	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:02:50	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:13:33	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 14:13:33	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511244813}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 14:13:33	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:13:33	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:13:40	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:16:22	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 14:16:22	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511244982}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 14:16:22	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:16:22	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:16:28	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 14:16:28	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511244988}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 14:16:28	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:16:28	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:16:42	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 14:16:42	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511245002}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 14:16:43	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:16:43	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:20:11	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:39:30	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:39:30	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:39:30	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:41:11	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:41:11	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:41:11	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:43:31	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:43:31	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:45:11	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:45:11	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:46:56	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:46:56	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:47:13	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:47:13	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:52:46	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:52:46	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:54:37	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:54:37	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:55:01	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:55:07	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:55:07	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:55:07	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:55:29	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:55:29	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:55:29	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:55:49	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:55:49	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:55:49	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:56:02	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:56:02	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:56:03	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:56:25	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:56:25	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:56:25	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:56:34	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:56:34	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:56:34	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:57:00	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:57:00	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:57:00	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:57:09	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:57:09	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:57:09	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:57:23	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:57:23	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:57:23	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:57:35	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:57:35	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:57:35	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:57:54	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:57:54	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:57:54	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:58:16	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:58:16	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:58:16	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:58:51	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:58:51	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:58:51	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:58:58	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:58:58	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:58:58	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 14:59:07	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:59:07	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 14:59:07	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:00:19	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:00:19	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:00:19	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:02:19	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:02:19	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:02:19	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:02:43	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:02:43	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:02:43	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:03:33	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:03:33	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:03:33	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:04:15	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:04:15	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:04:15	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:04:48	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:04:48	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:04:48	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:06:34	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:06:35	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:06:35	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:08:59	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:08:59	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:08:59	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:09:35	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:09:35	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:09:35	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:10:20	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:10:20	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:10:20	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:10:22	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:10:22	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:10:22	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:11:17	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:11:17	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:11:17	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:13:08	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:13:08	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:13:08	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:13:48	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:13:48	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:13:48	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:14:08	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:14:08	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:14:08	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:14:14	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 15:14:14	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511248454}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 15:14:15	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:14:15	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:14:19	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:14:27	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","loginname":"admin","pwd":"yr@123abc"}
+[INSERT]	2017-11-21 15:14:27	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511248467}	::1	{"c":"User","m":"login","loginname":"admin","pwd":"yr@123abc"}
+[SELECT]	2017-11-21 15:14:28	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:14:28	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:14:30	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:14:45	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[INSERT]	2017-11-21 15:14:45	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511248485}	::1	{"c":"User","m":"login","pwd":"yr@123abc","loginname":"admin"}
+[SELECT]	2017-11-21 15:14:45	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:14:45	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:14:49	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:16:23	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:16:23	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:16:23	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:18:41	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:18:41	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:18:41	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:25:38	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:25:38	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:25:38	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:40:45	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:40:45	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:40:45	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:45:03	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:45:03	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:45:03	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:46:37	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:46:37	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:46:37	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:46:44	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:46:44	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:46:44	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:48:30	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:48:30	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:48:30	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:48:31	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:48:31	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:48:31	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:49:09	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:49:09	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:49:09	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:50:07	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:50:07	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:50:07	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:51:14	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:51:14	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:51:14	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:51:16	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:51:16	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:51:16	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:54:41	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:54:41	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:54:41	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:55:04	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:55:04	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:55:04	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:55:57	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:55:57	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:55:57	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:58:34	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:58:34	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:58:34	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 15:58:46	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:58:46	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 15:58:46	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:00:18	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:00:18	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:00:18	SELECT * FROM loginList LIMIT 4	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:01:42	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:01:42	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:01:42	SELECT * FROM loginList LIMIT 4	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:02:05	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:02:05	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:02:05	SELECT * FROM loginList LIMIT 4	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:15:04	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:15:04	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:15:04	SELECT * FROM loginList LIMIT 4	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:18:59	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:18:59	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:18:59	SELECT * FROM loginList LIMIT 4	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:19:15	SELECT * FROM loginList LIMIT 4	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:20:03	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:20:03	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:20:03	SELECT * FROM loginList LIMIT 4	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:20:15	SELECT * FROM loginList LIMIT 4	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:20:30	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:20:30	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:20:30	SELECT * FROM loginList LIMIT 11	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:20:44	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:20:44	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:20:44	SELECT * FROM loginList LIMIT 13	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:21:16	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:21:16	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:21:16	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:25:45	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:25:45	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:25:45	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:27:54	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:27:54	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:27:56	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:27:59	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:27:59	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:27:59	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:29:15	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:30:28	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:30:28	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:30:28	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:39:50	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:39:50	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:40:47	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:40:47	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:41:12	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:41:12	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:41:37	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:41:37	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:41:37	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:42:08	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"User","m":"login","loginname":"admin","pwd":"yr@123abc"}
+[INSERT]	2017-11-21 16:42:08	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1511253728}	::1	{"c":"User","m":"login","loginname":"admin","pwd":"yr@123abc"}
+[SELECT]	2017-11-21 16:42:08	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:42:08	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:42:13	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:43:14	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:43:14	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:43:14	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:43:34	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:43:34	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:43:35	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:43:52	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:43:52	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:43:52	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:44:48	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:44:48	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 16:44:48	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 16:44:52	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:19:23	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:19:23	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:19:23	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:20:46	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:20:46	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:20:46	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:21:11	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:21:11	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:21:11	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:22:13	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:22:13	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:22:13	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:22:26	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:22:26	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:22:26	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:22:58	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:22:58	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:22:58	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:23:54	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:23:54	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:23:54	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:24:39	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:24:39	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:24:39	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:25:49	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:25:49	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:25:49	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:26:12	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:26:12	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:26:28	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:26:28	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:26:28	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:27:19	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:27:19	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:27:19	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:27:56	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:27:56	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:27:56	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:30:14	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:30:14	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:30:14	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:31:01	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:31:01	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:31:01	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:31:42	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:31:42	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:31:42	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:31:55	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:31:55	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:31:55	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:32:11	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:32:11	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:32:11	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:32:29	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:32:29	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:32:29	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:33:04	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:04	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:04	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:33:24	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:24	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:24	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:33:27	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:27	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:27	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:33:28	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:28	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:28	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:33:30	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:30	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:30	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:33:31	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:31	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:31	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:33:51	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:51	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:51	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:33:53	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:53	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:53	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:33:58	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:58	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:58	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:33:59	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:59	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:33:59	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:34:01	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:34:01	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:34:01	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:34:20	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:34:22	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}
+[SELECT]	2017-11-21 17:35:02	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:35:02	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"User","m":"menu"}
+[SELECT]	2017-11-21 17:35:04	SELECT * FROM loginList	null	::1	{"c":"Login","m":"allLogin"}

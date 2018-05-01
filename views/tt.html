@@ -1,0 +1,114 @@
+<!-- jQuery 3 -->
+<script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="lib/bower_components/jquery/dist/jquery.cookie.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="lib/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!-- Bootstrap 3.3.7 -->
+<!-- Sparkline -->
+<!-- datepicker -->
+<!-- Bootstrap WYSIHTML5 -->
+<!-- Slimscroll -->
+<!-- FastClick -->
+<!-- AdminLTE App -->
+<script src="lib/dist/js/adminlte.min.js"></script>
+
+
+
+
+
+<ul class="sidebar-menu tree" data-widget="tree">
+        <!-- ngRepeat: x in menu --><li data-ng-repeat="x in menu" class="treeview ng-scope" data-repeat-finish="sidebarmenu_done()">
+          <a href="#">
+            <i class="fa fa-cogs"></i> <span class="ng-binding">系统管理</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu" style="display: none;">
+            <!-- ngRepeat: xx in x.sub --><!-- ngIf: xx.sub --><!-- end ngRepeat: xx in x.sub --><!-- ngIf: xx.sub --><!-- end ngRepeat: xx in x.sub --><!-- ngIf: xx.sub --><!-- end ngRepeat: xx in x.sub -->
+            <!-- ngRepeat: xx in x.sub --><!-- ngIf: !xx.sub --><li data-ng-if="!xx.sub" data-ng-repeat="xx in x.sub" class="active ng-scope">
+                <a href="#/System/user" class="ng-binding"><i class="fa fa-user"></i> 用户管理</a>
+            </li><!-- end ngIf: !xx.sub --><!-- end ngRepeat: xx in x.sub --><!-- ngIf: !xx.sub --><li data-ng-if="!xx.sub" data-ng-repeat="xx in x.sub" class="active ng-scope">
+                <a href="#/System/loginList" class="ng-binding"><i class="fa fa-list-alt"></i> 登录记录</a>
+            </li><!-- end ngIf: !xx.sub --><!-- end ngRepeat: xx in x.sub --><!-- ngIf: !xx.sub --><li data-ng-if="!xx.sub" data-ng-repeat="xx in x.sub" class="active ng-scope">
+                <a href="#/System/role" class="ng-binding"><i class="fa  fa-registered"></i> 角色管理</a>
+            </li><!-- end ngIf: !xx.sub --><!-- end ngRepeat: xx in x.sub -->
+          </ul>
+        </li><!-- end ngRepeat: x in menu -->
+      </ul>
+      <ul class="sidebar-menu tree" data-widget="tree">
+        <li data-ng-repeat="x in menu" class="treeview ng-scope" data-repeat-finish="sidebarmenu_done()">
+          <a href="#">
+            <i class="fa  fa-plane"></i> <span class="ng-binding">TEST</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu" style="display: none;">
+            <!-- ngRepeat: xx in x.sub --><!-- ngIf: xx.sub --><li data-ng-if="xx.sub" data-ng-repeat="xx in x.sub" class="treeview ng-scope">
+                <a href="#" class="treemenu2 ng-binding"><i class="fa fa-plus-circle"></i> 测试</a>
+                <ul class="treeview-menu" style="display: none;">
+                    <!-- ngRepeat: xxx in xx.sub --><li data-ng-repeat="xxx in xx.sub" class="active ng-scope">
+                        <a href="#/334" class="ng-binding"><i class="fa fa-wechat"></i> 334</a>
+                    </li><!-- end ngRepeat: xxx in xx.sub --><li data-ng-repeat="xxx in xx.sub" class="active ng-scope">
+                        <a href="#/444" class="ng-binding"><i class="fa fa-steam"></i> 444</a>
+                    </li><!-- end ngRepeat: xxx in xx.sub -->
+                </ul>
+            </li><!-- end ngIf: xx.sub --><!-- end ngRepeat: xx in x.sub -->
+            <!-- ngRepeat: xx in x.sub --><!-- ngIf: !xx.sub --><!-- end ngRepeat: xx in x.sub -->
+          </ul>
+        </li><!-- end ngRepeat: x in menu -->
+      </ul>
+
+<hr/>
+
+<ul class="tree" data-widget="tree">
+  <li class="treeview">
+    <input type="checkbox" name="he" value="1" />
+    <a href="">
+      tttt
+    </a>
+    <ul class="treeview-menu" class="active ng-scope">
+      <li>111</li>
+      <li>222</li>
+    </ul>
+  </li>
+  <li class="treeview">
+    <a href="">
+      tttt
+    </a>
+    <ul class="treeview-menu" class="active ng-scope">
+      <li>111</li>
+      <li>222</li>
+    </ul>
+  </li>
+</ul>
+
+
+<HR/>
+                <form class="form-horizontal" role="form" name="modal_search_form" novalidate="novalidate">
+                    <div class="row">
+                       <ul class="tree" data-widget="tree">
+                           <li class="treeview">
+                               <input type="checkbox" name="he" value="1" />
+                               <a href="">
+                                   tttt
+                               </a>
+                               <ul class="treeview-menu" class="active">
+                                   <li>111</li>
+                                   <li>
+	                                   <a href="">
+	                                   tttt
+		                               </a>
+		                               <ul class="treeview-menu" class="active">
+		                                   <li>111</li>
+		                                   <li>222</li>
+		                               </ul>
+	                               </li>
+                               </ul>
+                           </li>
+                       </ul>
+                        
+                    </div>
+                </form>

@@ -1,0 +1,2 @@
+[2]	2018-01-08 19:56:55	2	PDO::query(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'postid' in 'field list'	E:\wamp64\www\myFrame\php\model\Model.class.php	318	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-10 - 2018-01-08","orderby":{"id":"asc"}}
+[2]	2018-01-08 19:57:59	2	PDO::query(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'	E:\wamp64\www\myFrame\php\model\Model.class.php	318	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-10 - 2018-01-08","orderby":{"id":"asc"}}

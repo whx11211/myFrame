@@ -1,0 +1,186 @@
+<!-- 数据显示box -->
+<div class="row" data-ng-show="r">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <div class="box">
+        
+            <div class="box-header" data-ng-include="'pages/common/box-header.html'">
+                <!-- pages/common/box-header.html -->
+            </div>
+            
+            
+            <div class="box-body" data-ng-include="'pages/common/box-body.html'">
+                <!-- pages/common/box-body.html -->
+            </div>
+            
+            <div class="box-footer" data-ng-include="'pages/common/box-footer.html'">
+                <!-- pages/common/box-footer.html -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 模态框（删除） -->
+<div data-ng-include="'pages/common/modal-del.html'"></div>
+
+<!-- 模态框（查找） -->
+<div class="modal fade" id="modal_search" name="modal_search" role="dialog" aria-labelledby="modal_search" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal_search_title">{{ langs.modal_search_header }}</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" name="modal_search_form" novalidate="novalidate">
+                    <div class="row">
+                    
+                        <!-- posttime -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.posttime }}：</label>
+                            <div class="col-sm-7">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-left" id="search_posttime" name="search_posttime" data-ng-change="modal_search_title_not_submit()" data-ng-model="search.posttime">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- title -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.title }}：</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="search_title" name="search_title" data-ng-model="search.title" placeholder="{{langs.like_query}}">
+                            </div>
+                        </div>
+                
+                        
+                        <!-- username -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.username }}：</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="search_username" name="search_username" data-ng-model="search.username" placeholder="{{langs.like_query}}">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-ng-click="modal_search_ok()">{{ langs.modal_search_ok }}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<!-- 模态框（详细信息） -->
+<div class="modal fade" id="modal_detail" name="modal_detail" role="dialog" aria-labelledby="modal_detail" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal_detail_title">{{ detail.title }}</h4>
+            </div>
+            <div id="modal_detail_body" class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 模态框（回复信息） -->
+<div class="modal fade" id="modal_reply" name="modal_reply" role="dialog" aria-labelledby="modal_reply" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal_reply_title">{{ reply.title }}--{{langs.post_reply}}</h4>
+            </div>
+            <div id="modal_reply_body" class="modal-body">
+                <div data-ng-if="reply_data.items.length">
+                    <div class="box-header">
+		                <label>
+						    {{langs.box_header_show}}
+						    <select name="page_len" class="inline" data-ng-model="$parent.length_select" data-ng-change="set_default_page_number($parent.length_select);get_reply_data(1);">
+						        <option data-ng-repeat="x in page_number" value="{{ x }}">{{ x }}</option>
+						    </select>
+						    {{langs.box_header_entries}}
+						</label>
+					</div>
+					<div class="box-body">
+		                <div data-ui-i18n="ui_grid.get_i18n()" id="data2">
+						    <div data-ng-style="ui_grid_style_reply"
+						        data-ui-grid="gridOptionsReply"
+						        data-ui-grid-auto-resize
+						        data-ui-grid-resize-columns
+						        data-ui-grid-move-columns
+						        data-ui-grid-pinning
+						        data-ui-grid-exporter
+						    >
+						    </div>
+						</div>
+					</div>
+					<div class="box-footer">
+						<div data-ng-if="reply_data.page_total" class="box-tools pull-right">
+						    <ul class="pagination pagination-sm inline">
+						        <!-- 首页 -->
+						        <li>
+						            <a data-ng-if="reply_data.page_current==1" href="javascript:void(0)" title="{{langs.box_footer_page_first}}"><i class="fa fa-angle-double-left"></i></a>
+						            <a data-ng-if="reply_data.page_current!=1" href="javascript:void(0)" title="{{langs.box_footer_page_first}}" data-ng-click="get_reply_data(1)"><i class="fa fa-angle-double-left"></i></a>
+						        </li>
+						        
+						        <!-- 前2页 -->
+						        <li data-ng-if="reply_data.page_current+1>reply_data.page_total && reply_data.page_current>2">
+						            <a href="javascript:void(0)" data-ng-click="get_reply_data(reply_data.page_current-2)">{{reply_data.page_current-2}}</a>
+						        </li>
+						        
+						        <!-- 前1页 -->
+						        <li data-ng-if="reply_data.page_current>1">
+						            <a href="javascript:void(0)" data-ng-click="get_reply_data(reply_data.page_current-1)">{{reply_data.page_current-1}}</a>
+						        </li>
+						        
+						        <!-- 当前页 -->
+						        <li class="active">
+						            <a href="javascript:void(0)" >{{reply_data.page_current}}</a>
+						        </li>
+						        
+						        <!-- 后1页 -->
+						        <li data-ng-if="reply_data.page_current+1<=reply_data.page_total">
+						            <a href="javascript:void(0)" data-ng-click="get_reply_data(reply_data.page_current+1)">{{reply_data.page_current+1}}</a>
+						        </li>
+						        
+						        <!-- 后2页 -->
+						        <li data-ng-if="reply_data.page_current<=1 && reply_data.page_current+2<=reply_data.page_total">
+						            <a href="javascript:void(0)" data-ng-click="get_reply_data(reply_data.page_current+2)">{{reply_data.page_current+2}}</a>
+						        </li>
+						        
+						        <!-- 尾页 -->
+						        <li>
+						            <a data-ng-if="reply_data.page_current==reply_data.page_total" href="javascript:void(0)" title="{{langs.box_footer_page_last}}"><i class="fa fa-angle-double-right"></i></a>
+						            <a data-ng-if="reply_data.page_current!=reply_data.page_total" href="javascript:void(0)" title="{{langs.box_footer_page_last}}" data-ng-click="get_reply_data(reply_data.page_total)"><i class="fa fa-angle-double-right"></i></a>
+						        </li>
+						    </ul>
+						    &nbsp;&nbsp;
+						    <input type="text" class="inline go_page_input" id="go_page" data-ng-model="$parent.$parent.go_page" size="{{reply_data.page_total>=1000000 ? 4 : (reply_data.page_total>=10000 ? 3 : (reply_data.page_total>=100 ? 2 : 1))}}">
+						    &nbsp;/&nbsp;{{reply_data.page_total}}&nbsp;&nbsp;
+						    <button data-ng-if="$parent.go_page == reply_data.page_current" class="btn btn-info btn-sm" title="{{langs.box_footer_page_go}}"><i class="fa fa-arrow-right"></i></button>
+						    <button data-ng-if="$parent.go_page != reply_data.page_current" class="btn btn-info btn-sm" data-ng-click="get_reply_data($parent.go_page)" title="{{langs.box_footer_page_go}}"><i class="fa fa-arrow-right"></i></button>
+						</div>
+					</div>
+				</div>
+				<div data-ng-if="!reply_data.items.length" class="text-danger">
+				    {{langs.no_data}}
+				</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

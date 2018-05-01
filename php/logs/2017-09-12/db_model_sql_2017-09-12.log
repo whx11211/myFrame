@@ -1,0 +1,3 @@
+[INSERT]	2017-09-12 17:32:23	INSERT INTO user (`login_name`,`pwd`,`group`) values (:login_name, :pwd, :group);	{"login_name":"whx","pwd":"e10adc3949ba59abbe56e057f20f883e","group":1}	::1	[]
+[INSERT]	2017-09-12 17:33:25	INSERT INTO user (`login_name`,`pwd`,`group`) values (:login_name, :pwd, :group);	{"login_name":"whx","pwd":"e10adc3949ba59abbe56e057f20f883e","group":1}	::1	[]
+[INSERT]	2017-09-12 17:34:57	INSERT INTO user (`login_name`,`pwd`,`group`) values (:login_name, :pwd, :group);	{"login_name":"whx2","pwd":"e10adc3949ba59abbe56e057f20f883e","group":1}	::1	[]

@@ -1,0 +1,11 @@
+{
+    "roleName":"角色名称",
+    "roleName_title":"2-64位之间",
+    "roleDesc":"角色说明",
+    "id":"角色ID",
+    "privileges":"权限",
+    "roleDesc_title":"0-200位之间",
+    "roleAll":"全部角色",
+    
+    "privilege_manage":"权限管理"
+}

@@ -1,0 +1,6 @@
+[8]	2017-11-15 16:23:32	8	Use of undefined constant ssd - assumed 'ssd'	E:\wamp64\www\myFrame\php\index.php	3	::1	[]
+[8]	2017-11-15 16:23:32	8	Undefined variable: a	E:\wamp64\www\myFrame\php\index.php	4	::1	[]
+[2]	2017-11-15 16:23:32	2	Invalid argument supplied for foreach()	E:\wamp64\www\myFrame\php\index.php	4	::1	[]
+[8]	2017-11-15 16:24:38	8	Use of undefined constant ssd - assumed 'ssd'	E:\wamp64\www\myFrame\php\index.php	3	::1	[]
+[8]	2017-11-15 16:24:38	8	Undefined variable: a	E:\wamp64\www\myFrame\php\index.php	4	::1	[]
+[2]	2017-11-15 16:24:38	2	Invalid argument supplied for foreach()	E:\wamp64\www\myFrame\php\index.php	4	::1	[]

@@ -1,0 +1,27 @@
+CREATE TABLE `toutiao_video` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` bigint(11) unsigned NOT NULL default '0',
+  `title` varchar(256) NOT NULL default '',
+  `video_play_count` int(11) unsigned NOT NULL default '0',
+  `comments_count` int(11) unsigned NOT NULL default '0',
+  `behot_time` int(11) unsigned NOT NULL default '0',
+  `is_feed_ad` tinyint(3) NOT NULL default '0',
+  `source` varchar(64) NOT NULL default '',
+  `video_id` varchar(64) NOT NULL DEFAULT '',
+  `video_duration_str` varchar(16) NOT NULL DEFAULT '',
+  `tag` varchar(16) NOT NULL DEFAULT '',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `group_id_idx` (`group_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `login_name` varchar(64) NOT NULL default '',
+  `pwd` char(32) NOT NULL default '',
+  `last_login` int(11) unsigned NOT NULL default '0',
+  `group` smallint(5) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `login_name_idx` (`login_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+

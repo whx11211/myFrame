@@ -1,0 +1,4 @@
+[1]	2017-12-11 19:40:50	1	Access to undeclared static property: Instance::$instances	E:\wamp64\www\myFrame\php\common\Instance.class.php	24	::1	{"c":"System","m":"role","a":"get_all_menu"}
+[1]	2017-12-11 19:40:59	1	Access to undeclared static property: Instance::$instances	E:\wamp64\www\myFrame\php\common\Instance.class.php	24	::1	{"c":"System","m":"role","a":"get_all_menu"}
+[2]	2017-12-11 19:42:24	2	PDO::query(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY sort' at line 1	E:\wamp64\www\myFrame\php\model\Model.class.php	318	::1	{"c":"System","m":"role","a":"get_all_menu"}
+[8]	2017-12-11 19:54:15	8	Undefined property: RoleModel::$role_table	E:\wamp64\www\myFrame\php\model\RoleModel.class.php	46	::1	{"c":"System","m":"menu"}

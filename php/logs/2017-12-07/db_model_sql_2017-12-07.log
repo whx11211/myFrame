@@ -1,0 +1,172 @@
+[SELECT]	2017-12-07 19:18:44	SELECT * FROM user WHERE `userName`=?	["whx"]	::1	{"c":"System","m":"login","loginname":"whx","pwd":"Whx920927"}
+[INSERT]	2017-12-07 19:18:44	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"2","LoginIp":"::1","loginTime":1512645524}	::1	{"c":"System","m":"login","loginname":"whx","pwd":"Whx920927"}
+[UPDATE]	2017-12-07 19:18:44	UPDATE user SET `lastLoginTime`=:lastLoginTime WHERE `id`='2';	{"lastLoginTime":1512645524}	::1	{"c":"System","m":"login","loginname":"whx","pwd":"Whx920927"}
+[SELECT]	2017-12-07 19:18:45	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:18:45	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:18:48	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:18:48	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-07 19:18:48	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-08 - 2017-12-07","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:18:48	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-08 - 2017-12-07","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:18:50	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:18:50	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:18:50	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[UPDATE]	2017-12-07 19:19:09	UPDATE role SET `roleName`=:roleName,`roleDesc`=:roleDesc,`privileges`=:privileges WHERE `id`='3';	{"roleName":"\u6d4b\u8bd5\u7ec4","roleDesc":"ce","privileges":"3"}	::1	{"c":"System","m":"role","id":"3","roleName":"\u6d4b\u8bd5\u7ec4","roleDesc":"ce","privileges":"3","a":"mod"}
+[SELECT]	2017-12-07 19:19:11	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:19:11	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:19:20	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"operation":"asc"}}
+[SELECT]	2017-12-07 19:20:55	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:20:55	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:20:55	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:20:55	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:20:55	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:37:11	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:37:11	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:37:11	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:37:11	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:37:11	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:38:58	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:38:58	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:38:58	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:38:58	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:38:58	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:39:56	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:39:56	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:39:56	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:39:56	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:39:56	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:40:59	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:40:59	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:40:59	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:40:59	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:40:59	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:42:19	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:42:19	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:42:19	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:42:19	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:42:19	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:49:15	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:49:15	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:49:15	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:49:15	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:49:15	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:49:55	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:49:55	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:49:55	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:49:55	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:49:55	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:50:25	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:50:25	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:50:29	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:50:29	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:50:29	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:50:43	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:50:43	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:50:45	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:50:45	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:50:45	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:50:53	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:50:53	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:51:13	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:51:13	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:51:15	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-07 19:51:15	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1510070400,1512662399]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-11-08 - 2017-12-07","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-07 19:51:15	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,10	[1510070400,1512662399]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-11-08 - 2017-12-07","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-07 19:51:15	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-07 19:51:15	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:51:15	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:51:15	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:53:27	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:53:27	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 19:53:29	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 19:53:29	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 19:53:29	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:00:15	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:00:15	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:00:15	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:00:15	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:00:15	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:00:17	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-07 20:00:17	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:00:17	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-08 - 2017-12-07","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:00:17	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-08 - 2017-12-07","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:03:25	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:03:25	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:03:25	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:13:08	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:13:08	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:13:08	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:13:08	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:13:08	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:13:25	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:13:25	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:13:25	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:13:25	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:13:25	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:13:30	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:13:30	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:13:33	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:13:33	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:13:33	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:13:49	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:13:49	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:13:51	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:13:51	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:13:51	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:13:58	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:13:58	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:13:59	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:13:59	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:13:59	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:14:49	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:14:49	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:14:51	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:14:51	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:14:51	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:15:24	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:15:24	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:15:27	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:15:27	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:15:27	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:17:31	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:17:31	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:17:33	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:17:33	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:17:33	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:17:39	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:17:39	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:17:39	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:17:47	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:17:47	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:17:47	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:17:47	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:17:47	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:18:24	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:18:24	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:18:24	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:18:24	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:18:24	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:19:35	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:19:35	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:19:36	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:19:36	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:19:36	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:20:02	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:20:02	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:20:02	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:20:02	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:20:02	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:22:50	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:22:50	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:22:50	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:22:50	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:22:50	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:24:38	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:24:38	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:24:38	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:24:38	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:24:38	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:28:18	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:28:18	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7,8,9,10) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-07 20:28:18	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2017-12-07 20:28:18	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2017-12-07 20:28:18	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}

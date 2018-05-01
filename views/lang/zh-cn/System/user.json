@@ -1,0 +1,10 @@
+{
+    "userName":"用户名",
+    "userName_title":"2-64位之间",
+    "lastLoginTime":"最近登录时间",
+    "id":"用户ID",
+    "roleId":"角色",
+    "pwd":"密码",
+    "pwd_title":"6-20位之间",
+    "pwd_tip":"修改时不填写表示不修改密码"
+}

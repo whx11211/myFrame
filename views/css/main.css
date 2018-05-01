@@ -1,0 +1,37 @@
+.btn-oper {
+	margin: -3px 4px 0 0;
+}
+
+.menulist {
+	list-style-type:none;
+}
+
+.menulist ul {
+    margin:0;
+}
+
+.menulist li input{
+	vertical-align:top;
+}
+
+.menulist li a {
+	float:left;
+	padding: 0;
+	color:black;
+	width: 20px;
+}
+
+.menulist .treeview-menu{
+	padding-left:15px;	
+}
+
+#modal_detail_body img{
+	max-width:100%;
+}
+
+.go_page_input {
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: #66CCFF;
+    text-align: center;
+}

@@ -1,0 +1,351 @@
+[SELECT]	2017-12-04 16:19:23	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"System","m":"login","loginname":"admin","pwd":"abc@123abc"}
+[INSERT]	2017-12-04 16:19:23	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1512375563}	::1	{"c":"System","m":"login","loginname":"admin","pwd":"abc@123abc"}
+[UPDATE]	2017-12-04 16:19:23	UPDATE user SET `lastLoginTime`=:lastLoginTime WHERE `id`='1';	{"lastLoginTime":1512375563}	::1	{"c":"System","m":"login","loginname":"admin","pwd":"abc@123abc"}
+[SELECT]	2017-12-04 16:19:23	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 16:19:23	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 16:19:26	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 16:19:26	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 16:19:26	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[UPDATE]	2017-12-04 16:19:36	UPDATE user SET `userName`=:userName,`roleId`=:roleId WHERE `id`='4';	{"userName":"whx1","roleId":"1321"}	::1	{"c":"System","m":"user","id":"4","userName":"whx1","lastLoginTime":"0","roleId":"1321","$$hashKey":"uiGrid-000R","a":"mod"}
+[UPDATE]	2017-12-04 16:20:05	UPDATE user SET `userName`=:userName,`roleId`=:roleId WHERE `id`='4';	{"userName":"whx1","roleId":"132"}	::1	{"c":"System","m":"user","id":"4","userName":"whx1","lastLoginTime":"0","roleId":"132","$$hashKey":"uiGrid-000R","a":"mod"}
+[UPDATE]	2017-12-04 16:20:11	UPDATE user SET `userName`=:userName,`roleId`=:roleId WHERE `id`='4';	{"userName":"whx1","roleId":"1321"}	::1	{"c":"System","m":"user","id":"4","userName":"whx1","lastLoginTime":"0","roleId":"1321","$$hashKey":"uiGrid-000R","a":"mod"}
+[UPDATE]	2017-12-04 16:20:37	UPDATE user SET `userName`=:userName,`roleId`=:roleId WHERE `id`='10';	{"userName":"admin322","roleId":"122"}	::1	{"c":"System","m":"user","id":"10","userName":"admin322","lastLoginTime":"0","roleId":"122","$$hashKey":"uiGrid-0013","a":"mod"}
+[INSERT]	2017-12-04 16:20:50	INSERT INTO user (`userName`,`pwd`,`roleId`) values (:userName, :pwd, :roleId);	{"userName":"admin221","pwd":"92d9ea2abcbefbd549a110fd115e4875","roleId":"1"}	::1	{"c":"System","m":"user","a":"add","userName":"admin221","pwd":"abc@123abc","roleId":"1"}
+[SELECT]	2017-12-04 16:22:27	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 16:22:27	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 16:22:27	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 16:22:27	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 16:22:27	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 16:23:47	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 16:23:47	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 16:23:47	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 16:23:47	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 16:23:47	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[UPDATE]	2017-12-04 16:23:53	UPDATE user SET `userName`=:userName,`roleId`=:roleId WHERE `id`='11';	{"userName":"admin221","roleId":"2"}	::1	{"c":"System","m":"user","id":"11","userName":"admin221","lastLoginTime":"0","roleId":"2","$$hashKey":"uiGrid-0015","a":"mod"}
+[SELECT]	2017-12-04 16:23:57	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 16:23:57	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[UPDATE]	2017-12-04 16:24:10	UPDATE user SET `userName`=:userName,`roleId`=:roleId WHERE `id`='10';	{"userName":"admin322","roleId":"12"}	::1	{"c":"System","m":"user","id":"10","userName":"admin322","lastLoginTime":"0","roleId":"12","$$hashKey":"uiGrid-003B","a":"mod"}
+[SELECT]	2017-12-04 16:24:13	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 16:24:13	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 16:27:37	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 16:27:37	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 16:27:37	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 16:27:37	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 16:27:37	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[UPDATE]	2017-12-04 16:27:43	UPDATE user SET `userName`=:userName,`roleId`=:roleId WHERE `id`='9';	{"userName":"admin23","roleId":"2211222"}	::1	{"c":"System","m":"user","id":"9","userName":"admin23","lastLoginTime":"0","roleId":"2211222","a":"mod"}
+[UPDATE]	2017-12-04 16:27:51	UPDATE user SET `userName`=:userName,`roleId`=:roleId WHERE `id`='9';	{"userName":"admin23","roleId":"43"}	::1	{"c":"System","m":"user","id":"9","userName":"admin23","lastLoginTime":"0","roleId":"43","a":"mod"}
+[SELECT]	2017-12-04 16:27:53	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 16:27:53	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:08:05	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:08:05	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:08:10	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:08:10	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,10	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:08:10	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:08:10	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:08:16	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:08:16	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:21:34	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:21:34	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:21:34	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:21:35	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:21:35	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:22:43	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:22:43	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:22:43	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:22:43	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:22:43	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:23:27	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:23:27	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:23:27	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:23:27	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:23:27	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:24:38	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:24:38	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:24:38	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:24:38	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:24:38	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:25:55	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:25:55	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:25:55	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:25:55	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:25:55	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:27:22	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:27:22	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:27:22	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:27:22	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:27:22	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:28:23	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:28:23	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:28:23	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:28:23	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:28:23	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:29:17	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:29:17	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:29:17	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:29:17	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:29:17	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:30:12	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:30:12	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:30:12	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:30:12	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:30:12	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[DELETE]	2017-12-04 19:30:15	DELETE FROM user WHERE `id`=:id;	{"id":"11"}	::1	{"c":"System","m":"user","id":"11","userName":"admin221","lastLoginTime":"0","roleId":"2","$$hashKey":"uiGrid-0015","a":"del"}
+[SELECT]	2017-12-04 19:30:20	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:30:20	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:30:40	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:30:40	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:30:40	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:30:41	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:30:41	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[DELETE]	2017-12-04 19:31:04	DELETE FROM user WHERE `id`=:id;	{"id":"9"}	::1	{"c":"System","m":"user","id":"9","userName":"admin23","lastLoginTime":"0","roleId":"43","$$hashKey":"uiGrid-0011","a":"del"}
+[SELECT]	2017-12-04 19:31:07	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:31:07	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[DELETE]	2017-12-04 19:31:16	DELETE FROM user WHERE `id`=:id;	{"id":"10"}	::1	{"c":"System","m":"user","id":"10","userName":"admin322","lastLoginTime":"0","roleId":"12","$$hashKey":"uiGrid-0031","a":"del"}
+[SELECT]	2017-12-04 19:31:18	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:31:18	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:34:29	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:34:29	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,10	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:34:30	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:34:30	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:34:31	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:34:31	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,10	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:34:43	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:34:43	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:34:44	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:34:44	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:34:46	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:34:46	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:35:07	SELECT * FROM user WHERE `userName`=?	["whx"]	::1	{"c":"System","m":"login","loginname":"whx","pwd":"111111"}
+[SELECT]	2017-12-04 19:35:16	SELECT * FROM user WHERE `userName`=?	["whx"]	::1	{"c":"System","m":"login","loginname":"whx","pwd":"Whx920927"}
+[INSERT]	2017-12-04 19:35:16	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"2","LoginIp":"::1","loginTime":1512387316}	::1	{"c":"System","m":"login","loginname":"whx","pwd":"Whx920927"}
+[UPDATE]	2017-12-04 19:35:16	UPDATE user SET `lastLoginTime`=:lastLoginTime WHERE `id`='2';	{"lastLoginTime":1512387316}	::1	{"c":"System","m":"login","loginname":"whx","pwd":"Whx920927"}
+[SELECT]	2017-12-04 19:35:17	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:35:17	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:35:24	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:35:24	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:35:24	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:35:25	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:35:25	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:35:31	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ? AND `userId`=?	[1509811200,1512403199,2]	::1	{"c":"System","m":"loginList","num":"25","loginTime":"2017-11-05 - 2017-12-04","userId":"2","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:35:31	SELECT * FROM loginList WHERE `loginTime` between ? AND ? AND `userId`=? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199,2]	::1	{"c":"System","m":"loginList","num":"25","loginTime":"2017-11-05 - 2017-12-04","userId":"2","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:35:39	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:35:39	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:37:26	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:37:26	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:37:26	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:37:26	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:37:26	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:37:29	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:37:29	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:37:30	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:37:30	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:37:31	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:37:31	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:38:24	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:38:24	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:38:25	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:38:25	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:38:25	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:38:25	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:38:26	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:38:26	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:38:27	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:38:27	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:38:28	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:38:28	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:38:29	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:38:29	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:38:30	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:38:30	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:38:31	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:38:31	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:38:31	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:38:31	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:38:31	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:38:33	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:38:33	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:38:33	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:38:33	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:38:33	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:39:48	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:39:48	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:39:48	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:39:48	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:39:48	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:39:49	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:39:49	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:39:49	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:39:49	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:39:49	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:39:50	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:39:50	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:39:50	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:39:50	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:39:50	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:39:51	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:39:51	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:39:51	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:39:52	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:39:52	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:39:54	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:39:54	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:39:56	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:39:56	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:39:56	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:39:56	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:39:56	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:39:56	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:41:05	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:41:05	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:41:05	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:41:06	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:41:06	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:41:06	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:41:07	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:41:07	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:41:07	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:41:07	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:41:07	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:41:07	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:41:08	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:41:08	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:41:09	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:41:09	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:45:23	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:45:23	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:45:23	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:45:23	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:45:23	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:45:23	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:45:34	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:45:34	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:46:13	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:46:13	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:46:15	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:46:15	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:46:15	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:46:15	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:46:15	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:46:15	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:46:32	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:46:32	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:46:32	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:46:32	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:46:32	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:46:32	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:46:42	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:46:42	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:46:42	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:46:42	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:46:42	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:46:42	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:46:53	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:46:53	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:46:53	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:46:53	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:46:53	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:46:53	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:48:12	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:48:12	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:48:12	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:48:12	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:48:12	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:48:12	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:48:52	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:48:52	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:48:52	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:48:52	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:48:52	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:48:52	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:49:20	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:49:20	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:49:20	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:49:20	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:49:20	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:49:20	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:55:34	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:55:34	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[INSERT]	2017-12-04 19:55:48	INSERT INTO user (`userName`,`pwd`,`roleId`) values (:userName, :pwd, :roleId);	{"userName":"test","pwd":"60474c9c10d7142b7508ce7a50acf414","roleId":"1"}	::1	{"c":"System","m":"user","a":"add","userName":"test","pwd":"test12","roleId":"1"}
+[SELECT]	2017-12-04 19:55:50	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:55:50	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:55:59	SELECT * FROM user WHERE `userName`=?	["test"]	::1	{"c":"System","m":"login","loginname":"test","pwd":"test12"}
+[INSERT]	2017-12-04 19:55:59	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"12","LoginIp":"::1","loginTime":1512388559}	::1	{"c":"System","m":"login","loginname":"test","pwd":"test12"}
+[UPDATE]	2017-12-04 19:55:59	UPDATE user SET `lastLoginTime`=:lastLoginTime WHERE `id`='12';	{"lastLoginTime":1512388559}	::1	{"c":"System","m":"login","loginname":"test","pwd":"test12"}
+[SELECT]	2017-12-04 19:56:00	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:56:00	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:56:02	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:56:02	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:56:02	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:56:04	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:56:04	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,10	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:56:06	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","num":"100","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:56:06	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,100	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","num":"100","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[UPDATE]	2017-12-04 19:59:36	UPDATE user SET `userName`=:userName,`roleId`=:roleId WHERE `id`='12';	{"userName":"test","roleId":"2"}	::1	{"c":"System","m":"user","id":"12","userName":"test","lastLoginTime":"0","roleId":"2","a":"mod"}
+[SELECT]	2017-12-04 19:59:37	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:59:37	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"id":"asc"}}
+[SELECT]	2017-12-04 19:59:43	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:59:43	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 19:59:43	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"100","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:59:43	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,100	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"100","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 19:59:43	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:59:43	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 19:59:55	SELECT * FROM user WHERE `userName`=?	["test"]	::1	{"c":"System","m":"login","loginname":"test","pwd":"test12"}
+[INSERT]	2017-12-04 19:59:55	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"12","LoginIp":"::1","loginTime":1512388795}	::1	{"c":"System","m":"login","loginname":"test","pwd":"test12"}
+[UPDATE]	2017-12-04 19:59:55	UPDATE user SET `lastLoginTime`=:lastLoginTime WHERE `id`='12';	{"lastLoginTime":1512388795}	::1	{"c":"System","m":"login","loginname":"test","pwd":"test12"}
+[SELECT]	2017-12-04 19:59:56	SELECT `privileges` FROM `role` WHERE `id`=2	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:00:30	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:00:30	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:03:23	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:03:23	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:03:23	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:03:23	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:03:23	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:03:23	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:03:41	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:03:41	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:03:41	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:03:41	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:03:41	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:03:41	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:06:06	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:06:06	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:06:06	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:06:06	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:06:06	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:06:06	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:17:46	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:17:46	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:17:46	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:17:46	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:17:46	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:17:46	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:25:16	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:25:16	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:25:16	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:25:16	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:25:16	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:25:16	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:25:39	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:25:39	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:25:39	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:25:40	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:25:40	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:25:40	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:26:02	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:26:02	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:26:02	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:26:02	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:26:02	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:26:02	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:26:11	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:26:11	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:26:11	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:26:11	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:26:11	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:26:11	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:27:30	SELECT `privileges` FROM `role` WHERE `id`=1	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:27:30	SELECT * FROM `menu` WHERE `id` in (1,2,3,4,5,6,7) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2017-12-04 20:27:30	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2017-12-04 20:27:30	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:27:30	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1509811200,1512403199]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-11-05 - 2017-12-04","orderby":{"loginTime":"desc"}}
+[SELECT]	2017-12-04 20:27:30	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}

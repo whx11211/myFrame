@@ -1,0 +1,79 @@
+<!-- ng-include后，该文件里面的$scope是新建的，如果需要使用页面变量，应该使用$parent处理 -->
+<!-- header -->
+<label>
+    {{langs.box_header_show}}
+    <select name="page_len" class="inline" data-ng-model="$parent.length_select" data-ng-change="set_default_page_number($parent.length_select);jump($parent.go_page);">
+        <option data-ng-repeat="x in page_number" value="{{ x }}">{{ x }}</option>
+    </select>
+    {{langs.box_header_entries}}
+</label>
+<!-- 查找 -->
+<button style="margin-left: 5px;" class="btn btn-primary btn-sm pull-right" data-ng-click="modal_search()" title="{{langs.box_header_search_title}}"><i class="fa fa-search"></i></button>
+<!-- 打印 -->
+<button style="margin-left: 5px;" class="btn btn-primary btn-sm pull-right" title="{{langs.box_header_print_title}}" onclick="window.print()"><i class="fa fa-print"></i></button>
+<!-- 导出当页数据 -->
+<button style="margin-left: 5px;" data-ng-if="$parent.headfunc.export" class="btn btn-primary btn-sm pull-right" data-ng-click="export()" title="{{langs.box_header_export_title}}"><i class="glyphicon glyphicon-export"></i></button>
+<!-- 下载 -->
+<button style="margin-left: 5px;" data-ng-if="$parent.headfunc.download" class="btn btn-primary btn-sm pull-right" data-ng-click="download()" title="{{langs.box_header_download_title}}"><i class="glyphicon glyphicon-cloud-download"></i></button>
+<!-- 添加 -->
+<button style="margin-left: 5px;" data-ng-if="$parent.headfunc.manager" class="btn btn-success btn-sm pull-right" data-ng-click="modal_add('add')" title="{{langs.box_header_add_title}}"><i class="fa fa-plus"></i></button>
+
+<!-- body -->
+<div data-ui-i18n="$parent.ui_grid.get_i18n()">
+    <div data-ng-style="ui_grid_style"
+        data-ui-grid="gridOptions"
+        data-ui-grid-auto-resize
+        data-ui-grid-resize-columns
+        data-ui-grid-move-columns
+        data-ui-grid-pinning
+        ui-grid-exporter
+    >
+    </div>
+</div>
+
+<!-- footer -->
+<div data-ng-if="data.page_total" class="box-tools pull-right">
+    <ul class="pagination pagination-sm inline">
+        <!-- 首页 -->
+        <li>
+            <a data-ng-if="data.page_current==1" href="javascript:void(0)" title="{{langs.box_footer_page_first}}"><i class="fa fa-angle-double-left"></i></a>
+            <a data-ng-if="data.page_current!=1" href="javascript:void(0)" title="{{langs.box_footer_page_first}}" data-ng-click="jump(1)"><i class="fa fa-angle-double-left"></i></a>
+        </li>
+        
+        <!-- 前2页 -->
+        <li data-ng-if="data.page_current+1>data.page_total && data.page_current>2">
+            <a href="javascript:void(0)" data-ng-click="jump(data.page_current-2)">{{data.page_current-2}}</a>
+        </li>
+        
+        <!-- 前1页 -->
+        <li data-ng-if="data.page_current>1">
+            <a href="javascript:void(0)" data-ng-click="jump(data.page_current-1)">{{data.page_current-1}}</a>
+        </li>
+        
+        <!-- 当前页 -->
+        <li class="active">
+            <a href="javascript:void(0)" >{{data.page_current}}</a>
+        </li>
+        
+        <!-- 后1页 -->
+        <li data-ng-if="data.page_current+1<=data.page_total">
+            <a href="javascript:void(0)" data-ng-click="jump(data.page_current+1)">{{data.page_current+1}}</a>
+        </li>
+        
+        <!-- 后2页 -->
+        <li data-ng-if="data.page_current<=1 && data.page_current+2<=data.page_total">
+            <a href="javascript:void(0)" data-ng-click="jump(data.page_current+2)">{{data.page_current+2}}</a>
+        </li>
+        
+        <!-- 尾页 -->
+        <li>
+            <a data-ng-if="data.page_current==data.page_total" href="javascript:void(0)" title="{{langs.box_footer_page_last}}"><i class="fa fa-angle-double-right"></i></a>
+            <a data-ng-if="data.page_current!=data.page_total" href="javascript:void(0)" title="{{langs.box_footer_page_last}}" data-ng-click="jump(data.page_total)"><i class="fa fa-angle-double-right"></i></a>
+        </li>
+    </ul>
+    &nbsp;&nbsp;
+    <input type="text" class="inline go_page_input" id="go_page" data-ng-model="$parent.$parent.go_page" size="{{data.page_total>=1000000 ? 4 : (data.page_total>=10000 ? 3 : (data.page_total>=100 ? 2 : 1))}}">
+    &nbsp;/&nbsp;{{data.page_total}}&nbsp;&nbsp;
+    <button data-ng-if="$parent.go_page == data.page_current" class="btn btn-info btn-sm" title="{{langs.box_footer_page_go}}"><i class="fa fa-arrow-right"></i></button>
+    <button data-ng-if="$parent.go_page != data.page_current" class="btn btn-info btn-sm" data-ng-click="jump($parent.go_page)" title="{{langs.box_footer_page_go}}"><i class="fa fa-arrow-right"></i></button>
+</div>

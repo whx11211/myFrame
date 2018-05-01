@@ -1,0 +1,151 @@
+<!-- 数据显示box -->
+<div class="row" data-ng-show="r">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <div class="box">
+        
+            <div class="box-header" data-ng-include="'pages/common/box-header.html'">
+                <!-- pages/common/box-header.html -->
+            </div>
+            
+            
+            <div class="box-body" data-ng-include="'pages/common/box-body.html'">
+                <!-- pages/common/box-body.html -->
+            </div>
+            
+            <div class="box-footer" data-ng-include="'pages/common/box-footer.html'">
+                <!-- pages/common/box-footer.html -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 模态框（删除） -->
+<div data-ng-include="'pages/common/modal-del.html'"></div>
+
+<!-- 模态框（查找） -->
+<div class="modal fade" id="modal_search" name="modal_search" role="dialog" aria-labelledby="modal_search" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal_search_title">{{ langs.modal_search_header }}</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" name="modal_search_form" novalidate="novalidate">
+                    <div class="row">
+                        
+                        <!-- id -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.roleName }}：</label>
+                            <div class="col-sm-7">
+                                <select class="form-control select2" tabindex="-1" data-ng-model="search.id" style="width:100%">
+                                    <option value="">{{ langs.roleAll }}</option>
+                                    <option data-ng-repeat="role in admin_roles" value="{{ role.id }}" >
+                                        {{ role.id+' : '+role.roleName }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-ng-click="modal_search_ok()">{{ langs.modal_search_ok }}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<!-- 模态框（新增/修改） -->
+<div class="modal fade" id="modal_add" name="modal_add" role="dialog" aria-labelledby="modal_add" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal_search_title">{{ langs[add.a] }}</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" name="modal_search_form" novalidate="novalidate">
+                    <div class="row">
+                        
+                        <!-- roleName -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.roleName }}：</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control tooltip-show" id="add_roleName" name="add_roleName" data-ng-model="add.roleName" data-toggle="tooltip" title="{{langs.roleName_title}}" placeholder="{{langs.roleName_title}}"' />
+                            </div>
+                        </div>
+               
+                        
+                        <!-- roleDesc -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.roleDesc }}：</label>
+                            
+                            <div class="col-sm-7">
+                                <!-- 
+                                <select type="text" class="form-control" id="search_roleId" name="search_roleId" data-ng-model="add.roleId">
+                                    <option data-ng-repeat="role in admin_roles" value="{{role.id}}">{{role.roleName}}</option>
+                                </select>
+                                 -->
+                                 <input type="text" class="form-control tooltip-show" id="add_roleDesc" name="add_roleDesc" data-ng-model="add.roleDesc" data-toggle="tooltip" title="{{langs.roleDesc_title}}" placeholder="{{langs.roleDesc_title}}" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-ng-click="modal_add_ok()">{{ langs.submit }}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 模态框（权限修改） -->
+<div class="modal fade" id="modal_privilege" name="modal_privilege" role="dialog" aria-labelledby="modal_privilege" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal_search_title">{{ langs.privilege_manage }}</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" name="modal_search_form" novalidate="novalidate">
+                    <div class="row">
+                       <ul id="pri_manage" class="tree menulist">
+					       <li class="treeview" data-ng-repeat="x in all_menu">
+                               <input type="checkbox" class="pri" value="{{ x.id }}" />
+                               <span>{{langs[x.func]}}</span>
+					           <a href="#" class="pri_btn"><i class="fa fa-plus-square-o"></i></a>
+					           <ul class="treeview-menu">
+					               <li class="treeview" data-ng-repeat="xx in x.sub">
+		                               <input type="checkbox" class="pri" value="{{ xx.id }}" />
+		                               <span>{{langs[xx.func]}}</span>
+		                               <a data-ng-if="xx.sub" href="javascript:void(0)" class="pri_btn"><i class="fa fa-plus-square-o"></i></a>
+                                       <a data-ng-if="!xx.sub" href="#"><i class="fa"></i></a>
+					                   <ul data-ng-if="xx.sub" class="treeview-menu">
+		                                   <li class="" data-ng-repeat="xxx in xx.sub">
+		                                       <input type="checkbox" class="pri" value="{{ xxx.id }}" />
+		                                       <span>{{langs[xxx.func]}}</span>
+		                                       <a href="javascript:void(0)"><i class="fa"></i></a>
+                                            </li>
+					                   </ul>
+					               </li>
+					           </ul>
+					       </li>
+					   </ul>
+                        
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-ng-click="modal_privilege_ok()">{{ langs.submit }}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

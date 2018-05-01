@@ -1,0 +1,15 @@
+{
+    "username":"发帖用户",
+    "userid":"发帖用户ID",
+    "reusername":"回帖用户",
+    "reuserid":"回帖用户ID",
+    "title":"标题",
+    "posttime":"发帖时间",
+    "reply":"回复数",
+    "lastreply":"最近回复时间",
+    "repostdesc":"回复内容",
+    "reposttime":"回复时间",
+    "detail":"查看帖子内容",
+    "reply_show":"查看回复",
+    "post_reply":"回帖"
+}

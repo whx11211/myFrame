@@ -1,0 +1,221 @@
+[SELECT]	2018-01-12 09:39:11	SELECT * FROM user WHERE `userName`=?	["admin"]	::1	{"c":"System","m":"login","pwd":"abc@123abc","loginname":"admin"}
+[SELECT]	2018-01-12 09:39:11	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"login","pwd":"abc@123abc","loginname":"admin"}
+[SELECT]	2018-01-12 09:39:11	SELECT `func` FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"login","pwd":"abc@123abc","loginname":"admin"}
+[INSERT]	2018-01-12 09:39:11	INSERT INTO loginList (`userId`,`LoginIp`,`loginTime`) values (:userId, :LoginIp, :loginTime);	{"userId":"1","LoginIp":"::1","loginTime":1515721151}	::1	{"c":"System","m":"login","pwd":"abc@123abc","loginname":"admin"}
+[UPDATE]	2018-01-12 09:39:11	UPDATE user SET `lastLoginTime`=:lastLoginTime WHERE `id`='1';	{"lastLoginTime":1515721151}	::1	{"c":"System","m":"login","pwd":"abc@123abc","loginname":"admin"}
+[SELECT]	2018-01-12 09:39:11	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 09:39:11	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 09:39:15	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 09:39:15	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 09:39:15	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 09:39:19	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 09:39:19	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 10,10	null	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 09:39:20	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 09:39:20	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:24:39	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 11:24:39	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 11:24:44	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 11:24:44	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:24:44	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:06	SELECT count(*) as sum FROM repost WHERE `postid`=?	["9"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","a":"reply","postid":"9","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:06	SELECT * FROM repost WHERE `postid`=? ORDER BY postid asc LIMIT 0,10	["9"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","a":"reply","postid":"9","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:12	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:12	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 10,10	null	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:24	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 11:25:24	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 11:25:24	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 11:25:25	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:25	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:26	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:26	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 10,10	null	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:48	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 11:25:48	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 11:25:48	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 11:25:48	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:48	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:53	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:25:53	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 10,10	null	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:26:02	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:26:02	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:26:07	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:26:07	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 10,10	null	::1	{"c":"MovieManage","m":"post","page":"2","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:26:11	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:26:11	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:26:55	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 11:26:55	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 11:26:55	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 11:26:55	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:26:55	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:26:58	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2018-01-12 11:26:58	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 11:26:58	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 11:27:29	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:27:29	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:27:55	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:27:55	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:28:10	SELECT count(*) as sum FROM repost WHERE `postid`=?	["12"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","a":"reply","postid":"12","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:28:10	SELECT * FROM repost WHERE `postid`=? ORDER BY postid asc LIMIT 0,25	["12"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","a":"reply","postid":"12","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:28:15	SELECT count(*) as sum FROM repost WHERE `postid`=?	["12"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","a":"reply","postid":"12","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:28:15	SELECT * FROM repost WHERE `postid`=? ORDER BY postid asc LIMIT 0,10	["12"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","a":"reply","postid":"12","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 11:28:32	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2018-01-12 11:28:33	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 11:28:33	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"user","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 11:28:38	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2018-01-12 11:28:38	SELECT * FROM menu ORDER BY sort	null	::1	{"c":"System","m":"role","a":"get_all_menu"}
+[SELECT]	2018-01-12 11:28:38	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 11:28:38	SELECT * FROM role ORDER BY id asc LIMIT 0,10	null	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 11:28:40	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 11:28:40	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,10	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:46:30	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 15:46:30	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,10	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"10","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 15:46:33	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 15:46:33	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid asc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"asc"}}
+[SELECT]	2018-01-12 15:47:33	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:47:33	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:47:33	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 15:47:34	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:47:34	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:48:52	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 15:48:52	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 15:48:52	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2018-01-12 15:48:56	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:48:56	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:52:51	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:52:51	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:52:51	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 15:52:51	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:52:51	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:52:51	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 15:52:54	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:52:54	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:53:11	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:53:11	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:53:12	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 15:53:12	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:53:12	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:53:53	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:53:53	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:53:53	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 15:53:53	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:53:53	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:54:19	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2018-01-12 15:54:19	SELECT count(*) as sum FROM user	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 15:54:19	SELECT id,userName,lastLoginTime,roleId FROM user ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"user","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 15:54:20	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:54:20	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:54:51	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2018-01-12 15:54:51	SELECT * FROM menu ORDER BY sort	null	::1	{"c":"System","m":"role","a":"get_all_menu"}
+[SELECT]	2018-01-12 15:54:51	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"25","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 15:54:51	SELECT * FROM role ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"role","page":"1","num":"25","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 15:54:53	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:54:53	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:55:10	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:55:10	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:55:10	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:55:10	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:55:10	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 15:55:10	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 15:55:17	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:55:17	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:55:38	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:55:38	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:55:38	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 15:55:38	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:55:38	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:58:50	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:58:50	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 15:58:50	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 15:58:50	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:58:50	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 15:59:45	SELECT count(*) as sum FROM loginList WHERE `loginTime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 15:59:45	SELECT * FROM loginList WHERE `loginTime` between ? AND ? ORDER BY loginTime desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"System","m":"loginList","page":"1","num":"25","loginTime":"2017-12-14 - 2018-01-12","orderby":{"loginTime":"desc"}}
+[SELECT]	2018-01-12 16:00:54	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:00:54	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:02:13	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:02:13	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:02:13	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 16:02:13	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:02:13	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:02:43	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:02:43	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:02:44	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 16:02:44	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:02:44	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:03:02	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:03:02	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:03:02	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 16:03:02	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:03:02	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:03:16	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:03:16	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:03:16	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 16:03:16	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:03:16	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:03:21	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","loginTime":"2018-01-06 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:03:21	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","loginTime":"2018-01-06 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:06:58	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:06:58	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:06:58	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 16:06:58	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:06:58	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:07:12	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","loginTime":"2018-01-01 - 2018-01-31","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:07:12	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","loginTime":"2018-01-01 - 2018-01-31","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:07:28	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","loginTime":"2017-11-01 - 2018-01-31","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:07:28	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","loginTime":"2017-11-01 - 2018-01-31","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:07:35	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","loginTime":"","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:07:35	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","loginTime":"","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:08:22	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:08:22	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:08:22	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 16:08:22	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:08:22	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:08:46	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:08:46	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:08:46	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:08:46	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:08:46	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 16:09:19	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:09:19	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:09:19	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 16:09:20	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:09:20	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:09:38	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","loginTime":"2018-01-11 - 2018-01-11","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:09:38	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","loginTime":"2018-01-11 - 2018-01-11","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:12:11	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:12:11	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:12:11	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 16:12:11	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:12:11	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:12:24	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1515686400,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2018-01-12 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:12:24	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1515686400,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2018-01-12 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:12:29	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1512057600,1514735999]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-01 - 2017-12-31","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:12:29	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1512057600,1514735999]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-01 - 2017-12-31","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:13:17	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:13:17	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 16:13:17	SELECT count(*) as sum FROM post WHERE `posttime` between ? AND ?	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:13:17	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post WHERE `posttime` between ? AND ? ORDER BY postid desc LIMIT 0,25	[1513180800,1515772799]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"2017-12-14 - 2018-01-12","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:13:17	SELECT id,userName FROM user	null	::1	{"c":"Common","m":"getUsersInfo"}
+[SELECT]	2018-01-12 16:13:22	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:13:22	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:13:36	SELECT count(*) as sum FROM repost WHERE `postid`=?	["12"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","a":"reply","postid":"12","posttime":"","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:13:36	SELECT * FROM repost WHERE `postid`=? ORDER BY postid desc LIMIT 0,25	["12"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","a":"reply","postid":"12","posttime":"","orderby":{"postid":"desc"}}
+[DELETE]	2018-01-12 16:50:48	DELETE FROM post WHERE `postid`=:postid;	{"postid":"8"}	::1	{"c":"MovieManage","m":"post","postid":"8","title":"\u4e2d\u534e\u7259\u818f \u9b54\u4e3d\u8fc5\u767d\u9177\u723d\u8584\u8377\u5473170g \u8fc5\u901f\u7f8e\u767d\u6df1\u5c42\u6e05\u6d01 ","userid":"2","username":"test1","posttime":"1515142862","reply":"0","lastreply":"0","$$hashKey":"uiGrid-0042","a":"del"}
+[SELECT]	2018-01-12 16:50:50	SELECT count(*) as sum FROM post	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 16:50:50	SELECT postid,title,userid,username,posttime,reply,lastreply FROM post ORDER BY postid desc LIMIT 0,25	null	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","posttime":"","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 17:23:58	SELECT count(*) as sum FROM repost WHERE `postid`=?	["12"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","a":"reply","postid":"12","posttime":"","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 17:23:58	SELECT * FROM repost WHERE `postid`=? ORDER BY postid desc LIMIT 0,25	["12"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","a":"reply","postid":"12","posttime":"","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 17:24:02	SELECT count(*) as sum FROM repost WHERE `postid`=?	["11"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","a":"reply","postid":"11","posttime":"","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 17:24:02	SELECT * FROM repost WHERE `postid`=? ORDER BY postid desc LIMIT 0,25	["11"]	::1	{"c":"MovieManage","m":"post","page":"1","num":"25","a":"reply","postid":"11","posttime":"","orderby":{"postid":"desc"}}
+[SELECT]	2018-01-12 17:34:16	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"25","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 17:34:16	SELECT * FROM role ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"role","page":"1","num":"25","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 17:34:16	SELECT * FROM menu ORDER BY sort	null	::1	{"c":"System","m":"role","a":"get_all_menu"}
+[SELECT]	2018-01-12 17:34:16	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[UPDATE]	2018-01-12 17:34:24	UPDATE role SET `roleName`=:roleName,`roleDesc`=:roleDesc,`privileges`=:privileges WHERE `id`='1';	{"roleName":"\u8d85\u7ea7\u7ba1\u7406\u5458","roleDesc":"","privileges":"1,2,10,3,12,14,13,6,7,8,9,11"}	::1	{"c":"System","m":"role","id":"1","roleName":"\u8d85\u7ea7\u7ba1\u7406\u5458","roleDesc":"","privileges":"1,2,10,3,12,14,13,6,7,8,9,11","a":"mod"}
+[SELECT]	2018-01-12 17:34:26	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"25","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 17:34:26	SELECT * FROM role ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"role","page":"1","num":"25","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 17:34:27	SELECT * FROM role WHERE `id`=?	["1"]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 17:34:27	SELECT * FROM `menu` WHERE `id` in (1,2,10,3,12,14,13,6,7,8,9,11) ORDER BY `sort`	[]	::1	{"c":"System","m":"menu"}
+[SELECT]	2018-01-12 17:34:28	SELECT * FROM menu ORDER BY sort	null	::1	{"c":"System","m":"role","a":"get_all_menu"}
+[SELECT]	2018-01-12 17:34:28	SELECT id,roleName FROM role	null	::1	{"c":"Common","m":"getRolesInfo"}
+[SELECT]	2018-01-12 17:34:28	SELECT count(*) as sum FROM role	null	::1	{"c":"System","m":"role","page":"1","num":"25","orderby":{"id":"asc"}}
+[SELECT]	2018-01-12 17:34:28	SELECT * FROM role ORDER BY id asc LIMIT 0,25	null	::1	{"c":"System","m":"role","page":"1","num":"25","orderby":{"id":"asc"}}
