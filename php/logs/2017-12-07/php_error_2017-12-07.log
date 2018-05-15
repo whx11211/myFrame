@@ -1,1 +1,0 @@
-[2]	2017-12-07 19:19:20	2	PDO::query(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'operation' in 'order clause'	E:\wamp64\www\myFrame\php\model\Model.class.php	305	::1	{"c":"System","m":"role","page":"1","num":"10","orderby":{"operation":"asc"}}
