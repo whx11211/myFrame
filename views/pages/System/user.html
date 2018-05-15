@@ -74,7 +74,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="modal_search_title">{{ langs[add.a] }}</h4>
+                <h4 class="modal-title" id="modal_add_title">{{ langs[add.a] }}</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" name="modal_search_form" novalidate="novalidate">
@@ -92,7 +92,7 @@
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.pwd }}：</label>
                             <div class="col-sm-7">
-                                <input type="password" class="form-control tooltip-show" id="search_pwd" name="search_pwd" data-ng-model="add.pwd" data-toggle="tooltip" title="{{langs.pwd_title}}" placeholder="{{langs.pwd_tip}}" />
+                                <input type="password" class="form-control tooltip-show" id="add_pwd" name="add_pwd" data-ng-model="add.pwd" data-toggle="tooltip" title="{{langs.pwd_title}}" placeholder="{{langs.pwd_tip}}" />
                             </div>
                         </div>
                         
@@ -100,7 +100,7 @@
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.roleId }}：</label>
                             <div class="col-sm-7">
-                                <select type="text" class="form-control" id="search_roleId" name="search_roleId" data-ng-model="add.roleId">
+                                <select type="text" class="form-control" id="add_roleId" name="add_roleId" data-ng-model="add.roleId">
                                     <option data-ng-repeat="role in admin_roles" value="{{role.id}}">{{role.roleName}}</option>
                                 </select>
                             </div>
