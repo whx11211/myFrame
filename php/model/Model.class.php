@@ -163,6 +163,10 @@ class Model
                                 $tmp_execute[] = $vv[0];
                                 $tmp_execute[] = $vv[1];
                                 break;
+                            case 'find_in_set':
+                                $tmp_array[] = "find_in_set(?, `$key`)";
+                                $tmp_execute[] = $vv;
+                                break;
                         }
                         break;
                     }

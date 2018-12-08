@@ -291,4 +291,19 @@ class Control
         
         return null;
     }
+
+    /**
+     * find_in_set格式化（查询条件）
+     *
+     * @param string $uri
+     * @return array(like=>uri%) || null
+     */
+    public function findInSetFormat($val)
+    {
+        if ($val) {
+            return array('find_in_set' => $val);
+        }
+
+        return null;
+    }
 }

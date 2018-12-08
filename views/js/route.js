@@ -91,6 +91,23 @@ app.config(['$routeProvider','$locationProvider',function ($routeProvider, $loca
 		    }],
         }
      })
+	.when('/Video/index',{
+		templateUrl:'pages/Video/index.html',
+		controller:"Video/index",
+		resolve:{
+			deps:["$ocLazyLoad",function($ocLazyLoad){
+				return $ocLazyLoad.load("js/Video/index.js");
+			}],
+			moment:["$ocLazyLoad",function($ocLazyLoad){
+				return $ocLazyLoad.load("lib/bower_components/moment/min/moment.min.js").then(function(){
+					return $ocLazyLoad.load('lib/bower_components/bootstrap-daterangepicker/daterangepicker.js');
+				});
+			}],
+			daterangepicker_css:["$ocLazyLoad",function($ocLazyLoad){
+				return $ocLazyLoad.load("lib/bower_components/bootstrap-daterangepicker/daterangepicker.css");
+			}],
+		}
+	})
 	.when('/welcome',{
 		templateUrl:'welcome.html',
      	controller:"welcome",

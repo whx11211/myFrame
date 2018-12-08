@@ -64,6 +64,31 @@ class Instance
             }
         }
     }
+
+    /**
+     * 获取VIDEO数据库实例
+     *
+     * @param $table 表名
+     *
+     * return 数据库实例
+     */
+    public static function getVideo($table)
+    {
+        $pre = 'video_';
+        if (isset(self::$instances[$pre.$table])) {
+            return self::$instances[$pre.$table];
+        }
+        else {
+            $classname = ucfirst($table).'VIDEO';
+
+            if (class_exists($classname)) {
+                return self::$instances[$pre.$table] = new $classname();
+            }
+            else {
+                return self::$instances[$pre.$table] = new Video($table);
+            }
+        }
+    }
 }
 
 ?>

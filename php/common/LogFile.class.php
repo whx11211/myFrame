@@ -22,7 +22,7 @@ class LogFile
     
     /**
      * 写入日志
-     * @param $msg string|array 记录的内网
+     * @param $msg string|array 记录的内容
      * @param $dir 文件相对路径目录
      * @return int|false 写入的字节
      */

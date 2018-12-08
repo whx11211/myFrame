@@ -25,6 +25,7 @@ class Load
         spl_autoload_register(array('Load', 'loadTool'));
         spl_autoload_register(array('Load', 'loadControl'));
         spl_autoload_register(array('Load', 'movieControl'));
+        spl_autoload_register(array('Load', 'videoControl'));
     }
 
     /**
@@ -82,6 +83,21 @@ class Load
     public static function movieControl($class)
     {
         $path = MOVIE_PATH . $class . '.class.' . EXT;
+        if (is_file($path)) {
+            include_once $path;
+        }
+    }
+
+    /**
+     * movie类自动加载
+     *
+     * @param
+     *        类名
+     * @return null
+     */
+    public static function videoControl($class)
+    {
+        $path = VIDEO_PATH . $class . '.class.' . EXT;
         if (is_file($path)) {
             include_once $path;
         }

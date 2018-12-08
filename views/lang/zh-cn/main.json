@@ -50,7 +50,9 @@
     "MovieManage/post":"帖子管理",
     "MovieManage/user":"用户管理",
     "MovieManage/repost":"回帖管理",
-    
+    "Video":"视频",
+    "Video/index":"视频管理",
+
     "date_range_picker_Today": "今天",
     "date_range_picker_Yesterday": "昨天",
     "date_range_picker_Last7Days": "最近7天",

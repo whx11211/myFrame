@@ -15,6 +15,7 @@ define('COMMON_PATH', ROOT . 'common/');
 define('MODEL_PATH', ROOT . 'model/');
 // 定义common路径
 define('MOVIE_PATH', ROOT . 'movie/');
+define('VIDEO_PATH', ROOT . 'video/');
 // 定义tool路径
 define('TOOL_PATH', ROOT . 'tool/');
 // 定义control路径
