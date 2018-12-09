@@ -1,5 +1,14 @@
 <?php 
 
+// 数据库执行语句是否记录
+define('DB_DEBUG', 1);
+
+//错误DEGUE，=1表示直接显示错误，=0表示使用自定义错误处理
+define('ERROR_DEBUG', 0);
+
+//报错级别设置
+define('ERROR_LEVEL', E_ALL);
+
 include_once 'common/init.php';
 
 $class = RemoteInfo::get('c');

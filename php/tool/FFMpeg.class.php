@@ -32,6 +32,9 @@ class FFMpeg {
 
     public static function createPreviewImageFromVideo($video, $image_path, $duration=null) {
         $tm = '0:0:1';
+        if ($duration>80) {
+            $tm = '0:01:11';
+        }
         if (!is_null($duration)) {
             $duration = $duration / 2;
             //$tm = floor($duration/3600) . ':' . floor(($duration%3600)/60) . ':' . floor($duration%60);
@@ -44,7 +47,7 @@ class FFMpeg {
                 shell_exec("rm -f ".$image_path);
             }
         }
-        return self::exec("ffmpeg -i ".$video." -ss ".$tm." -vframes 1 " . $image_path);
+        return self::exec('ffmpeg -i "'.$video.'" -ss '.$tm.' -vframes 1 "' . $image_path . '"');
     }
 
     /**
@@ -53,10 +56,10 @@ class FFMpeg {
      * @return array|null
      */
     public static function getVideoDetail($file) {
-        $res = self::exec("ffprobe ".$file." -print_format json -show_format -v quiet");
+        $res = self::exec('ffprobe "'.$file.'" -print_format json -show_format -v quiet');
         $res = json_decode($res, true);
-        print_r($res);
-        if (!isset($res['format']['duration'])) {
+
+        if (!isset($res['format']['duration']) || $res['format']['duration'] < 10) {
             return null;
         }
 
@@ -72,8 +75,8 @@ class FFMpeg {
         }
 
         $detail = [
-            'path'      =>  dirname($res['format']['filename']),
-            'file_name' =>  basename($res['format']['filename']),
+            'path'      =>  dirname($file),
+            'file_name' =>  basename($file),
             'file_size' =>  $file_size,
             'duration'	=>  round($res['format']['duration']/60, 2),
             'create_time'=>  date('Y-m-d H:i:s', filectime($file)),
@@ -84,9 +87,9 @@ class FFMpeg {
         $detail['file_index'] = md5($detail['path']).md5($detail['file_name']);
         $image_path = FFMPEG_IMAGE_PATH  . $detail['file_index'] . '.png';
 
-        if ($a=self::createPreviewImageFromVideo($file, $image_path, $res['format']['duration'])) {
-            $detail['preview_image'] = basename($image_path);
-        }
+        // if (self::createPreviewImageFromVideo($file, $image_path, $res['format']['duration'])) {
+        //     $detail['preview_image'] = basename($image_path);
+        // }
 
         return $detail;
     }
