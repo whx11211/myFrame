@@ -7,7 +7,7 @@
                 <h4 class="modal-title text-danger">{{ langs.delTip }}</h4>
             </div>
             <div class="modal-body text-center text-danger">
-                {{ langs.modal_del_info }}
+                {{ modal_del_info || langs.modal_del_info }}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default"  data-ng-click="modal_del_ok()">{{ langs['submit']}}</button>

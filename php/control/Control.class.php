@@ -248,6 +248,27 @@ class Control
     }
 
     /**
+     * 日期范围格式化（查询条件）
+     *
+     * @param string $date
+     *        如'2017-09-21 - 2017-10-20'
+     * @return array(betwwenn=>array(tm1, tm2)) || null
+     */
+    public function betweenDateFormat($date, $separate = ' - ')
+    {
+        $time_explode_ary = explode($separate, $date);
+        if (count($time_explode_ary) == 2) {
+            $tm_start = $time_explode_ary[0] . ' 00:00:00';
+            $tm_end = $time_explode_ary[1] . ' 23:59:59';
+            if ($tm_start && $tm_end) {
+                return array('between' => array($tm_start, $tm_end));
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * ip格式化（查询条件）
      * 
      * @param string $ip        

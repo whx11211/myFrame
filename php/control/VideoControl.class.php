@@ -9,11 +9,14 @@ class VideoControl extends Control
             case 'del':
                 $this->_del();
                 break;
-            case 'detail':
-                $this->_detail();
+            case 'mod':
+                $this->_mod();
                 break;
-            case 'reply':
-                $this->_reply();
+            case 'getTagsConf':
+                $this->_getTagsConf();
+                break;
+            case 'play':
+                $this->_play();
                 break;
             default:
                 $this->_get();
@@ -27,14 +30,14 @@ class VideoControl extends Control
     {
         $form_cond_conf = array(
             'tags'          =>  array("transform", array($this, 'findInSetFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
-            'last_mod_time' =>  array("transform", array($this, 'betweenTimeFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
+            'last_mod_time' =>  array("transform", array($this, 'betweenDateFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
         );
         $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
     
-        $select_ary = array('id', 'file_name', 'file_size', 'create_time', 'last_mod_time', 'last_view_time', 'view_count', 'tags');
+        $select_ary = array('id', 'file_index', 'file_name', 'file_size', 'duration', 'create_time', 'last_mod_time', 'last_view_time', 'view_count', 'tags');
     
-        $Post = Instance::getVideo('video');
-        $this->getPage($Post, $select_ary, $where_arg);
+        $class = Instance::getVideo('video');
+        $this->getPage($class, $select_ary, $where_arg);
     }
     /**
      * 删除
@@ -42,133 +45,93 @@ class VideoControl extends Control
     private function _del()
     {
         $form_cond_conf = array(
-            'postid'        =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
+            'id'        =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
         );
         $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
         
-        $Post = Instance::getMovie('post');
-        $this->del($Post, $where_arg);
-    }
-    
-    /**
-     * 详细
-     */
-    private function _detail()
-    {
-        $form_cond_conf = array(
-            'postid'        =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
-        );
-        $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
-        
-        $Post = Instance::getMovie('post');
-        
-        Output::success($Post->where($where_arg)->getAll()[0]);
-    }
-    
-    /**
-     * 回复
-     */
-    private function _reply()
-    {
-        $form_cond_conf = array(
-            'postid'        =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
-        );
-        $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
-        
-        $Repost = Instance::getMovie('repost');
-        
-        $this->getPage($Repost, array('*'), $where_arg);
-    }
-    
-    /**
-     * 用户管理
-     */
-    public function user()
-    {
-        $action = RemoteInfo::post('a');
-        switch ($action) {
-            case 'del':
-                $this->_delUser();
-                break;
-            default:
-                $this->_getUser();
-                break;
+        $class = Instance::getVideo('video');
+        $video = $class->where($where_arg)->getRow();
+        if ($video === false) {
+            Output::fail(ErrorCode::FILE_NOT_EXISTS);
         }
+
+        System::delFile($video['path'] . "\\" . $video['file_name']);
+
+        $this->del($class, $where_arg);
     }
-    
+
     /**
-     * 获取用户列表
+     * 修改
      */
-    private function _getUser()
+    private function _mod()
     {
-        $form_cond_conf = array(
-            'username'      =>  array("transform", array($this, 'likeFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
-            'regtime'       =>  array("transform", array($this, 'betweenTimeFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
+        $form_add_conf = array(
+            'file_name' =>  array("length", array(1, 1024), ErrorCode::PARAM_ERROR),
+            'duration'  =>  array("regex", 'double', ErrorCode::PARAM_ERROR, 'null_skip'),
+            'tags'      =>  array("transform", function($a) {return is_array($a) ? implode(',', $a) : '';}, ErrorCode::PARAM_ERROR),
         );
-        $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
-    
-        $select_ary = array('userid', 'username', 'regtime', 'email');
-    
-        $User = Instance::getMovie('user');
-        $this->getPage($User, $select_ary, $where_arg);
-    }
-    /**
-     * 删除
-     */
-    private function _delUser()
-    {
-        $form_cond_conf = array(
-            'userid'        =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
-        );
-        $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
-        
-        $User = Instance::getMovie('user');
-        $this->del($User, $where_arg);
-    }
-    
-    /**
-     * 回帖管理
-     */
-    public function repost()
-    {
-        $action = RemoteInfo::post('a');
-        switch ($action) {
-            case 'del':
-                $this->_delRepost();
-                break;
-            default:
-                $this->_getRepost();
-                break;
+        $insert_args = RemoteInfo::getInsertFormArgs($form_add_conf);
+        if (isset($insert_args['pwd'])) {
+
+            $insert_args['pwd'] = md5($insert_args['pwd']);
         }
-    }
-    /**
-     * 获取回帖列表
-     */
-    private function _getRepost()
-    {
+
+
         $form_cond_conf = array(
-            'username'      =>  array("transform", array($this, 'likeFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
-            'reposttime'    =>  array("transform", array($this, 'betweenTimeFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
-            'postid'        =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
+            'id'        =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
         );
         $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
-    
-        $select_ary = array('*');
-    
-        $Object = Instance::getMovie('repost');
-        $this->getPage($Object, $select_ary, $where_arg);
+
+        $class = Instance::getVideo('video');
+        $class->beginTransaction();
+        $video = $class->where($where_arg)->getRow();
+        if ($insert_args['file_name'] != $video['file_name']) {
+            $insert_args['file_index'] = md5($video['path']) . md5($insert_args['file_name']);
+            $class->updateByCondFromDb($insert_args, $where_arg);
+            System::renameFile($video['path'] . "\\" . $video['file_name'], $video['path'] . "\\" . $insert_args['file_name'], 0);
+            System::renameFile(FFMPEG_IMAGE_PATH  . $video['file_index'] . '.png', FFMPEG_IMAGE_PATH  . $insert_args['file_index'] . '.png');
+        }
+        else {
+            $class->updateByCondFromDb($insert_args, $where_arg);
+        }
+        $class->commit();
+
+        Output::success(1);
+
     }
+
     /**
-     * 删除回帖
+     * 标签详细
      */
-    private function _delRepost()
+    private function _getTagsConf()
     {
-        $form_cond_conf = array(
-            'repostid'        =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
-        );
-        $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
+        $class = Instance::getVideo('tag');
         
-        $Object = Instance::getMovie('repost');
-        $this->del($Object, $where_arg);
+        Output::success($class->getAll());
     }
+    
+    /**
+     * 播放
+     */
+    private function _play()
+    {
+        $form_cond_conf = array(
+            'id'        =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
+        );
+        $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
+
+        $class = Instance::getVideo('video');
+        $video = $class->where($where_arg)->getRow();
+        $file_path = $video['path'] . "\\" . $video['file_name'];
+
+        if (strpos($file_path, VIDEO_URL_BASE_PATH) !== 0) {
+            Output::fail(ErrorCode::VIDEO_PATH_ERROR);
+        }
+
+        $class->execSql('update video set view_count=view_count+1 where id=?', array($where_arg['id']));
+
+        $url_path = str_replace('\\', '/', substr($file_path, strlen(VIDEO_URL_BASE_PATH)));
+        Output::success(VIDEO_HOST.$url_path);
+    }
+
 }

@@ -116,16 +116,20 @@ class Model
     
     /**
      * 设置查询索引
-     * @param string|arrray
+     * @param string|array
+     * @param int
      * @return object 对象自身
      */
-    public function select($select_key)
+    public function select($select_key, $is_calc_fund_rows=0)
     {
         if (is_array($select_key)) {
             $this->select = implode($select_key, ',');
         }
         else {
             $this->select = $select_key;
+        }
+        if ($is_calc_fund_rows) {
+            $this->select = 'SQL_CALC_FOUND_ROWS '.$this->select;
         }
         
         return $this;
@@ -164,8 +168,16 @@ class Model
                                 $tmp_execute[] = $vv[1];
                                 break;
                             case 'find_in_set':
-                                $tmp_array[] = "find_in_set(?, `$key`)";
-                                $tmp_execute[] = $vv;
+                                if (is_array($vv)) {
+                                    foreach ($vv as $vvv) {
+                                        $tmp_array[] = "find_in_set(?, `$key`)";
+                                        $tmp_execute[] = $vvv;
+                                    }
+                                }
+                                else {
+                                    $tmp_array[] = "find_in_set(?, `$key`)";
+                                    $tmp_execute[] = $vv;
+                                }
                                 break;
                         }
                         break;
@@ -291,12 +303,8 @@ class Model
     
         return true;
     }
-    
-    /**
-     * 设置查询条件
-     * @return array|false
-     */
-    public function getAll()
+
+    private function _getPrepare()
     {
         $sql = 'SELECT ' . $this->select . ' FROM ' . $this->table;
         if ($this->join) {
@@ -333,9 +341,35 @@ class Model
         
         // 清理查询参数
         $this->clean();
-        
-        
-        return $rs->fetchAll(PDO::FETCH_ASSOC);
+
+        return $rs;
+    }
+    
+    /**
+     * 全部获取
+     * @return array|false
+     */
+    public function getAll()
+    {
+        return $this->_getPrepare()->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * 获取一行
+     * @return array|false
+     */
+    public function getRow()
+    {
+        return $this->_getPrepare()->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * 全部一哥
+     * @return array|false
+     */
+    public function getOne()
+    {
+        return $this->_getPrepare()->fetchColumn();
     }
     
     /**
@@ -383,7 +417,7 @@ class Model
         // 记录日志
         $this->addLog('SELECT', $sql, $execute);
 
-        return $rs;
+        return $res;
 
     }
 
@@ -516,18 +550,7 @@ class Model
      */
     public function getByCondFromDb($select_strings = '*', $where_args, $page = 1, $num = 10, $orderby_args = array())
     {
-        $total = $this->select('count(*) as sum');
-        if ($where_args) {
-            $total = $total->where($where_args);
-        }
-        $total = $total->getAll();
-    
-        $page_total = ceil($total[0]['sum'] / $num);
-        if ($page > $page_total && $page_total > 0) {
-            $page = $page_total;
-        }
-    
-        $data = $this->select($select_strings);
+        $data = $this->select($select_strings, 1);
         if ($where_args) {
             $data = $data->where($where_args);
         }
@@ -538,6 +561,8 @@ class Model
         $data->limit(array(($page - 1) * $num, $num));
 
         $data = $data->getAll();
+        $total = $this->getSqlResult('SELECT FOUND_ROWS() as total');
+        $page_total = ceil($total[0]['total']/$num);
         
         $res = array(
             'page_current'  =>  $page,
@@ -586,6 +611,27 @@ class Model
     }
     
 
+
+    public function beginTransaction()
+    {
+        $this->db->beginTransaction();
+    }
+
+    public function rollBack()
+    {
+        $this->db->rollBack();
+    }
+
+    public function commit()
+    {
+        $this->db->commit();
+    }
+
+    public function __call($name, $arguments)
+    {
+        echo $name;
+        var_dump(call_user_func_array(array($this->db, $name), $arguments));
+    }
 }
 
 ?>

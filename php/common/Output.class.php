@@ -16,7 +16,7 @@ class Output
      * 
      * @param $data 返回数据
      */
-    public static function success($data)
+    public static function success($data=true)
     {
         $res = array(
             'r'     =>  1,

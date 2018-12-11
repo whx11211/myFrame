@@ -25,8 +25,10 @@ class ErrorCode
     const METHOD_NOT_EXISTS = 1102;
     
     const PARAM_ERROR = 1201;
-    
 
+    //文件不存在
+    const FILE_NOT_EXISTS = 1301;
+    const VIDEO_PATH_ERROR = 1302;
 }
 
 ?>

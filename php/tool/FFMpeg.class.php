@@ -64,19 +64,10 @@ class FFMpeg {
         }
 
         $file_size = $res['format']['size'];
-        if (($tmp=$file_size/1024/1024/1024)>=1) {
-            $file_size = round($tmp, 2) . 'GB';
-        }
-        else if (($tmp=$file_size/1024/1024)>=1) {
-            $file_size = round($tmp, 2) . 'MB';
-        }
-        else {
-            $file_size = round($file_size/1024, 2) . 'KB';
-        }
-
+        $file_size = round($file_size/1024/1024, 2);
         $detail = [
             'path'      =>  dirname($file),
-            'file_name' =>  basename($file),
+            'file_name' =>  substr($file, strlen(dirname($file))+1),
             'file_size' =>  $file_size,
             'duration'	=>  round($res['format']['duration']/60, 2),
             'create_time'=>  date('Y-m-d H:i:s', filectime($file)),
@@ -87,9 +78,9 @@ class FFMpeg {
         $detail['file_index'] = md5($detail['path']).md5($detail['file_name']);
         $image_path = FFMPEG_IMAGE_PATH  . $detail['file_index'] . '.png';
 
-        // if (self::createPreviewImageFromVideo($file, $image_path, $res['format']['duration'])) {
-        //     $detail['preview_image'] = basename($image_path);
-        // }
+        if (self::createPreviewImageFromVideo($file, $image_path, $res['format']['duration'])) {
+             $detail['preview_image'] = basename($image_path);
+        }
 
         return $detail;
     }

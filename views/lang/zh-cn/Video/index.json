@@ -2,14 +2,14 @@
     "id":"视频ID",
     "file_name":"视频名",
     "file_size":"大小",
+    "duration":"时长",
     "create_time":"创建时间",
     "last_mod_time":"最近修改",
     "last_view_time":"最近查看",
     "view_count":"浏览次数",
     "tags":"标签",
-    "repostdesc":"回复内容",
-    "reposttime":"回复时间",
-    "detail":"查看帖子内容",
-    "reply_show":"查看回复",
-    "post_reply":"回帖"
+    "detail":"查看视频",
+    "preview_images":"预览图",
+    "play_info":"播放",
+    "not_support":"浏览器不支持"
 }

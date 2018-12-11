@@ -1,3 +1,5 @@
 /php/logs/
+/php/config
 /.idea
 /php/.idea
+/views/images/ffmpeg
