@@ -14,7 +14,7 @@ require_once __DIR__.'/../common/init.php';
 $video = Instance::getVideo('video');
 
 $video_exts = [
-    'avi','rmvb','rm','asf','divx','mpg','mpeg','mpe','wmv','mp4','mkv','vob','flv'
+    'avi','rmvb','rm','asf','divx','mpg','mpeg','mpe','wmv','mp4','mkv','vob','flv','mov','tp','m4a','m4v','mpg','mts','vob','td'
 ];
 
 $type = $argv[1];
@@ -34,7 +34,7 @@ function check_ext() {
     $arr = [];
     foreach ($all_video as $v) {
         $f = $v['file_name'];
-        if (!in_array(substr($f, strrpos($f,'.')+1), $video_exts)) {
+        if (!in_array(strtolower(substr($f, strrpos($f,'.')+1)), $video_exts)) {
             $arr[] = substr($f, strrpos($f,'.'));
         }
     }
@@ -64,7 +64,7 @@ function add($base_dir) {
             else {
                 global $video, $video_exts;
                 $path_info = pathinfo($path);
-                if (in_array($path_info['extension'] ,$video_exts)) {
+                if (in_array(strtolower($path_info['extension']) ,$video_exts)) {
                     $data = FFMpeg::getVideoDetail($path);
                     $video->insert($data, 2);
                 }
