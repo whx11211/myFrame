@@ -35,6 +35,19 @@
                 <form class="form-horizontal" role="form" name="modal_search_form" novalidate="novalidate">
                     <div class="row">
                     
+                        <!-- file_name -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.file_name }}：</label>
+                            <div class="col-sm-7">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-left" data-ng-model="search.file_name">
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- last_mod_time -->
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.last_mod_time }}：</label>
@@ -52,8 +65,7 @@
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tags }}：</label>
                             <div class="col-sm-7">
-                                <select multiple class="form-control select2" tabindex="-1" data-ng-model="search.tags" style="width:100%">
-                                    <option value="">{{ langs.roleAll }}</option>
+                                <select multiple class="form-control select2" tabindex="-1" id="tags_select2" data-ng-model="search.tags" style="width:100%">
                                     <option data-ng-repeat="tag in tags_conf" value="{{ tag.tag_id }}" >
                                         {{ tag.tag_id+' : '+tag.tag_name }}
                                     </option>

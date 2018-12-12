@@ -106,6 +106,11 @@ app.config(['$routeProvider','$locationProvider',function ($routeProvider, $loca
 			daterangepicker_css:["$ocLazyLoad",function($ocLazyLoad){
 				return $ocLazyLoad.load("lib/bower_components/bootstrap-daterangepicker/daterangepicker.css");
 			}],
+            select2:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("lib/bower_components/select2/dist/js/select2.js").then(function(){
+                    return $ocLazyLoad.load('lib/bower_components/select2/dist/css/select2.css');
+                });
+            }],
 		}
 	})
 	.when('/welcome',{

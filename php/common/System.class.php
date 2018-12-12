@@ -15,7 +15,7 @@ abstract class System
         return @shell_exec('del "' . $file . '"');
     }
 
-    public static function renameFile($file, $new_file, $force=1)
+    public static function moveFile($file, $new_file, $force=1)
     {
         if (!$force && file_exists($new_file)) {
             throw new Error('file is existed');

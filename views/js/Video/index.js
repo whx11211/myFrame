@@ -33,7 +33,17 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                 	 field: 'file_name',
                      displayName: $scope.langs.file_name,
                      minWidth: "300",
-                     cellTemplate: '<p style="overflow: hidden; line-height: 30px;" data-toggle="tooltip" data-placement="auto" data-html="true"  title="<img style=\'max-width:600px;max-height:500px;\' src=\'images/ffmpeg/{{row.entity.file_index}}.png\'/>">{{row.entity.file_name}}</p>'
+                     cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal">{{row.entity.file_name}}</div>'
+                 },
+                 {
+                     field: 'preview_image',
+                     displayName: $scope.langs.preview_image,
+                     minWidth: "170",
+                     cellTemplate: '<div class="ui-grid-cell-contents"'
+                     + ' ui-grid-one-bind-html="row.entity.preview_image"'
+                     + ' data-toggle="tooltip" data-placement="auto" data-html="true" '
+                     + ' title="<img style=\'max-width:600px;max-height:500px;\' src=\'images/ffmpeg/{{row.entity.file_index}}.png\'/>"'
+                     + '</div>'
                  },
                  $rootScope.ui_grid.get('file_size', true, 60),
                  $rootScope.ui_grid.get('duration', true, 60),
@@ -89,11 +99,10 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     // ui-grid
     // ====调整样式的grid高度
     $scope.ui_grid_style = {};
-    $scope.ui_grid_style_reply = {};
     // ====gridOptions初始化
     $scope.gridOptions = $rootScope.ui_grid.init();
-    $scope.gridOptionsReply = $rootScope.ui_grid.init()
-	
+    $scope.gridOptions.rowHeight = '100px';
+
 
     $scope.modal_search = function () {
     	$('#modal_search').modal();
@@ -112,9 +121,13 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     	$http.post(api($scope.api_name), angular.extend(post_data, $scope.search,$scope.orderby)).then(function (respone) {
     		if (respone.data.r) {
     			$scope.data = respone.data.data;
+    			for (var i in $scope.data.items) {
+                    $scope.data.items[i].preview_image = '<img src="images/ffmpeg/'+$scope.data.items[i].file_index+'.png" style="max-height: 100%;max-width:100%;"/>';
+                }
     			console_log($scope.data, '视频数据');
     			// 显示数据绑定
-                $scope.ui_grid_style.height = (parseInt($scope.data.items.length) + 1)*30 + 2 + 'px';
+                $scope.ui_grid_style.height = parseInt($scope.data.items.length)*$scope.gridOptions.rowHeight + 30 + 'px';
+                $scope.gridOptions.data = [];
                 $scope.gridOptions.data = $scope.data.items;
                 $scope.r = 1;
     		}
@@ -182,7 +195,8 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                 $scope.search.last_mod_time = $(this).val();
             });
             
-            
+            $('#tags_select2').select2();
+
             $scope.search_ext_loaded = true;
         }
     }
@@ -206,6 +220,9 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     	});
     }
     //播放模态框
+    $('#modal_play').on("hide.bs.modal", function(){
+        $scope.video_url = '';
+    });
     $scope.play = {};
     $scope.modal_play = function (obj) {
         $scope.play = obj;
@@ -250,7 +267,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                 $rootScope.show_success($scope.add.a, $scope.get_data);
             }
             else {
-                $rootScope.show_error(respone.data, $scope.modal_add);
+                $rootScope.show_error(respone.data);
             }
         });
     }

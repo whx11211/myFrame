@@ -78,9 +78,7 @@ class FFMpeg {
         $detail['file_index'] = md5($detail['path']).md5($detail['file_name']);
         $image_path = FFMPEG_IMAGE_PATH  . $detail['file_index'] . '.png';
 
-        if (self::createPreviewImageFromVideo($file, $image_path, $res['format']['duration'])) {
-             $detail['preview_image'] = basename($image_path);
-        }
+        self::createPreviewImageFromVideo($file, $image_path, $res['format']['duration']);
 
         return $detail;
     }

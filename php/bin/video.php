@@ -11,8 +11,6 @@ define('ERROR_LEVEL', E_ALL);
 
 require_once __DIR__.'/../common/init.php';
 
-$video = Instance::getVideo('video');
-
 $video_exts = [
     'avi','rmvb','rm','asf','divx','mpg','mpeg','mpe','wmv','mp4','mkv','vob','flv','mov','tp','m4a','m4v','mpg','mts','vob','td'
 ];
@@ -20,10 +18,24 @@ $video_exts = [
 $type = $argv[1];
 switch ($type) {
     case 'check_ext':
+        $video = Instance::getVideo('video');
         check_ext();
         break;
     case 'add':
+        $tag = Instance::getVideo('tag');
+        $video = Instance::getVideo('video');
+        $tags = $tag->getAll();
+        if ($tags) {
+            $tags = array_column($tags, 'tag_id', 'tag_name');
+        }
         add(VIDEO_BASE_PATH);
+        break;
+    case 'add_tag':
+        $tag = Instance::getVideo('tag');
+        add_tag(VIDEO_BASE_PATH);
+        break;
+    default:
+        echo 'param error!';
         break;
 }
 
@@ -62,12 +74,60 @@ function add($base_dir) {
                 add($path);
             }
             else {
-                global $video, $video_exts;
-                $path_info = pathinfo($path);
-                if (in_array(strtolower($path_info['extension']) ,$video_exts)) {
-                    $data = FFMpeg::getVideoDetail($path);
-                    $video->insert($data, 2);
+                add_video($path);
+            }
+        }
+        closedir($dir);
+    }
+    else {
+        LogFile::addLog('无法打开文件夹', $base_dir, 'ffmpeg');
+    }
+}
+
+
+function add_video($path) {
+    global $video, $video_exts,$tags,$tag;
+    $path_info = pathinfo($path);
+    if (in_array(strtolower($path_info['extension']) ,$video_exts)) {
+        $data = FFMpeg::getVideoDetail($path);
+        if ($data) {
+            $video_path_detail = explode('\\', $path);
+            $video_tags = [];
+            foreach ($video_path_detail as $tag_name) {
+                if (isset($tags[$tag_name])) {
+                    $video_tags[] = $tags[$tag_name];
+                    $tag->execSql('update tag set video_count=video_count+1 where tag_id=?', array($tags[$tag_name]));
                 }
+            }
+            $data['tags'] = implode(',', $video_tags);
+            $video->insert($data, 2);
+        }
+        else {
+            LogFile::addLog('无法识别视频', $path, 'ffmpeg');
+        }
+    }
+}
+
+
+function add_tag($base_dir) {
+    @$dir=opendir($base_dir);
+
+    if ($dir !== false) {
+        while($f=readdir($dir)) {
+            if ($f == '.' || $f=='..') {
+                continue;
+            }
+            $path = $base_dir . '\\' . $f;
+
+            if (is_dir($path)) {
+                if (strlen($f) < 24) {
+                    global $tag;
+                    $data = [
+                        'tag_name'  =>  $f
+                    ];
+                    $tag->insert($data, 2);
+                }
+                add_tag($path);
             }
         }
         closedir($dir);
