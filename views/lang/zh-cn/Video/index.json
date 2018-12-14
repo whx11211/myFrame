@@ -1,5 +1,6 @@
 {
     "id":"视频ID",
+    "path":"路径",
     "file_name":"视频名",
     "file_size":"大小",
     "duration":"时长",

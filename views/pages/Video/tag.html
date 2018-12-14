@@ -33,32 +33,11 @@
                 <form class="form-horizontal" role="form" name="modal_search_form" novalidate="novalidate">
                     <div class="row">
 
-                        <!-- time -->
+                        <!-- tag_name -->
                         <div class="form-group col-sm-10 col-sm-offset-1">
-                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.reposttime }}：</label>
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tag_name }}：</label>
                             <div class="col-sm-7">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-clock-o"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-left" id="search_reposttime" name="search_reposttime" data-ng-change="modal_search_title_not_submit()" data-ng-model="search.reposttime">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- postid -->
-                        <div class="form-group col-sm-10 col-sm-offset-1">
-                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.postid }}：</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="search_postid" name="search_postid" data-ng-model="search.postid">
-                            </div>
-                        </div>
-
-                        <!-- username -->
-                        <div class="form-group col-sm-10 col-sm-offset-1">
-                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.username }}：</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="search_username" name="search_username" data-ng-model="search.username" placeholder="{{langs.like_query}}">
+                                <input type="text" class="form-control" id="search_tag_name" name="search_tag_name" data-ng-model="search.tag_name" placeholder="{{langs.like_query}}">
                             </div>
                         </div>
                     </div>
@@ -66,6 +45,37 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" data-ng-click="modal_search_ok()">{{ langs.modal_search_ok }}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 模态框（新增/修改） -->
+<div class="modal fade" id="modal_add" name="modal_add" role="dialog" aria-labelledby="modal_add" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal_search_title">{{ langs[add.a] }}</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" name="modal_search_form" novalidate="novalidate">
+                    <div class="row">
+
+                        <!-- tag_name -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tag_name }}：</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control tooltip-show" id="add_tag_name" name="add_tag_name" data-ng-model="add.tag_name" data-toggle="tooltip" title="{{langs.tag_name_title}}" />
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-ng-click="modal_add_ok()">{{ langs.submit }}</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
             </div>
         </div><!-- /.modal-content -->

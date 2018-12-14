@@ -28,7 +28,7 @@ class LogFile
      */
     public static function addLog ($title, $msg, $filename='')
     {
-        $dir = date('Y-m-d').'/';
+        $dir = date('Y-m').'/';
         //获取写入文件路径文件
         $path = self::getWriteFileName(LOG_PATH . $dir, $filename);
         $fp = fopen($path, "a");
@@ -47,7 +47,7 @@ class LogFile
             // 如果不是目录则创建之
             mkdir($dir, 0777, 1);
         }
-        $path = $dir . '/' . $filename . '_' . date('Y-m-d') . '.' . self::$log_ext;
+        $path = $dir . '/' . $filename . '_' . date('Y-m') . '.' . self::$log_ext;
         /*
         if (is_file($path)) {
             //清除filesize的缓存

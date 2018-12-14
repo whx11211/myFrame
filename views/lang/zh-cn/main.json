@@ -53,6 +53,7 @@
     "MovieManage/repost":"回帖管理",
     "Video":"视频",
     "Video/index":"视频管理",
+    "Video/tag":"标签管理",
 
     "date_range_picker_Today": "今天",
     "date_range_picker_Yesterday": "昨天",

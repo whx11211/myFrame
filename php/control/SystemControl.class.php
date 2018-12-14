@@ -23,7 +23,6 @@ class SystemControl extends Control
             unset($admin_user[0]['pwd']);
             $admin_user[0]['lastLoginTime'] = time();
             $Role = Instance::get('role');
-            $admin_user[0]['pri'] = $Role->getAllMenuPermit($admin_user[0]['roleId']);
             SESSION::set('admin_user', $admin_user[0]);
             $Login = Instance::get('login');
             $Login->loginRecode($admin_user[0]['id']);

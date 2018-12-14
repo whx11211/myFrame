@@ -43,7 +43,10 @@ class Access
         if (!$admin_userinfo) {
             Output::fail(ErrorCode::NEED_LOGIN);
         }
-        
+
+        $Role = Instance::get('role');
+        $admin_userinfo['pri'] = $Role->getAllMenuPermit($admin_userinfo['roleId']);
+
         //不需验证权限
         if (in_array($class . '/' . $method, self::$pri_except) || in_array($class . '/*', self::$pri_except)) {
             return true;

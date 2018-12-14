@@ -65,9 +65,9 @@
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tags }}：</label>
                             <div class="col-sm-7">
-                                <select multiple class="form-control select2" tabindex="-1" id="tags_select2" data-ng-model="search.tags" style="width:100%">
+                                <select multiple class="form-control select2" tabindex="-1" id="search_tags_select2" data-ng-model="search.tags" style="width:100%">
                                     <option data-ng-repeat="tag in tags_conf" value="{{ tag.tag_id }}" >
-                                        {{ tag.tag_id+' : '+tag.tag_name }}
+                                        {{ tag.tag_name }}
                                     </option>
                                 </select>
                             </div>
@@ -93,7 +93,7 @@
                 <h4 class="modal-title" id="modal_detail_title">{{ langs.play_info }}</h4>
             </div>
             <div id="modal_detail_body" class="modal-body">
-                <video style="margin: auto;display: block; max-width:100%;" src="{{video_url}}" controls="controls">
+                <video id="modal_video" style="margin: auto;display: block; max-width:100%;" src="{{video_url}}" controls="controls">
                     {{langs.not_support}}
                 </video>
             </div>
@@ -128,11 +128,18 @@
 
                         <!-- file_name -->
                         <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.path }}：</label>
+                            <div class="col-sm-7">
+                                <textarea rows="3" class="form-control pull-left" data-ng-model="add.path">
+                                </textarea>
+                            </div>
+                        </div>
+
+                        <!-- file_name -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.file_name }}：</label>
                             <div class="col-sm-7">
-                                <div class="input-group">
-                                    <input type="text" class="form-control pull-left" id="search_file_name" name="search_file_name" data-ng-model="add.file_name">
-                                </div>
+                                <input type="text" class="form-control pull-left" id="search_file_name" name="search_file_name" data-ng-model="add.file_name">
                             </div>
                         </div>
 
@@ -140,10 +147,9 @@
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tags }}：</label>
                             <div class="col-sm-7">
-                                <select multiple class="form-control select2" tabindex="-1" data-ng-model="add.tags" style="width:100%">
-                                    <option value="">{{ langs.roleAll }}</option>
+                                <select multiple class="form-control" id="add_tags_select2" tabindex="-1" data-ng-model="add.tags" style="width:100%">
                                     <option data-ng-repeat="tag in tags_conf" value="{{ tag.tag_id }}" >
-                                        {{ tag.tag_id+' : '+tag.tag_name }}
+                                        {{ tag.tag_name }}
                                     </option>
                                 </select>
                             </div>

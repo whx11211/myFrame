@@ -23,16 +23,23 @@ switch ($type) {
         break;
     case 'add':
         $tag = Instance::getVideo('tag');
-        $video = Instance::getVideo('video');
         $tags = $tag->getAll();
         if ($tags) {
             $tags = array_column($tags, 'tag_id', 'tag_name');
+        }
+        $video = Instance::getVideo('video');
+        $videos_index = $video->select('file_index')->getAll();
+        if ($videos_index) {
+            $videos_index = array_column($videos_index, 'file_index');
         }
         add(VIDEO_BASE_PATH);
         break;
     case 'add_tag':
         $tag = Instance::getVideo('tag');
         add_tag(VIDEO_BASE_PATH);
+        break;
+    case 'log':
+        LogFile::addLog('test', json_encode($argv), 'test');
         break;
     default:
         echo 'param error!';
@@ -86,7 +93,11 @@ function add($base_dir) {
 
 
 function add_video($path) {
-    global $video, $video_exts,$tags,$tag;
+    global $video, $video_exts,$videos_index,$tags,$tag;
+    $index = md5(dirname($path)).md5(substr($path, strlen(dirname($path))+1));
+    if (in_array($index, $videos_index)) {
+        return true;
+    }
     $path_info = pathinfo($path);
     if (in_array(strtolower($path_info['extension']) ,$video_exts)) {
         $data = FFMpeg::getVideoDetail($path);
@@ -106,6 +117,7 @@ function add_video($path) {
             LogFile::addLog('无法识别视频', $path, 'ffmpeg');
         }
     }
+    return true;
 }
 
 

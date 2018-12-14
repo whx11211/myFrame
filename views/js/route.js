@@ -113,6 +113,15 @@ app.config(['$routeProvider','$locationProvider',function ($routeProvider, $loca
             }],
 		}
 	})
+	.when('/Video/tag',{
+		templateUrl:'pages/Video/tag.html',
+		controller:"Video/tag",
+		resolve:{
+			deps:["$ocLazyLoad",function($ocLazyLoad){
+				return $ocLazyLoad.load("js/Video/tag.js");
+			}],
+		}
+	})
 	.when('/welcome',{
 		templateUrl:'welcome.html',
      	controller:"welcome",

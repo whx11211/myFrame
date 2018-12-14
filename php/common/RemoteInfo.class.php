@@ -323,7 +323,7 @@ class RemoteInfo
     
             // 获取值
             $request_value = self::request($request_key);
-            if (is_null($request_value)) {
+            if (!$request_value) {
                 continue;
             }
     
