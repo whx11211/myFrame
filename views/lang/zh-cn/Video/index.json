@@ -12,5 +12,6 @@
     "detail":"查看视频",
     "preview_image":"预览图",
     "play_info":"播放",
+    "play_type_2_error":"目前只支持本地播放",
     "not_support":"浏览器不支持"
 }

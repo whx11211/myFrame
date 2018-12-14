@@ -250,7 +250,12 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                     });
                 }
                 else if($scope.play_type==2) {
-    		        window.location.href=respone.data.data.vlc_play;
+    		        if (typeof(respone.data.data.vlc_play) == 'undefined') {
+                        $rootScope.show_error($scope.langs.play_type_2_error);
+                    }
+                    else {
+                        window.location.href=respone.data.data.vlc_play;
+                    }
                 }
     		}
     		else {
