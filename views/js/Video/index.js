@@ -47,17 +47,37 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                      displayName: $scope.langs.preview_image,
                      enableSorting: false,
                      minWidth: "170",
-                     cellTemplate: '<div class="ui-grid-cell-contents tt"'
-                     + ' data-toggle="tooltip" data-placement="auto" data-html="true" '
-                     + ' title="<img style=\'max-width:600px;max-height:500px;\' src=\'images/ffmpeg/{{row.entity.file_index}}.png\'//>" '
+                     cellTooltip: '111111',
+                     cellTemplate: '<div class="ui-grid-cell-contents" data-ng-click="grid.appScope.show_image(row.entity.preview_image_path)"'
+                     //+ ' data-toggle="tooltip" data-placement="auto" data-html="true" '
+                     //+ ' title="<img style=\'max-width:600px;max-height:500px;\' src=\'images/ffmpeg/{{row.entity.file_index}}.png\'//>" '
                      + '><img data-ng-src="{{row.entity.preview_image_path}}" style="max-height: 100%;max-width:100%;"/></div>'
                  },
-                 $rootScope.ui_grid.get('file_size', true, 60),
-                 $rootScope.ui_grid.get('duration', true, 60),
+                 {
+                     field: 'description',
+                     displayName: $scope.langs.description,
+                     minWidth: "240",
+                     visible:false,
+                     cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal">{{row.entity.description}}</div>'
+                 },
+                 {
+                    field: 'file_size',
+                    displayName: $scope.langs.file_size,
+                    minWidth: "60",
+                    visible:true,
+                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.file_size}}<br/>MB</div>'
+                 },
+                 {
+                    field: 'duration',
+                    displayName: $scope.langs.duration,
+                    minWidth: "60",
+                    visible:true,
+                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.duration}}<br/>min</div>'
+                 },
                  $rootScope.ui_grid.get('create_time', false, 130),
-                 $rootScope.ui_grid.get('last_mod_time', true, 130),
+                 $rootScope.ui_grid.get('last_mod_time', false, 130),
                  $rootScope.ui_grid.get('last_view_time', false, 130),
-                 $rootScope.ui_grid.get('view_count', true, 50)
+                 $rootScope.ui_grid.get('view_count', false, 50)
             ];
             $scope.gridOptions.columnDefs.push({
                 field: 'operation',
@@ -65,11 +85,11 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                 enableSorting: false,
                 minWidth: 100,
                 cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope">'
-                             + '<button data-ng-click="grid.appScope.modal_play(row.entity, 2)" class="btn btn-sm btn-primary btn-video"  title="{{grid.appScope.langs.detail}}"><i class="fa fa-television"></i></button>'
-                + '<button data-ng-click="grid.appScope.modal_add(\'mod\',row.entity)" class="btn btn-sm btn-warning btn-video"  title="{{grid.appScope.langs.mod}}"><i class="fa fa-edit"></i></button>'
-                             + '<br/>'
-                + '<button data-ng-click="grid.appScope.modal_play(row.entity, 1)" class="btn btn-sm btn-info btn-video"  title="{{grid.appScope.langs.detail}}"><i class="glyphicon glyphicon-eye-open"></i></button>'
-                			 + '<button data-ng-click="grid.appScope.modal_del(row.entity)" class="btn btn-sm btn-danger btn-video"  title="{{grid.appScope.langs.del}}"><i class="fa fa-times"></i></button>'
+                             + '<button data-ng-click="grid.appScope.modal_play(row.entity, 2)" class="btn btn-xs btn-primary btn-video"  title="{{grid.appScope.langs.detail}}"><i class="fa fa-television"></i></button>'
+                + '<button data-ng-click="grid.appScope.modal_play(row.entity, 1)" class="btn btn-xs btn-info btn-video"  title="{{grid.appScope.langs.detail}}"><i class="glyphicon glyphicon-eye-open"></i></button>'
+                + '<button data-ng-if="grid.appScope.user.is_local" data-ng-click="grid.appScope.open_dir(row.entity)" class="btn btn-xs btn-info btn-video"  title="{{grid.appScope.langs.open_dir}}"><i class="fa fa-folder-open-o"></i></button>'
+                + '<button data-ng-click="grid.appScope.modal_add(\'mod\',row.entity)" class="btn btn-xs btn-warning btn-video"  title="{{grid.appScope.langs.mod}}"><i class="fa fa-edit"></i></button>'
+                			 + '<button data-ng-click="grid.appScope.modal_del(row.entity)" class="btn btn-xs btn-danger btn-video"  title="{{grid.appScope.langs.del}}"><i class="fa fa-times"></i></button>'
                 			 + '</div><a></a>'
             });
             
@@ -128,6 +148,9 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     $scope.get_data = function (page) {
     	if (!is_int(page) || !page) {
     		page = 1;
+            if (typeof($scope.data.page_current) != 'undefined') {
+                page = $scope.data.page_current;
+            }
     	}
     	var post_data = { page:page, num:$scope.length_select };
     	$http.post(api($scope.api_name), angular.extend(post_data, $scope.search,$scope.orderby)).then(function (respone) {
@@ -173,7 +196,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
             });
         }
         // 重新获取数据
-        $scope.get_data();
+        $scope.get_data(1);
     };
 	
 	
@@ -242,12 +265,15 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
         $scope.play_type = type;
     	$http.post(api($scope.api_name), angular.extend({a:'play'}, obj)).then(function (respone) {
     		if (respone.data.r) {
+    		    console_log(respone.data, '播放信息');
     		    if ($scope.play_type==1) {
                     $scope.video_url = respone.data.data.url_path;
-                    $('#modal_play').modal({
-                        backdrop: "static",//点击空白处不关闭对话框
-                        show: true
-                    });
+                    var url = 'video.html?video=' + encodeURIComponent($scope.video_url) + '&title=' + encodeURIComponent($scope.play.file_name) + '&poster=' + encodeURIComponent($scope.play.preview_image_path);
+                    //window.open(url);
+                     $('#modal_play').modal({
+                         backdrop: "static",//点击空白处不关闭对话框
+                         show: true
+                     });
                 }
                 else if($scope.play_type==2) {
     		        if (typeof(respone.data.data.vlc_play) == 'undefined') {
@@ -267,7 +293,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     //添加/修改模态框唤起
     $('#modal_add').on("shown.bs.modal", function(){
         $('#add_tags_select2').select2({
-            tags:true
+            //tags:true
         });
     });
     $scope.modal_add = function(action, obj) {
@@ -311,5 +337,32 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                 $rootScope.show_error(respone.data);
             }
         });
+    }
+
+    //新增tag
+    $scope.modal_add_tag_add = function () {
+        var tag = $scope.add_tag;
+        $http.post(api('Video/tag'), {a:'add',getTagConf:1,tag_name:tag}).then(function (respone) {
+            if (respone.data.r) {
+                $scope.tags_conf = respone.data.data.new_conf;
+                $scope.add.tags.push(respone.data.data.new_tag_id);
+                $('#add_tags_select2').select2({
+                    //tags:true
+                });
+                $scope.add_tag = '';
+            }
+            else {
+                $rootScope.show_error(respone.data);
+            }
+        });
+    }
+
+    $scope.show_image = function(url) {
+        $scope.image_url = url;
+        $('#modal_image').modal('show');
+    }
+
+    $scope.open_dir = function(obj) {
+        window.location.href= 'webbin://opendir/?path=' + encodeURIComponent(obj.path) + '&file_name=' + encodeURIComponent(obj.file_name);
     }
 });

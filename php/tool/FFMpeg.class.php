@@ -39,15 +39,8 @@ class FFMpeg {
             $duration = $duration / 2;
             //$tm = floor($duration/3600) . ':' . floor(($duration%3600)/60) . ':' . floor($duration%60);
         }
-        if (file_exists($image_path)) {
-            if (stripos(php_uname('s'), 'window') !== false) {
-                shell_exec("del ".str_replace('/','\\', $image_path));
-            }
-            else {
-                shell_exec("rm -f ".$image_path);
-            }
-        }
-        return self::exec('ffmpeg -i "'.$video.'" -ss '.$tm.' -vframes 1 "' . $image_path . '"');
+
+        return self::exec('ffmpeg -i "'.$video.'" -ss '.$tm.' -vframes 1 -y "' . $image_path . '"');
     }
 
     /**

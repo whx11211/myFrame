@@ -43,7 +43,7 @@ class VideoControl extends Control
             }
         }
 
-        $select_ary = array('id', 'path','file_index', 'file_name', 'file_size', 'duration', 'create_time', 'last_mod_time', 'last_view_time', 'view_count', 'tags');
+        $select_ary = array('id', 'path','file_index', 'file_name', 'file_size', 'duration', 'create_time', 'last_mod_time', 'last_view_time', 'view_count', 'tags', 'description');
     
         $class = Instance::getVideo('video');
         $this->getPage($class, $select_ary, $where_arg);
@@ -85,6 +85,7 @@ class VideoControl extends Control
         $form_add_conf = array(
             'path'      =>  array("length", array(1, 1024), ErrorCode::PARAM_ERROR),
             'file_name' =>  array("length", array(1, 1024), ErrorCode::PARAM_ERROR),
+            'description' =>  array("length", array(0, 10240), ErrorCode::PARAM_ERROR),
             'duration'  =>  array("regex", 'double', ErrorCode::PARAM_ERROR, 'null_skip')
         );
         $insert_args = RemoteInfo::getInsertFormArgs($form_add_conf);
@@ -106,7 +107,7 @@ class VideoControl extends Control
                 if (!in_array($t, $old_tags)) {
                     if (!$tag_model->select('tag_id')->where(['tag_id'=>$t])->getOne()) {
                         //新标签
-                        $tid = $tag_model->insert(['tag_name'=>$t, 'create_time'=>time()]);
+                        $tid = $tag_model->insert(['tag_name'=>$t, 'create_time'=>getFormatDate()]);
                         $new_tags[$k] = $t = $tid;
                         $has_new_tag = true;
                     }
@@ -169,6 +170,17 @@ class VideoControl extends Control
 
         if (in_array(RemoteInfo::getIP(), ['127.0.0.1', '::1'])) {
             $data['vlc_play'] = 'webbin://vlcplay/?f=' . urlencode($file_path);
+        }
+        else {
+            switch (RemoteInfo::getOs()) {
+                case 'windows':
+                    $data['vlc_play'] = 'webbin://vlcplay/?f=' . urlencode($data['url_path']);
+                    break;
+                case 'iphone':
+                case 'ipad':
+                    $data['vlc_play'] = 'vlc://' . $data['url_path'];
+                    break;
+            }
         }
 
         Output::success($data);
@@ -255,13 +267,18 @@ class VideoControl extends Control
     {
         $form_add_conf = array(
             'tag_name' =>  array("length", array(1, 32), ErrorCode::PARAM_ERROR),
-            'create_time'=>  array("auto", 'time', ErrorCode::PARAM_ERROR)
+            'create_time'=>  array("auto", 'getFormatDate', ErrorCode::PARAM_ERROR)
         );
         $add_args = RemoteInfo::getInsertFormArgs($form_add_conf);
 
         $class = Instance::getVideo('tag');
 
-        $this->add($class, $add_args);
+        $id = $class->insertByCondFromDb($add_args);
+        $data['new_tag_id'] = $id;
+        if (RemoteInfo::request('getTagConf')) {
+            $data['new_conf'] = $class->getAll();
+        }
 
+        Output::success($data);
     }
 }

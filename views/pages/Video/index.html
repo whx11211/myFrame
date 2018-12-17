@@ -90,7 +90,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="modal_detail_title">{{ langs.play_info }}</h4>
+                <h4 class="modal-title" id="modal_detail_title">{{ play.file_name }} [{{ play.file_size }}MB]</h4>
             </div>
             <div id="modal_detail_body" class="modal-body">
                 <video id="modal_video" style="margin: auto;display: block; max-width:100%;" src="{{video_url}}" controls="controls">
@@ -101,6 +101,13 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
             </div>
         </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 模态框（图片） -->
+<div class="modal fade" id="modal_image" name="modal_image" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog">
+        <img style="max-height:150%;max-width:150%;" src="{{image_url}}"/>
     </div><!-- /.modal -->
 </div>
 
@@ -143,6 +150,15 @@
                             </div>
                         </div>
 
+                        <!-- file_name -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.description }}：</label>
+                            <div class="col-sm-7">
+                                <textarea rows="5" class="form-control pull-left" data-ng-model="add.description">
+                                </textarea>
+                            </div>
+                        </div>
+
                         <!-- tags -->
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tags }}：</label>
@@ -155,6 +171,14 @@
                             </div>
                         </div>
 
+                        <!-- add tag -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.add_tag }}：</label>
+                            <div class="col-sm-7">
+                                <input  class="form-control" tabindex="-1" data-ng-model="add_tag" style="width:40%;float:left; margin-right:5px;"/>
+                                <button data-ng-if="add_tag" class="btn btn-success" data-ng-click="modal_add_tag_add()"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

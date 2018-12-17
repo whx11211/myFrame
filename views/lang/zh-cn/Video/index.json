@@ -4,6 +4,7 @@
     "file_name":"视频名",
     "file_size":"大小",
     "duration":"时长",
+    "description":"描述",
     "create_time":"创建时间",
     "last_mod_time":"最近修改",
     "last_view_time":"最近查看",
@@ -12,6 +13,8 @@
     "detail":"查看视频",
     "preview_image":"预览图",
     "play_info":"播放",
+    "add_tag":"新增标签",
+    "open_dir":"打开文件夹",
     "play_type_2_error":"目前只支持本地播放",
     "not_support":"浏览器不支持"
 }

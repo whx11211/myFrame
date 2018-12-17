@@ -37,6 +37,7 @@
 }
 
 .btn-video {
-	width:35px;
-	margin:5px;
+	margin: 0 4px 4px 0;
+	width: 25px;
+	float:left;
 }

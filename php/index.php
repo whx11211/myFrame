@@ -13,7 +13,6 @@ include_once 'common/init.php';
 
 $class = RemoteInfo::get('c');
 $method = RemoteInfo::get('m');
-
 //访问验证
 Access::check($class, $method);
 

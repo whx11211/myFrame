@@ -4,8 +4,8 @@ angular.module('myApp').controller('System/userInfo', function($scope, $rootScop
 	$scope.user = {};
 	$http.post(api($scope.api_name)).then(function (respone) {
 		if (respone.data.r) {
-			$scope.user = respone.data.data;
-			console_log($scope.menu, '用户信息');
+            $rootScope.user = respone.data.data;
+			console_log($rootScope.user, '用户信息');
 		}
 		else if (respone.data.error == 1001) {
 			$rootScope.goto_login();

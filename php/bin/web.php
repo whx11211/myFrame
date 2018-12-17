@@ -6,14 +6,20 @@ $url = $argv[1];
 $url_info = parse_url($url);
 
 $host = $url_info['host'] ?? null;
+parse_str($url_info['query'], $param);
 
 switch ($host) {
     case 'vlcplay':
-        parse_str($url_info['query'], $param);
         if (!isset($param['f']) || !$param['f']) {
             exit('f cannot be null');
         }
         vlc_play($param['f']);
+        break;
+    case 'opendir':
+        if (!isset($param['path']) || !$param['path']) {
+            exit('path cannot be null');
+        }
+        shell_exec('start "" "' . $param['path'] . '"');
         break;
     default:
         echo 'host error!';

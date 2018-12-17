@@ -89,6 +89,9 @@ angular.module('myApp').controller('MovieManage/repost', function($scope, $rootS
     $scope.get_data = function (page) {
         if (!is_int(page) || !page) {
             page = 1;
+            if (typeof($scope.data.page_current) != 'undefined') {
+                page = $scope.data.page_current;
+            }
         }
         var post_data = { page:page, num:$scope.length_select };
         $http.post(api($scope.api_name), angular.extend(post_data, $scope.search,$scope.orderby)).then(function (respone) {
@@ -130,7 +133,7 @@ angular.module('myApp').controller('MovieManage/repost', function($scope, $rootS
             });
         }
         // 重新获取数据
-        $scope.get_data();
+        $scope.get_data(1);
     };
 
 

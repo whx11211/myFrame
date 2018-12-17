@@ -82,6 +82,9 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
     $scope.get_data = function (page) {
         if (!is_int(page) || !page) {
             page = 1;
+            if (typeof($scope.data.page_current) != 'undefined') {
+                page = $scope.data.page_current;
+            }
         }
         var post_data = { page:page, num:$scope.length_select };
         $http.post(api($scope.api_name), angular.extend(post_data, $scope.search,$scope.orderby)).then(function (respone) {
@@ -114,6 +117,7 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
     // ====外部排序
     // ========开启
     $scope.gridOptions.useExternalSorting = true;
+    $scope.orderby = {};
     // ========事件处理
     $scope.sortChanged = function ( grid, sortColumns ) {
         $scope.orderby.orderby = {};
@@ -123,7 +127,7 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
             });
         }
         // 重新获取数据
-        $scope.get_data();
+        $scope.get_data(1);
     };
 
 
@@ -150,6 +154,7 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
     $scope.modal_del = function (obj) {
         $scope.del = obj;
         $scope.del.a = 'del';
+        $scope.modal_del_info = $scope.langs.modal_del_info_detail.replace('%s', obj.tag_name);
         $('#modal_del').modal('show');
     }
 
