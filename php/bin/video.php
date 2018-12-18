@@ -23,7 +23,7 @@ switch ($type) {
         break;
     case 'add':
         $tag = Instance::getVideo('tag');
-        $tags = $tag->getAll();
+        $tags = $tag->getAll() ?: [];
         if ($tags) {
             $tags = array_column($tags, 'tag_id', 'tag_name');
         }
@@ -36,10 +36,11 @@ switch ($type) {
         break;
     case 'add_tag':
         $tag = Instance::getVideo('tag');
+        $tag_names = $tag->select('tag_name')->getAll() ?: [];
+        if ($tag_names) {
+            $tag_names = array_column($tag_names, 'tag_name');
+        }
         add_tag(VIDEO_BASE_PATH);
-        break;
-    case 'log':
-        LogFile::addLog('test', json_encode($argv), 'test');
         break;
     default:
         echo 'param error!';
@@ -87,7 +88,7 @@ function add($base_dir) {
         closedir($dir);
     }
     else {
-        LogFile::addLog('无法打开文件夹', $base_dir, 'ffmpeg');
+        LogFile::addLog('无法打开文件夹', $base_dir, 'video');
     }
 }
 
@@ -114,7 +115,7 @@ function add_video($path) {
             $video->insert($data, 2);
         }
         else {
-            LogFile::addLog('无法识别视频', $path, 'ffmpeg');
+            LogFile::addLog('无法识别视频', $path, 'video');
         }
     }
     return true;
@@ -122,6 +123,8 @@ function add_video($path) {
 
 
 function add_tag($base_dir) {
+    global $tag_names, $tag;
+
     @$dir=opendir($base_dir);
 
     if ($dir !== false) {
@@ -132,10 +135,10 @@ function add_tag($base_dir) {
             $path = $base_dir . '\\' . $f;
 
             if (is_dir($path)) {
-                if (strlen($f) < 24) {
-                    global $tag;
+                if (strlen($f) < 24 && !in_array($f, $tag_names)) {
                     $data = [
-                        'tag_name'  =>  $f
+                        'tag_name'  =>  $f,
+                        'create_time'=>date('Y-m-d H:i:s')
                     ];
                     $tag->insert($data, 2);
                 }
@@ -145,6 +148,6 @@ function add_tag($base_dir) {
         closedir($dir);
     }
     else {
-        LogFile::addLog('无法打开文件夹', $base_dir, 'ffmpeg');
+        LogFile::addLog('无法打开文件夹', $base_dir, 'video');
     }
 }

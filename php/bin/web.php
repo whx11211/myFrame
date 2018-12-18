@@ -19,6 +19,12 @@ switch ($host) {
         if (!isset($param['path']) || !$param['path']) {
             exit('path cannot be null');
         }
+        shell_exec('Explorer /select, "' . $param['path'] . '"');
+        break;
+    case 'open':
+        if (!isset($param['path']) || !$param['path']) {
+            exit('path cannot be null');
+        }
         shell_exec('start "" "' . $param['path'] . '"');
         break;
     default:
@@ -31,6 +37,6 @@ function vlc_play($f) {
     if (!defined('VLC_PLAYER_PATH')) {
         exit('VLC_PLAYER_PATH not defined!');
     }
-    shell_exec('"' . VLC_PLAYER_PATH . '" "' . $f . '"');
+    shell_exec('start "' . VLC_PLAYER_PATH . '" "' . $f . '"');
 }
 

@@ -1,5 +1,5 @@
-angular.module('myApp').controller('MovieManage/repost', function($scope, $rootScope, $http, $filter) {
-    $rootScope.api_name = 'MovieManage/repost';
+angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $http, $filter) {
+    $rootScope.api_name = 'Image/tag';
     $rootScope.set_breadcrumb();
 
     $scope.length_select = $rootScope.get_default_page_number();
@@ -7,17 +7,15 @@ angular.module('myApp').controller('MovieManage/repost', function($scope, $rootS
     $scope.search = {};
     $scope.headfunc = {};
     //$scope.headfunc.download = 1;
-    $scope.headfunc.manage = 0;
+    $scope.headfunc.manage = 1;
     $scope.headfunc.export = 1;
 
     //查询条件
     $scope.search = {};
-    $scope.orderby = {orderby:{reposttime:"desc"}};
     // ====时间范围初始化
     var today = new Date();
     var before = new Date();
     before.setDate(today.getDate()-29);
-    //$scope.search.reposttime = $filter('date')(before, 'yyyy-MM-dd') + ' - ' + $filter('date')(today, 'yyyy-MM-dd');
     $scope.add = {a:'add'};
 
     $scope.langs = $rootScope.langs;
@@ -28,16 +26,11 @@ angular.module('myApp').controller('MovieManage/repost', function($scope, $rootS
             // ====gridOptions.columnDefs初始化(语言包加载完成后执行)
             $scope.gridOptions.columnDefs = [
                  $rootScope.ui_grid.get_seq(),
-                 $rootScope.ui_grid.get('userid', false, 100),
-                 $rootScope.ui_grid.get('username', true, 100),
-                 $rootScope.ui_grid.get('postid', true, 100),
-                 {
-                	 field: 'repostdesc',
-                     displayName: $scope.langs.repostdesc,
-                     minWidth: "200",
-                     cellTemplate: '<div class="ui-grid-cell-contents tooltip-show" ui-grid-one-bind-html="row.entity.repostdesc" data-toggle="tooltip" data-placement="auto left" data-html="true"  title="{{row.entity.repostdesc}}"></div>',
-                 },
-                 $rootScope.ui_grid.get_ts('reposttime')
+                 $rootScope.ui_grid.get('tag_id',false),
+                 $rootScope.ui_grid.get('tag_name'), 
+                 $rootScope.ui_grid.get('image_count'),
+                 $rootScope.ui_grid.get('search_count'),
+                $rootScope.ui_grid.get('create_time', true, 130),
             ];
             $scope.gridOptions.columnDefs.push({
                 field: 'operation',
@@ -45,6 +38,7 @@ angular.module('myApp').controller('MovieManage/repost', function($scope, $rootS
                 enableSorting: false,
                 minWidth: 40,
                 cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope">'
+                             + '<button data-ng-click="grid.appScope.modal_add(\'mod\', row.entity)" class="btn btn-xs btn-warning btn-oper" title="{{grid.appScope.langs.mod}}"><i class="fa fa-edit"></i></button>'
                              + '<button data-ng-click="grid.appScope.modal_del(row.entity)" class="btn btn-xs btn-danger btn-oper"  title="{{grid.appScope.langs.del}}"><i class="fa fa-times"></i></button>'
                              + '</div>'
             });
@@ -52,7 +46,6 @@ angular.module('myApp').controller('MovieManage/repost', function($scope, $rootS
 
             $scope.gridOptions.exportColumnDefs = {
                 seq:$rootScope.ui_grid.get_export_seq,
-                reposttime:$rootScope.ui_grid.get_export_ts,
             }
             $scope.gridOptions.exporterFieldCallback = function( grid, row, col, input ) {
                 if( typeof($scope.gridOptions.exportColumnDefs[col.name]) == 'function' ){
@@ -124,6 +117,7 @@ angular.module('myApp').controller('MovieManage/repost', function($scope, $rootS
     // ====外部排序
     // ========开启
     $scope.gridOptions.useExternalSorting = true;
+    $scope.orderby = {};
     // ========事件处理
     $scope.sortChanged = function ( grid, sortColumns ) {
         $scope.orderby.orderby = {};
@@ -151,21 +145,6 @@ angular.module('myApp').controller('MovieManage/repost', function($scope, $rootS
     $scope.search_ext_load = function() {
         if (typeof($scope.search_ext_loaded) == 'undefined') {
 
-            // 日期插件
-            // ====配置变量
-            $scope.search_date_id = 'search_reposttime';
-            // ====初始化
-            $rootScope.daterangepicker_init($scope.search_date_id);
-            // ====日期变化处理
-            $('#'+$scope.search_date_id)
-            .on('apply.daterangepicker', function(ev, picker) {
-                $(this).val(picker.startDate.format('YYYY-MM-DD') + ' - ' + picker.endDate.format('YYYY-MM-DD'));
-                $scope.search.reposttime = $(this).val();
-            })
-            .on('cancel.daterangepicker', function(ev, picker) {
-                $(this).val('');
-                $scope.search.reposttime = $(this).val();
-            });
 
 
             $scope.search_ext_loaded = true;
@@ -175,6 +154,7 @@ angular.module('myApp').controller('MovieManage/repost', function($scope, $rootS
     $scope.modal_del = function (obj) {
         $scope.del = obj;
         $scope.del.a = 'del';
+        $scope.modal_del_info = $scope.langs.modal_del_info_detail.replace('%s', obj.tag_name);
         $('#modal_del').modal('show');
     }
 
@@ -183,6 +163,39 @@ angular.module('myApp').controller('MovieManage/repost', function($scope, $rootS
         $http.post(api($scope.api_name), $scope.del).then(function (respone) {
             if (respone.data.r) {
                 $rootScope.show_success($scope.del.a, $scope.get_data);
+                $rootScope.image_tags_conf_refresh = true
+            }
+            else {
+                $rootScope.show_error(respone.data);
+            }
+        });
+    }
+    //添加/修改模态框唤起
+    $scope.modal_add= function(action, obj) {
+        switch (action) {
+            case 'mod':
+                if ($scope.add.a== 'add') {
+                    $scope.add_tmp= $scope.add;
+                }
+                $scope.add= angular.copy(obj);
+                $scope.add.a= 'mod';
+                break;
+            case 'add':
+                if ($scope.add.a== 'mod') {
+                    $scope.add= $scope.add_tmp;
+                }
+                break;
+        }
+        $('#modal_add').modal('show');
+    }
+
+    //添加/修改数据提交
+    $scope.modal_add_ok= function () {
+        $('#modal_add').modal('hide');
+        $http.post(api($scope.api_name), $scope.add).then(function (respone) {
+            if (respone.data.r) {
+                $rootScope.show_success($scope.add.a, $scope.get_data);
+                $rootScope.image_tags_conf_refresh = true
             }
             else {
                 $rootScope.show_error(respone.data, $scope.modal_add);

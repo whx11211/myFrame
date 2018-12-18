@@ -60,7 +60,7 @@
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tags }}：</label>
                             <div class="col-sm-7">
                                 <select multiple class="form-control select2" tabindex="-1" id="search_tags_select2" data-ng-model="search.tags" style="width:100%">
-                                    <option data-ng-repeat="tag in tags_conf" value="{{ tag.tag_id }}" >
+                                    <option data-ng-repeat="tag in image_tags_conf" value="{{ tag.tag_id }}" >
                                         {{ tag.tag_name }}
                                     </option>
                                 </select>
@@ -78,36 +78,27 @@
 </div>
 
 
-<!-- 模态框（播放） -->
-<div class="modal fade" id="modal_play" name="modal_play" role="dialog" aria-labelledby="modal_detail" aria-hidden="true">
+<!-- 模态框（view） -->
+<div class="modal fade" id="modal_view" name="modal_view" role="dialog" aria-labelledby="modal_detail" aria-hidden="true">
     <div class="modal-dialog" style="width: 95%;">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="modal_detail_title">{{ play.file_name }} [{{ play.file_size }}MB]</h4>
+                <h4 class="modal-title" id="modal_detail_title">{{ view.items[0].file_name }} [{{ view.items[0].file_size }}KB]</h4>
             </div>
-            <div id="modal_detail_body" class="modal-body" style="height:{{modal_max_height}}px;">
-                <video id="modal_video" style="margin: auto;display: block; max-width:100%;max-height:100%;" src="{{video_url}}" controls="controls">
-                    {{langs.not_support}}
-                </video>
+            <div id="modal_detail_body" class="modal-body" data-ng-click="modal_view_click()" style="height:{{modal_max_height}}px;">
+                <image id="modal_video" style="margin: auto;display: block; max-width:100%;max-height:100%" src="{{image_url}}" />
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(-15)" title="{{langs.backward}}"><i class="fa fa-backward"></i></button>
-                <button data-ng-if="modal_play_obj.is_play" type="button" class="btn btn-primary" data-ng-click="modal_play_obj.pause()" title="{{langs.pause}}"><i class="fa fa-pause"></i></button>
-                <button data-ng-if="!modal_play_obj.is_play" type="button" class="btn btn-primary" data-ng-click="modal_play_obj.start()" title="{{langs.play}}"><i class="fa fa-play"></i></button>
-                <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(15)" title="{{langs.forward}}"><i class="fa fa-forward"></i></button>
+                <button type="button" class="btn btn-danger" data-ng-click="modal_view_del_direct(view.items[0])" title="{{langs.del}}"><i class="fa fa-times"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="modal_view_jump(-1)" title="{{langs.backword}}"><i class="fa fa-backward"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="modal_view_jump(1)" title="{{langs.forward}}"><i class="fa fa-forward"></i></button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
 
-<!-- 模态框（图片） -->
-<div class="modal fade" id="modal_image" name="modal_image" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog">
-        <img style="margin: auto;display: block;max-width:100%;max-height:{{modal_max_height}}px" src="{{image_url}}"/>
-    </div><!-- /.modal -->
-</div>
 
 <!-- 模态框（新增/修改） -->
 <div class="modal fade" id="modal_add" name="modal_add" role="dialog" aria-labelledby="modal_add" aria-hidden="true">
@@ -120,16 +111,6 @@
             <div class="modal-body">
                 <form class="form-horizontal" role="form" name="modal_add_form" novalidate="novalidate">
                     <div class="row">
-
-                        <!-- duration -->
-                        <div class="form-group col-sm-10 col-sm-offset-1">
-                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.duration }}：</label>
-                            <div class="col-sm-7">
-                                <div class="input-group">
-                                    <input type="text" class="form-control pull-left" id="search_duration" name="search_duration" data-ng-model="add.duration">
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- file_name -->
                         <div class="form-group col-sm-10 col-sm-offset-1">
@@ -162,7 +143,7 @@
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tags }}：</label>
                             <div class="col-sm-7">
                                 <select multiple class="form-control" id="add_tags_select2" tabindex="-1" data-ng-model="add.tags" style="width:100%">
-                                    <option data-ng-repeat="tag in tags_conf" value="{{ tag.tag_id }}" >
+                                    <option data-ng-repeat="tag in image_tags_conf" value="{{ tag.tag_id }}" >
                                         {{ tag.tag_name }}
                                     </option>
                                 </select>

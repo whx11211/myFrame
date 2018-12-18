@@ -64,7 +64,7 @@ angular.module('myApp').controller('System/loginList', function($scope, $rootSco
     }
     
     $scope.modal_search_ok = function () {
-    	$scope.get_data();
+    	$scope.get_data(1);
     	$('#modal_search').modal('hide');
     }
     

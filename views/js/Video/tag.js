@@ -76,7 +76,7 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
 
     $scope.modal_search_ok = function () {
         $('#modal_search').modal('hide');
-        $scope.get_data();
+        $scope.get_data(1);
     }
 
     $scope.get_data = function (page) {

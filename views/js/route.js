@@ -122,6 +122,37 @@ app.config(['$routeProvider','$locationProvider',function ($routeProvider, $loca
 			}],
 		}
 	})
+	.when('/Image/index',{
+		templateUrl:'pages/Image/index.html',
+		controller:"Image/index",
+		resolve:{
+			deps:["$ocLazyLoad",function($ocLazyLoad){
+				return $ocLazyLoad.load("js/Image/index.js");
+			}],
+			moment:["$ocLazyLoad",function($ocLazyLoad){
+				return $ocLazyLoad.load("lib/bower_components/moment/min/moment.min.js").then(function(){
+					return $ocLazyLoad.load('lib/bower_components/bootstrap-daterangepicker/daterangepicker.js');
+				});
+			}],
+			daterangepicker_css:["$ocLazyLoad",function($ocLazyLoad){
+				return $ocLazyLoad.load("lib/bower_components/bootstrap-daterangepicker/daterangepicker.css");
+			}],
+			select2:["$ocLazyLoad",function($ocLazyLoad){
+				return $ocLazyLoad.load("lib/bower_components/select2/dist/js/select2.js").then(function(){
+					return $ocLazyLoad.load('lib/bower_components/select2/dist/css/select2.css');
+				});
+			}],
+		}
+	})
+	.when('/Image/tag',{
+		templateUrl:'pages/Image/tag.html',
+		controller:"Image/tag",
+		resolve:{
+			deps:["$ocLazyLoad",function($ocLazyLoad){
+				return $ocLazyLoad.load("js/Image/tag.js");
+			}],
+		}
+	})
 	.when('/welcome',{
 		templateUrl:'welcome.html',
      	controller:"welcome",

@@ -77,7 +77,7 @@ angular.module('myApp').controller('MovieManage/user', function($scope, $rootSco
 
     $scope.modal_search_ok = function () {
         $('#modal_search').modal('hide');
-        $scope.get_data();
+        $scope.get_data(1);
     }
 
     $scope.get_data = function (page) {

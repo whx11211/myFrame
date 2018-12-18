@@ -10,7 +10,7 @@ class Control
      * @param array $where_args
      *        查询条件数组
      */
-    public function getPage($db_instance, $select_strings = '*', $where_args = array())
+    public function getPage($db_instance, $select_strings = '*', $where_args = array(), $return=false)
     {
         $page = (int)RemoteInfo::request('page');
         $num = (int)RemoteInfo::request('num');
@@ -19,7 +19,10 @@ class Control
         $page = $page > 0 ? $page : 1;
         $num = $num > 0 ? $num : 10;
         $orderby_args = $orderby ? $orderby : array();
-        
+
+        if ($return) {
+            return $db_instance->getByCondFromDb($select_strings, $where_args, $page, $num, $orderby_args);
+        }
         Output::success($db_instance->getByCondFromDb($select_strings, $where_args, $page, $num, $orderby_args));
     }
     
