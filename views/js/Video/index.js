@@ -257,17 +257,33 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
 
     $scope.modal_play_obj = {
         play_video_html_sel:document.getElementById('modal_video'),
-        is_play:false,
+        is_playing:false,
+        is_paused:function() {
+            return this.play_video_html_sel.paused;
+        },
+        toggle:function() {
+            if (this.is_paused()) {
+                this.play_video_html_sel.play();
+            }
+            else {
+                this.play_video_html_sel.pause();
+            }
+            this.is_playing = !this.is_paused();
+        },
         start:function() {
             this.play_video_html_sel.play();
-            this.is_play = true;
+            this.is_playing = !this.is_paused();
         },
         pause:function() {
             this.play_video_html_sel.pause();
-            this.is_play = false;
+            this.is_playing = !this.is_paused();
         },
         jump:function(s) {
             this.play_video_html_sel.currentTime += s;
+        },
+        swipe:function(x) {
+            var s = parseInt(x/10);
+            this.jump(s);
         }
     };
     //播放模态框

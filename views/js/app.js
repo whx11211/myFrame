@@ -1,7 +1,8 @@
 var app = angular.module('myApp', [
    'ngRoute',
    'oc.lazyLoad',
-   'ui.grid', 'ui.grid.selection', 'ui.grid.edit', 'ui.grid.exporter', 'ui.grid.pagination', 'ui.grid.resizeColumns', 'ui.grid.autoResize', 'ui.grid.moveColumns', 'ui.grid.pinning'
+   'ui.grid', 'ui.grid.selection', 'ui.grid.edit', 'ui.grid.exporter', 'ui.grid.pagination', 'ui.grid.resizeColumns', 'ui.grid.autoResize', 'ui.grid.moveColumns', 'ui.grid.pinning',
+    'ngTouch'
    ]);
 
 app.config(function($httpProvider) {
@@ -63,6 +64,94 @@ app.directive('repeatFinish',function(){
      }
  }
 });
+
+app.directive('touchSwipe',['$swipe',function($swipe){
+//横向滑动事件
+    return {
+        restrict:'EA',
+        link:function(scope,ele,attr,ctrl){
+            var startX,startY,locked=false;
+            $swipe.bind(ele,{
+                'start':function(coords){
+                    startX = coords.x;
+                    startY = coords.y;
+                },
+                'move':function(coords){
+                },
+                'end':function(coords){
+
+                    var deltaX = coords.x - startX;
+                    if (Math.abs(deltaX) > 100) {
+                        var method = attr.touchSwipe;
+                        scope.$apply(method.replace('param_x', deltaX));
+                    }
+                },
+                'cancel':function(coords){
+                }
+            });
+        }
+    }
+}
+]).directive('touchLong',['$swipe',function($swipe){
+//长按事件
+    return {
+        restrict:'EA',
+        link:function(scope,ele,attr,ctrl){
+            var locked=false,startTime;
+            $swipe.bind(ele,{
+                'start':function(coords){
+                    startTime = Date.parse(new Date());
+                    locked = false;
+                },
+                'move':function(coords){
+                },
+                'end':function(coords){
+                    var deltaTime = Date.parse(new Date()) - startTime;
+                    if (deltaTime > 500) {
+                        var method = attr.touchLong;
+                        scope.$apply(method.replace('param_t', deltaTime));
+                    }
+                    else if (typeof(attr.touchClick) !== 'undefined') {
+                        console.log(this);
+                        scope.$apply(attr.touchClick);
+                    }
+                },
+                'cancel':function(coords){
+                }
+            });
+        }
+    }
+}
+]).directive('touchDouble',['$swipe',function($swipe){
+//双击事件
+    return {
+        restrict:'EA',
+        link:function(scope,ele,attr,ctrl){
+            var locked=false,lastTime=0;
+            $swipe.bind(ele,{
+                'start':function(coords){
+                },
+                'move':function(coords){
+                },
+                'end':function(coords){
+                    var nowTime = Date.parse(new Date());
+                    var deltaTime = nowTime-lastTime;
+                    if (lastTime && deltaTime<800) {
+                        lastTime = 0;
+                        var method = attr.touchDouble;
+                        scope.$apply(method.replace('param_t', deltaTime));
+                    }
+                    else {
+                        lastTime = nowTime;
+                    }
+                },
+                'cancel':function(coords){
+                }
+            });
+        }
+    }
+}
+]);
 
 
 app.filter('date2', function() { //可以注入依赖

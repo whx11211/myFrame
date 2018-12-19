@@ -72,6 +72,7 @@ function add($base_dir) {
     @$dir=opendir($base_dir);
 
     if ($dir !== false) {
+        show_msg("open_dir ", $base_dir);
         while($f=readdir($dir)) {
             if ($f == '.' || $f=='..') {
                 continue;
@@ -88,7 +89,8 @@ function add($base_dir) {
         closedir($dir);
     }
     else {
-        LogFile::addLog('无法打开文件夹', $base_dir, 'video');
+        LogFile::addLog('open_dir_failed', $base_dir, 'video');
+        show_msg("open_dir_failed ".$base_dir);
     }
 }
 
@@ -113,9 +115,11 @@ function add_video($path) {
             }
             $data['tags'] = implode(',', $video_tags);
             $video->insert($data, 2);
+            show_msg("add_file ", $data['file_name']);
         }
         else {
-            LogFile::addLog('无法识别视频', $path, 'video');
+            LogFile::addLog('unkonwn_video', $path, 'video');
+            show_msg("unkonwn_video ", $data['file_name']);
         }
     }
     return true;
@@ -128,6 +132,7 @@ function add_tag($base_dir) {
     @$dir=opendir($base_dir);
 
     if ($dir !== false) {
+        show_msg("open_dir ", $base_dir);
         while($f=readdir($dir)) {
             if ($f == '.' || $f=='..') {
                 continue;
@@ -141,6 +146,7 @@ function add_tag($base_dir) {
                         'create_time'=>date('Y-m-d H:i:s')
                     ];
                     $tag->insert($data, 2);
+                    show_msg('add_tag ', $f);
                 }
                 add_tag($path);
             }
@@ -148,6 +154,12 @@ function add_tag($base_dir) {
         closedir($dir);
     }
     else {
-        LogFile::addLog('无法打开文件夹', $base_dir, 'video');
+        LogFile::addLog('open_dir_failed', $base_dir, 'video');
+        show_msg("open_dir_failed ", $base_dir);
     }
+}
+
+
+function show_msg($type, $msg) {
+    echo getFormatDate() . "\t" . $type . "\t" . $msg . "\r\n";
 }

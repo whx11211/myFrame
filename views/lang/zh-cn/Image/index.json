@@ -20,6 +20,7 @@
     "backward":"上一张",
     "forward":"下一张",
     "add_tag":"新增标签",
+    "long_press_del_tip":"是否长按删除？",
     "open_dir":"打开文件夹",
     "play_type_2_error":"目前只支持本地播放",
     "not_support":"浏览器不支持"

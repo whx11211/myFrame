@@ -301,7 +301,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
             if (respone.data.r) {
                 $scope.refresh_data = true;
                 $scope.view.page_total -= 1;
-                if ($scope.view.page_current > $scope.view.page_total) {
+                if ($scope.view.page_current > 1 && $scope.view.page_current > $scope.view.page_total) {
                     $scope.modal_view_jump(-1);
                 }
                 else {
@@ -314,7 +314,6 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
         });
     }
     $scope.modal_view_click = function () {
-        console.log(window.event);
         if (window.event.x > window.innerWidth/2) {
             $scope.modal_view_jump(1);
         }
@@ -322,6 +321,17 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
             $scope.modal_view_jump(-1);
         }
     }
+    $scope.modal_view_touch = function() {
+        var is_long_press_del = null;
+        return function(t) {
+            if (is_long_press_del === null) {
+                is_long_press_del = confirm($scope.langs.long_press_del_tip);
+            }
+            if (is_long_press_del) {
+                $scope.modal_view_del_direct($scope.view.items[0]);
+            }
+        };
+    }();
 
     //添加/修改模态框唤起
     $('#modal_add').on("shown.bs.modal", function(){

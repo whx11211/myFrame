@@ -87,14 +87,13 @@
                 <h4 class="modal-title" id="modal_detail_title">{{ play.file_name }} [{{ play.file_size }}MB]</h4>
             </div>
             <div id="modal_detail_body" class="modal-body" style="height:{{modal_max_height}}px;">
-                <video id="modal_video" style="margin: auto;display: block; max-width:100%;max-height:100%;" src="{{video_url}}" controls="controls">
+                <video id="modal_video" touch-swipe="modal_play_obj.swipe(param_x)" style="margin: auto;display: block; max-width:100%;max-height:100%;" src="{{video_url}}" controls="controls">
                     {{langs.not_support}}
                 </video>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(-15)" title="{{langs.backward}}"><i class="fa fa-backward"></i></button>
-                <button data-ng-if="modal_play_obj.is_play" type="button" class="btn btn-primary" data-ng-click="modal_play_obj.pause()" title="{{langs.pause}}"><i class="fa fa-pause"></i></button>
-                <button data-ng-if="!modal_play_obj.is_play" type="button" class="btn btn-primary" data-ng-click="modal_play_obj.start()" title="{{langs.play}}"><i class="fa fa-play"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.toggle()" title="{{modal_play_obj.is_playing ? langs.pause : langs.play}}"><i class="fa {{modal_play_obj.is_playing ? 'fa-pause' : 'fa-play'}}"></i></button>
                 <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(15)" title="{{langs.forward}}"><i class="fa fa-forward"></i></button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
             </div>

@@ -49,6 +49,7 @@ function add($base_dir) {
     @$dir=opendir($base_dir);
 
     if ($dir !== false) {
+        show_msg("open_dir ", $base_dir);
         while($f=readdir($dir)) {
             if ($f == '.' || $f=='..') {
                 continue;
@@ -65,7 +66,8 @@ function add($base_dir) {
         closedir($dir);
     }
     else {
-        LogFile::addLog('无法打开文件夹', $base_dir, 'ffmpeg');
+        LogFile::addLog('open_dir_failed', $base_dir, 'image');
+        show_msg("open_dir_failed ", $base_dir);
     }
 }
 
@@ -99,6 +101,7 @@ function add_image($path) {
         }
         $detail['tags'] = implode(',', $image_tags);
         $image->insert($detail, 2);
+        show_msg('add_file ', $detail['file_name']);
 
     }
     return true;
@@ -110,6 +113,7 @@ function add_tag($base_dir) {
     @$dir=opendir($base_dir);
 
     if ($dir !== false) {
+        show_msg("open_dir ", $base_dir);
         while($f=readdir($dir)) {
             if ($f == '.' || $f=='..') {
                 continue;
@@ -123,6 +127,7 @@ function add_tag($base_dir) {
                         'create_time'=>date('Y-m-d H:i:s')
                     ];
                     $tag->insert($data, 2);
+                    show_msg('add_tag ', $f);
                 }
                 add_tag($path);
             }
@@ -130,6 +135,11 @@ function add_tag($base_dir) {
         closedir($dir);
     }
     else {
-        LogFile::addLog('无法打开文件夹', $base_dir, 'image');
+        LogFile::addLog('open_dir_failed', $base_dir, 'image');
+        show_msg("open_dir_failed ",$base_dir);
     }
+}
+
+function show_msg($type, $msg) {
+    echo getFormatDate() . "\t" . $type . "\t" . $msg . "\r\n";
 }
