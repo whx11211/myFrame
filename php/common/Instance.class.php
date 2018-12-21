@@ -29,10 +29,15 @@ class Instance
             return self::$instances[$table];
         }
         else {
-            $classname = ucfirst($table).'Model';
-            
-            if (class_exists($classname)) {
-                return self::$instances[$table] = new $classname();
+            $names = explode('_', $table);
+            $names[] = 'model';
+            $class_name = '';
+            foreach ($names as $name) {
+                $class_name .= ucfirst($name);
+            }
+
+            if (class_exists($class_name)) {
+                return self::$instances[$table] = new $class_name();
             }
             else {
                 return self::$instances[$table] = new Model($table);
@@ -54,10 +59,15 @@ class Instance
             return self::$instances[$pre.$table];
         }
         else {
-            $classname = ucfirst($table).'Movie';
-    
-            if (class_exists($classname)) {
-                return self::$instances[$pre.$table] = new $classname();
+            $names = explode('_', $table);
+            $names[] = 'movie';
+            $class_name = '';
+            foreach ($names as $name) {
+                $class_name .= ucfirst($name);
+            }
+
+            if (class_exists($class_name)) {
+                return self::$instances[$table] = new $class_name();
             }
             else {
                 return self::$instances[$pre.$table] = new Movie($table);
@@ -72,20 +82,25 @@ class Instance
      *
      * return 数据库实例
      */
-    public static function getVideo($table)
+    public static function getMedia($table)
     {
-        $pre = 'video_';
+        $pre = 'media_';
         if (isset(self::$instances[$pre.$table])) {
             return self::$instances[$pre.$table];
         }
         else {
-            $classname = ucfirst($table).'VIDEO';
+            $names = explode('_', $table);
+            $names[] = 'media';
+            $class_name = '';
+            foreach ($names as $name) {
+                $class_name .= ucfirst($name);
+            }
 
-            if (class_exists($classname)) {
-                return self::$instances[$pre.$table] = new $classname();
+            if (class_exists($class_name)) {
+                return self::$instances[$table] = new $class_name();
             }
             else {
-                return self::$instances[$pre.$table] = new Video($table);
+                return self::$instances[$pre.$table] = new Media($table);
             }
         }
     }

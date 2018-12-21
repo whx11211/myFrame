@@ -20,12 +20,12 @@ $image_exts = [
 $type = $argv[1];
 switch ($type) {
     case 'add':
-        $tag = Instance::getVideo('image_tag');
+        $tag = Instance::getMedia('image_tag');
         $tags = $tag->getAll() ?: [];
         if ($tags) {
             $tags = array_column($tags, 'tag_id', 'tag_name');
         }
-        $image = Instance::getVideo('image');
+        $image = Instance::getMedia('image');
         $images_index = $image->select('file_index')->getAll();
         if ($images_index) {
             $images_index = array_column($images_index, 'file_index');
@@ -33,7 +33,7 @@ switch ($type) {
         add(IMAGE_BASE_PATH);
         break;
     case 'add_tag':
-        $tag = Instance::getVideo('image_tag');
+        $tag = Instance::getMedia('image_tag');
         $tag_names = $tag->select('tag_name')->getAll() ?: [];
         if ($tag_names) {
             $tag_names = array_column($tag_names, 'tag_name');
@@ -96,11 +96,10 @@ function add_image($path) {
         foreach ($image_path_detail as $tag_name) {
             if (isset($tags[$tag_name])) {
                 $image_tags[] = $tags[$tag_name];
-                $tag->execSql('update image_tag set image_count=image_count+1 where tag_id=?', array($tags[$tag_name]));
             }
         }
         $detail['tags'] = implode(',', $image_tags);
-        $image->insert($detail, 2);
+        $image->insertByCondFromDb($detail, 2);
         show_msg('add_file ', $detail['file_name']);
 
     }
@@ -126,7 +125,7 @@ function add_tag($base_dir) {
                         'tag_name'  =>  $f,
                         'create_time'=>date('Y-m-d H:i:s')
                     ];
-                    $tag->insert($data, 2);
+                    $tag->insertByCondFromDb($data, 2);
                     show_msg('add_tag ', $f);
                 }
                 add_tag($path);

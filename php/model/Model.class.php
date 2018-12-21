@@ -167,6 +167,16 @@ class Model
                                 $tmp_execute[] = $vv[0];
                                 $tmp_execute[] = $vv[1];
                                 break;
+                            case 'in':
+                                $tmp_in_array = [];
+                                if (is_array($vv)) {
+                                    foreach ($vv as $vvv) {
+                                        $tmp_in_array[] = '?';
+                                        $tmp_execute[] = $vvv;
+                                    }
+                                }
+                                $tmp_array[] = "`$key` in (" . implode(',', $tmp_in_array) . ")";
+                                break;
                             case 'find_in_set':
                                 if (is_array($vv)) {
                                     foreach ($vv as $vvv) {
@@ -512,7 +522,7 @@ class Model
      * @param array $data 插入数组
      * @return int 插入的ID
      */
-    public function update($data, $where_key)
+    public function update($data, $cond_ary)
     {
         $tmp_array = array();
         foreach ($data as $key => $v) {
@@ -521,8 +531,9 @@ class Model
         $set = implode($tmp_array, ',');
         
         $tmp_array = array();
-        foreach ($where_key as $key => $v) {
-            $tmp_array[] = "`$key`=" . $this->db->quote($v);
+        foreach ($cond_ary as $key => $v) {
+            $tmp_array[] = "`$key`=:cond_{$key}";
+            $data["cond_{$key}"] = $v;
         }
         $cond = implode($tmp_array, ' AND ');
     
@@ -629,7 +640,6 @@ class Model
 
     public function __call($name, $arguments)
     {
-        echo $name;
         var_dump(call_user_func_array(array($this->db, $name), $arguments));
     }
 }

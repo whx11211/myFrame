@@ -24,8 +24,8 @@ class Load
         spl_autoload_register(array('Load', 'loadModel'));
         spl_autoload_register(array('Load', 'loadTool'));
         spl_autoload_register(array('Load', 'loadControl'));
-        spl_autoload_register(array('Load', 'movieControl'));
-        spl_autoload_register(array('Load', 'videoControl'));
+        spl_autoload_register(array('Load', 'loadMovieModel'));
+        spl_autoload_register(array('Load', 'loadMediaModel'));
     }
 
     /**
@@ -80,7 +80,7 @@ class Load
      *        类名
      * @return null
      */
-    public static function movieControl($class)
+    public static function loadMovieModel($class)
     {
         $path = MOVIE_PATH . $class . '.class.' . EXT;
         if (is_file($path)) {
@@ -95,9 +95,9 @@ class Load
      *        类名
      * @return null
      */
-    public static function videoControl($class)
+    public static function loadMediaModel($class)
     {
-        $path = VIDEO_PATH . $class . '.class.' . EXT;
+        $path = MEDIA_PATH . $class . '.class.' . EXT;
         if (is_file($path)) {
             include_once $path;
         }

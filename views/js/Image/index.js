@@ -119,6 +119,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
 
     if (typeof($rootScope.image_tags_conf) == 'undefined' || $rootScope.image_tags_conf_refresh == true) {
         $scope.get_tags_conf();
+        $rootScope.image_tags_conf_refresh = false;
     }
 	
     // ui-grid
@@ -150,7 +151,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
     		if (respone.data.r) {
     			$scope.data = respone.data.data;
     			for (var i in $scope.data.items) {
-                    $scope.data.items[i].tags = $scope.data.items[i].tags.split(',');
+                    $scope.data.items[i].tags = $scope.data.items[i].tags.length>0 ? $scope.data.items[i].tags.split(',') : [];
                 }
     			console_log($scope.data, '图片数据');
     			// 显示数据绑定
@@ -254,15 +255,17 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
     $scope.modal_max_height = parseInt(window.innerHeight - 170);
     $scope.refresh_data = false;
     $('#modal_view').on("hide.bs.modal", function(){
-        if ($scope.refresh_data) {
-            $scope.get_data();
+        var current_pag = Math.ceil($scope.view.page_current/$scope.data.items_per_page);
+        if ($scope.refresh_data || current_pag != $scope.data.page_current) {
+            $scope.get_data(current_pag);
         }
+        $scope.refresh_data = false;
     });
     $scope.modal_view = function (seq, type) {
         if (typeof(type) != 'undefined') {
             $scope.view_type = type;
         }
-        var post_data = { a:'view', page:seq, num:1 };
+        var post_data = { a:'view', page:seq, num:1 };console.log(angular.extend(post_data, $scope.search, $scope.orderby));
     	$http.post(api($scope.api_name), angular.extend(post_data, $scope.search, $scope.orderby)).then(function (respone) {
     		if (respone.data.r) {
     		    console_log(respone.data, '图片信息');
@@ -377,7 +380,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
                 }
             }
             else {
-                $rootScope.show_error(respone.data);
+                $rootScope.show_error(respone.data, $scope.modal_add);
             }
         });
     }

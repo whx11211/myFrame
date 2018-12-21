@@ -37,22 +37,13 @@ class ImageControl extends Control
 
         $search_tags = RemoteInfo::request('tags');
         if ($search_tags) {
-            $tag = Instance::getVideo('tag');
-            foreach ($search_tags as $id) {
-                $tag->execSql('update image_tag set search_count=search_count+1 where tag_id=?', array($id));
-            }
+            Instance::getMedia('image_tag')->increaseSearchCount($search_tags);
         }
 
         $select_ary = array('id', 'path','file_index', 'file_name', 'file_size', 'create_time', 'last_mod_time', 'last_view_time', 'view_count', 'tags', 'description');
     
-        $class = Instance::getVideo('image');
-        $data = $this->getPage($class, $select_ary, $where_arg ,true);
-        if ($data['items']) {
-            foreach ($data['items'] as &$v) {
-                $v['image_host_path'] = IMAGE_HOST . str_replace('\\', '/', substr($v['path'] . '\\' . $v['file_name'], strlen(IMAGE_URL_BASE_PATH)));
-            }
-        }
-        Output::success($data);
+        $class = Instance::getMedia('image');
+        $data = $this->getPage($class, $select_ary, $where_arg);
     }
     /**
      * 删除
@@ -64,20 +55,7 @@ class ImageControl extends Control
         );
         $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
         
-        $class = Instance::getVideo('image');
-        $image = $class->where($where_arg)->getRow();
-        if ($image === false) {
-            Output::fail(ErrorCode::FILE_NOT_EXISTS);
-        }
-
-        $old_tags = explode(',', $image['tags']);
-        if ($old_tags) {
-            $tag_model = Instance::getVideo('tag');
-            foreach ($old_tags as $t) {
-                $tag_model->execSql('update image_tag set image_count=image_count+1 where tag_id=?', array($t));
-            }
-        }
-        System::delFile($image['path'] . "\\" . $image['file_name']);
+        $class = Instance::getMedia('image');
 
         $this->del($class, $where_arg);
     }
@@ -91,7 +69,8 @@ class ImageControl extends Control
             'path'      =>  array("length", array(1, 1024), ErrorCode::PARAM_ERROR),
             'file_name' =>  array("length", array(1, 1024), ErrorCode::PARAM_ERROR),
             'description' =>  array("length", array(0, 10240), ErrorCode::PARAM_ERROR),
-            'duration'  =>  array("regex", 'double', ErrorCode::PARAM_ERROR, 'null_skip')
+            'duration'  =>  array("regex", 'double', ErrorCode::PARAM_ERROR, 'null_skip'),
+            'tags'      =>  array('transform', function($t){return implode(',', $t ?: []);}, ErrorCode::PARAM_ERROR)
         );
         $insert_args = RemoteInfo::getInsertFormArgs($form_add_conf);
 
@@ -100,43 +79,9 @@ class ImageControl extends Control
         );
         $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
 
-        $class = Instance::getVideo('image');
-        $class->beginTransaction();
-        $image = $class->where($where_arg)->getRow();
-        $has_new_tag = false;
-        $new_tags = RemoteInfo::request('tags');
-        if ($new_tags) {
-            $old_tags = explode(',', $image['tags']);
-            $tag_model = Instance::getVideo('tag');
-            foreach ($new_tags as $k => $t) {
-                if (!in_array($t, $old_tags)) {
-//                    if (!$tag_model->select('tag_id')->where(['tag_id'=>$t])->getOne()) {
-//                        //新标签
-//                        $tid = $tag_model->insert(['tag_name'=>$t, 'create_time'=>getFormatDate()]);
-//                        $new_tags[$k] = $t = $tid;
-//                        $has_new_tag = true;
-//                    }
-                    $tag_model->execSql('update image_tag set image_count=image_count+1 where tag_id=?', array($t));
-                }
-            }
-            foreach ($old_tags as $t) {
-                if (!in_array($t, $new_tags)) {
-                    $tag_model->execSql('update image_tag set image_count=image_count-1 where tag_id=?', array($t));
-                }
-            }
-            $insert_args['tags'] = implode(',', $new_tags);
-        }
-        if (($file_index = md5($insert_args['path']) . md5($insert_args['file_name'])) != $image['file_index']) {
-            $insert_args['file_index'] = $file_index;
-            $class->updateByCondFromDb($insert_args, $where_arg);
-            System::moveFile($image['path'] . "\\" . $image['file_name'], $insert_args['path'] . "\\" . $insert_args['file_name'], 0);
-        }
-        else {
-            $class->updateByCondFromDb($insert_args, $where_arg);
-        }
-        $class->commit();
+        $class = Instance::getMedia('image');
 
-        Output::success(['has_new_tag'=>$has_new_tag]);
+        $this->update($class, $insert_args, $where_arg);
 
     }
 
@@ -145,9 +90,7 @@ class ImageControl extends Control
      */
     private function _getTagsConf()
     {
-        $class = Instance::getVideo('image_tag');
-
-        Output::success($class->getAll());
+        Output::success(Instance::getMedia('image_tag')->getTagMap());
     }
 
     /**
@@ -164,7 +107,7 @@ class ImageControl extends Control
 
         $select_ary = array('id', 'path','file_index', 'file_name', 'file_size', 'create_time', 'last_mod_time', 'last_view_time', 'view_count', 'tags', 'description');
 
-        $class = Instance::getVideo('image');
+        $class = Instance::getMedia('image');
         $data = $this->getPage($class, $select_ary, $where_arg ,true);
         $image = $data['items'][0];
 
@@ -174,7 +117,7 @@ class ImageControl extends Control
             Output::fail(ErrorCode::IMAGE_PATH_ERROR);
         }
 
-        $class->execSql('update image set view_count=view_count+1,last_view_time=? where id=?', array(date('Y-m-d H:i:s'),$image['id']));
+        $class->setViewData($image['id']);
 
         $image['url_path'] = IMAGE_HOST . str_replace('\\', '/', substr($file_path, strlen(IMAGE_URL_BASE_PATH)));
 
@@ -221,7 +164,7 @@ class ImageControl extends Control
 
         $select_ary = array('*');
 
-        $class = Instance::getVideo('image_tag');
+        $class = Instance::getMedia('image_tag');
         $this->getPage($class, $select_ary, $where_arg);
     }
 
@@ -235,7 +178,7 @@ class ImageControl extends Control
         );
         $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
 
-        $class = Instance::getVideo('image_tag');
+        $class = Instance::getMedia('image_tag');
 
         $this->del($class, $where_arg);
     }
@@ -255,7 +198,7 @@ class ImageControl extends Control
         );
         $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
 
-        $class = Instance::getVideo('image_tag');
+        $class = Instance::getMedia('image_tag');
 
         $this->update($class, $mod_args, $where_arg);
     }
@@ -272,7 +215,7 @@ class ImageControl extends Control
         );
         $add_args = RemoteInfo::getInsertFormArgs($form_add_conf);
 
-        $class = Instance::getVideo('image_tag');
+        $class = Instance::getMedia('image_tag');
 
         $id = $class->insertByCondFromDb($add_args);
         $data['new_tag_id'] = $id;

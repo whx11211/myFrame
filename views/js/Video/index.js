@@ -126,6 +126,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
 
     if (typeof($rootScope.tags_conf) == 'undefined' || $rootScope.tags_conf_refresh == true) {
         $scope.get_tags_conf();
+        $rootScope.tags_conf_refresh = false;
     }
 	
     // ui-grid
@@ -158,7 +159,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     			$scope.data = respone.data.data;
     			for (var i in $scope.data.items) {
                     $scope.data.items[i].preview_image_path = 'images/ffmpeg/'+$scope.data.items[i].file_index+'.png';
-                    $scope.data.items[i].tags = $scope.data.items[i].tags.split(',');
+                    $scope.data.items[i].tags = $scope.data.items[i].tags.length>0 ? $scope.data.items[i].tags.split(',') : [];
                 }
     			console_log($scope.data, '视频数据');
     			// 显示数据绑定
@@ -367,7 +368,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                 }
             }
             else {
-                $rootScope.show_error(respone.data);
+                $rootScope.show_error(respone.data, $scope.modal_add);
             }
         });
     }

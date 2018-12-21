@@ -320,12 +320,27 @@ class Control
      * find_in_set格式化（查询条件）
      *
      * @param string $uri
-     * @return array(like=>uri%) || null
+     * @return array(find_in_set=>val) || null
      */
     public function findInSetFormat($val)
     {
         if ($val) {
             return array('find_in_set' => $val);
+        }
+
+        return null;
+    }
+
+    /**
+     * find_in_set格式化（查询条件）
+     *
+     * @param string $uri
+     * @return array(like=>array) || null
+     */
+    public function inFormat($val)
+    {
+        if ($val) {
+            return array('in' => $val);
         }
 
         return null;

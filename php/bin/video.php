@@ -18,16 +18,16 @@ $video_exts = [
 $type = $argv[1];
 switch ($type) {
     case 'check_ext':
-        $video = Instance::getVideo('video');
+        $video = Instance::getMedia('video');
         check_ext();
         break;
     case 'add':
-        $tag = Instance::getVideo('tag');
+        $tag = Instance::getMedia('video_tag');
         $tags = $tag->getAll() ?: [];
         if ($tags) {
             $tags = array_column($tags, 'tag_id', 'tag_name');
         }
-        $video = Instance::getVideo('video');
+        $video = Instance::getMedia('video');
         $videos_index = $video->select('file_index')->getAll();
         if ($videos_index) {
             $videos_index = array_column($videos_index, 'file_index');
@@ -35,7 +35,7 @@ switch ($type) {
         add(VIDEO_BASE_PATH);
         break;
     case 'add_tag':
-        $tag = Instance::getVideo('tag');
+        $tag = Instance::getMedia('video_tag');
         $tag_names = $tag->select('tag_name')->getAll() ?: [];
         if ($tag_names) {
             $tag_names = array_column($tag_names, 'tag_name');
@@ -110,16 +110,15 @@ function add_video($path) {
             foreach ($video_path_detail as $tag_name) {
                 if (isset($tags[$tag_name])) {
                     $video_tags[] = $tags[$tag_name];
-                    $tag->execSql('update tag set video_count=video_count+1 where tag_id=?', array($tags[$tag_name]));
                 }
             }
             $data['tags'] = implode(',', $video_tags);
-            $video->insert($data, 2);
+            $video->insertByCondFromDb($data, 2);
             show_msg("add_file ", $data['file_name']);
         }
         else {
-            LogFile::addLog('unkonwn_video', $path, 'video');
-            show_msg("unkonwn_video ", $data['file_name']);
+            LogFile::addLog('unknown_video', $path, 'video');
+            show_msg("unknown_video ", $data['file_name']);
         }
     }
     return true;
@@ -145,7 +144,7 @@ function add_tag($base_dir) {
                         'tag_name'  =>  $f,
                         'create_time'=>date('Y-m-d H:i:s')
                     ];
-                    $tag->insert($data, 2);
+                    $tag->insertByCondFromDb($data, 2);
                     show_msg('add_tag ', $f);
                 }
                 add_tag($path);
