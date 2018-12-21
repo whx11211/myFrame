@@ -14,7 +14,7 @@ abstract class System
     {
         @shell_exec('del "' . $file . '"');
         if (file_exists($file)) {
-            file_put_contents(LOG_PATH . 'system_fail.log', 'del "' . $file . '"' . "\r\n", FILE_APPEND);
+            file_put_contents(LOG_PATH . 'system_fail.log', 'del "' . $file . '"' . PHP_EOL, FILE_APPEND);
         }
         return true;
     }
@@ -26,7 +26,7 @@ abstract class System
         }
         @shell_exec('move "' . $file . '" "' . $new_file . '"');
         if (!file_exists($new_file) || file_exists($file)) {
-            file_put_contents(LOG_PATH . 'system_fail.log', 'move "' . $file . '" "' . $new_file . '"' . "\r\n", FILE_APPEND);
+            file_put_contents(LOG_PATH . 'system_fail.log', 'move "' . $file . '" "' . $new_file . '"' . PHP_EOL, FILE_APPEND);
         }
         return true;
     }

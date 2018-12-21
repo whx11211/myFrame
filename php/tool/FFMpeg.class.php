@@ -26,7 +26,7 @@ class FFMpeg {
                 self::$is_install = true;
             }
         }
-        echo FFMPEG_PATH.$command;
+
         return shell_exec(FFMPEG_PATH.$command);
     }
 

@@ -26,14 +26,13 @@ class LogFile
      * @param $dir 文件相对路径目录
      * @return int|false 写入的字节
      */
-    public static function addLog ($title, $msg, $filename='')
+    public static function addLog ($title, $msg, $filename='', $other_msg='')
     {
         $dir = date('Y-m').'/';
         //获取写入文件路径文件
         $path = self::getWriteFileName(LOG_PATH . $dir, $filename);
-        $fp = fopen($path, "a");
-        $wstring = self::getWriteString($title, $msg);
-        return fwrite($fp, $wstring);
+        $wstring = self::getWriteString($title, $msg, $other_msg);
+        file_put_contents($path, $wstring, FILE_APPEND);
     }
     
     /**
@@ -90,7 +89,7 @@ class LogFile
      * @param $msg string|array 记录的内网
      * @return string 写入的内容
      */
-    public static function getWriteString ($title, $msg)
+    public static function getWriteString ($title, $msg, $other_msg)
     {
         $tmp_arr = array (
             "[" . $title . "]",
@@ -107,7 +106,12 @@ class LogFile
         $tmp_arr[] = RemoteInfo::getIP();
         $tmp_arr[] = json_encode(RemoteInfo::request());
         
-        return implode("\t", $tmp_arr) . "\r\n";
+        $str = implode("\t", $tmp_arr) . PHP_EOL;
+        if ($other_msg) {
+            $str .= $other_msg . PHP_EOL;
+        }
+
+        return $str;
     }
 }
 

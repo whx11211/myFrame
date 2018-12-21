@@ -62,7 +62,7 @@ function check_ext() {
         echo 'OK';
     }
     else {
-        echo implode("\r\n", $arr);
+        echo implode(PHP_EOL, $arr);
     }
 }
 
@@ -160,5 +160,5 @@ function add_tag($base_dir) {
 
 
 function show_msg($type, $msg) {
-    echo getFormatDate() . "\t" . $type . "\t" . $msg . "\r\n";
+    echo getFormatDate() . "\t" . $type . "\t" . $msg . PHP_EOL;
 }
