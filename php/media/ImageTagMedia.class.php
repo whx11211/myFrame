@@ -75,7 +75,24 @@ class ImageTagMedia extends Media
 
     public function getTagMap()
     {
-        return $this->select('tag_id, tag_name')->getAll();
+        $data = $this->select('tag_id, tag_name, parent_id')->getAll() ?: [];
+        if (!function_exists('get_parents')) {
+            function get_parents($parent_id, $data, $parent_ids=[]) {
+                foreach ($data as $t) {
+                    if ($t['tag_id'] == $parent_id && !in_array($t['tag_id'], $parent_ids)) {
+                        $parent_ids[] = $parent_id;
+                        $parent_ids = get_parents($t['parent_id'], $data, $parent_ids);
+                    }
+                }
+                return $parent_ids;
+            }
+        }
+
+        foreach ($data as &$v) {
+            $v['parent_ids'] = get_parents($v['parent_id'], $data);
+        }
+
+        return $data;
     }
 }
 

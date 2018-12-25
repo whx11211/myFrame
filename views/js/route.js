@@ -120,6 +120,11 @@ app.config(['$routeProvider','$locationProvider',function ($routeProvider, $loca
 			deps:["$ocLazyLoad",function($ocLazyLoad){
 				return $ocLazyLoad.load("js/Video/tag.js");
 			}],
+            select2:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("lib/bower_components/select2/dist/js/select2.js").then(function(){
+                    return $ocLazyLoad.load('lib/bower_components/select2/dist/css/select2.css');
+                });
+            }],
 		}
 	})
 	.when('/Image/index',{
@@ -151,6 +156,11 @@ app.config(['$routeProvider','$locationProvider',function ($routeProvider, $loca
 			deps:["$ocLazyLoad",function($ocLazyLoad){
 				return $ocLazyLoad.load("js/Image/tag.js");
 			}],
+            select2:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("lib/bower_components/select2/dist/js/select2.js").then(function(){
+                    return $ocLazyLoad.load('lib/bower_components/select2/dist/css/select2.css');
+                });
+            }],
 		}
 	})
 	.when('/welcome',{

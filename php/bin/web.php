@@ -1,5 +1,4 @@
 <?php
-define('VLC_PLAYER_PATH', "C:\Program Files\VideoLAN\VLC\\vlc.exe");
 
 $url = $argv[1];
 
@@ -33,10 +32,7 @@ switch ($host) {
 }
 
 
-function vlc_play($f) {
-    if (!defined('VLC_PLAYER_PATH')) {
-        exit('VLC_PLAYER_PATH not defined!');
-    }
-    shell_exec('start "' . VLC_PLAYER_PATH . '" "' . $f . '"');
+function vlc_play($f) {echo 'start """' . $f . '"';
+    shell_exec('start "" "' . $f . '"');
 }
 

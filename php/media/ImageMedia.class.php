@@ -29,7 +29,7 @@ class ImageMedia extends Media
         $data = parent::getByCondFromDb($select_strings, $where_args, $page, $num, $orderby_args);
         if ($data['items']) {
             foreach ($data['items'] as &$v) {
-                $v['image_host_path'] = IMAGE_HOST . str_replace('\\', '/', substr($v['path'] . '\\' . $v['file_name'], strlen(IMAGE_URL_BASE_PATH)));
+                $v['image_host_path'] = IMAGE_HOST . str_replace(DIRECTORY_SEPARATOR, '/', substr($v['path'] . DIRECTORY_SEPARATOR . $v['file_name'], strlen(IMAGE_URL_BASE_PATH)));
             }
         }
 

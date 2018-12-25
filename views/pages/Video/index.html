@@ -60,7 +60,7 @@
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tags }}：</label>
                             <div class="col-sm-7">
                                 <select multiple class="form-control select2" tabindex="-1" id="search_tags_select2" data-ng-model="search.tags" style="width:100%">
-                                    <option data-ng-repeat="tag in tags_conf" value="{{ tag.tag_id }}" >
+                                    <option data-ng-repeat="tag in video_tags_conf" value="{{ tag.tag_id }}" >
                                         {{ tag.tag_name }}
                                     </option>
                                 </select>
@@ -87,15 +87,26 @@
                 <h4 class="modal-title" id="modal_detail_title">{{ play.file_name }} [{{ play.file_size }}MB]</h4>
             </div>
             <div id="modal_detail_body" class="modal-body" style="height:{{modal_max_height}}px;">
-                <video id="modal_video" touch-swipe="modal_play_obj.swipe(param_x)" style="margin: auto;display: block; max-width:100%;max-height:100%;" src="{{video_url}}" controls="controls">
+                <video id="modal_video" touch-swipe="modal_play_obj.swipe(param_x)" style="margin: auto;display: block; max-width:100%;max-height:100%;" src="{{video_url}}" data-ng-click="modal_play_obj.toggle()" >
                     {{langs.not_support}}
                 </video>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(-15)" title="{{langs.backward}}"><i class="fa fa-backward"></i></button>
-                <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.toggle()" title="{{modal_play_obj.is_playing ? langs.pause : langs.play}}"><i class="fa {{modal_play_obj.is_playing ? 'fa-pause' : 'fa-play'}}"></i></button>
-                <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(15)" title="{{langs.forward}}"><i class="fa fa-forward"></i></button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+                <div>
+                    <div class="col-sm-1 col-xs-2 text-center">{{play.played_time || 0}}</div>
+                    <div class="progress col-sm-10 col-xs-8" id="modal_progress" style="height:6px;margin:7px 0 7px 0;border-radius:2px;padding:0px;" data-ng-click="modal_play_obj.progress_jump()">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="40" style="width: {{play.progress || 0}}%; padding:0;">
+                        </div>
+                    </div>
+                    <div class="col-sm-1 col-xs-2 text-center">{{play.duration || 0}}</div>
+                </div>
+                <div style="clear:both"></div>
+                <div style="margin-top:7px;">
+                    <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(-15)" title="{{langs.backward}}"><i class="fa fa-backward"></i></button>
+                    <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.toggle()" title="{{modal_play_obj.is_playing ? langs.pause : langs.play}}"><i class="fa {{modal_play_obj.is_playing ? 'fa-pause' : 'fa-play'}}"></i></button>
+                    <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(15)" title="{{langs.forward}}"><i class="fa fa-forward"></i></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+                </div>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
@@ -103,7 +114,7 @@
 
 <!-- 模态框（图片） -->
 <div class="modal fade" id="modal_image" name="modal_image" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width: 65%;">
         <img style="margin: auto;display: block;max-width:100%;max-height:{{modal_max_height}}px" src="{{image_url}}"/>
     </div><!-- /.modal -->
 </div>
@@ -161,7 +172,7 @@
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tags }}：</label>
                             <div class="col-sm-7">
                                 <select multiple class="form-control" id="add_tags_select2" tabindex="-1" data-ng-model="add.tags" style="width:100%">
-                                    <option data-ng-repeat="tag in tags_conf" value="{{ tag.tag_id }}" >
+                                    <option data-ng-repeat="tag in video_tags_conf" value="{{ tag.tag_id }}" >
                                         {{ tag.tag_name }}
                                     </option>
                                 </select>

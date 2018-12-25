@@ -111,10 +111,6 @@ app.directive('touchSwipe',['$swipe',function($swipe){
                         var method = attr.touchLong;
                         scope.$apply(method.replace('param_t', deltaTime));
                     }
-                    else if (typeof(attr.touchClick) !== 'undefined') {
-                        console.log(this);
-                        scope.$apply(attr.touchClick);
-                    }
                 },
                 'cancel':function(coords){
                 }
@@ -153,7 +149,28 @@ app.directive('touchSwipe',['$swipe',function($swipe){
 }
 ]);
 
+//用法 {{ key | get_name_by_id:conf:key_name:val_name}}
+app.filter('get_name_by_id', function(){
+    return function(key, conf, key_name, val_name) {console.log(conf);
+        if (typeof(key_name) == 'undefined') {
+            if (typeof(val_name) == 'undefined') {
+                return conf[key];
+            }
+            else {
+                return conf[key][val_name];
+            }
+        }
+        else if (typeof(val_name) != 'undefined') {
+            for (var i in conf) {
+                if (conf[i][key_name] == key) {
+                    return conf[i][val_name];
+                }
+            }
+        }
 
+        return '';
+    };
+});
 app.filter('date2', function() { //可以注入依赖
     return function(text, format) {
     	if (text == 0) {

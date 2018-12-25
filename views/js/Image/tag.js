@@ -18,6 +18,24 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
     before.setDate(today.getDate()-29);
     $scope.add = {a:'add'};
 
+    $scope.get_tags_conf = function() {
+        $http.post(api('Image/index'), {a: 'getTagsConf'}).then(
+            function (respone) {
+                if (respone.data.r) {
+                    $rootScope.image_tags_conf = respone.data.data;
+                }
+                else {
+                    $rootScope.show_error(respone.data);
+                }
+            }
+        );
+    }
+
+    if (typeof($rootScope.image_tags_conf) == 'undefined' || $rootScope.image_tags_conf_refresh == true) {
+        $scope.get_tags_conf();
+        $rootScope.image_tags_conf_refresh = false;
+    }
+
     $scope.langs = $rootScope.langs;
     //加载语言包
     $http.post(lang($scope.api_name)).then(
@@ -27,7 +45,21 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
             $scope.gridOptions.columnDefs = [
                  $rootScope.ui_grid.get_seq(),
                  $rootScope.ui_grid.get('tag_id',false),
-                 $rootScope.ui_grid.get('tag_name'), 
+                 $rootScope.ui_grid.get('tag_name'),
+                {
+                    field: 'path',
+                    displayName: $scope.langs.path,
+                    minWidth: "300",
+                    visible:false,
+                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.path}}</div>'
+                },
+                {
+                    field: 'parent_id',
+                    displayName: $scope.langs.parent,
+                    minWidth: "80",
+                    visible:true,
+                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.parent_id | get_name_by_id:grid.appScope.image_tags_conf:"tag_id":"tag_name" }}</div>'
+                },
                  $rootScope.ui_grid.get('image_count'),
                  $rootScope.ui_grid.get('search_count'),
                 $rootScope.ui_grid.get('create_time', true, 130),
@@ -90,7 +122,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
         $http.post(api($scope.api_name), angular.extend(post_data, $scope.search,$scope.orderby)).then(function (respone) {
             if (respone.data.r) {
                 $scope.data = respone.data.data;
-                console_log($scope.data, '帖子数据');
+                console_log($scope.data, '图片标签数据');
                 // 显示数据绑定
                 $scope.ui_grid_style.height = (parseInt($scope.data.items.length) + 1)*30 + 2 + 'px';
                 $scope.gridOptions.data = $scope.data.items;
@@ -145,7 +177,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
     $scope.search_ext_load = function() {
         if (typeof($scope.search_ext_loaded) == 'undefined') {
 
-
+            $('#search_parent_select2').select2();
 
             $scope.search_ext_loaded = true;
         }
@@ -163,7 +195,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
         $http.post(api($scope.api_name), $scope.del).then(function (respone) {
             if (respone.data.r) {
                 $rootScope.show_success($scope.del.a, $scope.get_data);
-                $rootScope.image_tags_conf_refresh = true
+                $scope.get_tags_conf();
             }
             else {
                 $rootScope.show_error(respone.data);
@@ -186,6 +218,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
                 }
                 break;
         }
+        $scope.add_ext_load();
         $('#modal_add').modal('show');
     }
 
@@ -195,12 +228,28 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
         $http.post(api($scope.api_name), $scope.add).then(function (respone) {
             if (respone.data.r) {
                 $rootScope.show_success($scope.add.a, $scope.get_data);
-                $rootScope.image_tags_conf_refresh = true
+                $scope.add = {};
+                $scope.get_tags_conf();
             }
             else {
                 $rootScope.show_error(respone.data, $scope.modal_add);
             }
         });
     }
+
+    $scope.add_ext_load = function() {
+        if (typeof($scope.add_ext_loaded) == 'undefined') {
+
+            $('#add_parent_select2').select2();
+
+            $scope.add_ext_loaded = true;
+        }
+    }
+
+    $('#modal_add').on("shown.bs.modal", function(){
+        $('#add_parent_select2').select2({
+            //tags:true
+        });
+    });
 });
 

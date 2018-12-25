@@ -1,7 +1,7 @@
 {
-    "id":"视频ID",
+    "id":"图片ID",
     "path":"路径",
-    "file_name":"视频名",
+    "file_name":"图片名",
     "file_size":"大小",
     "duration":"时长",
     "description":"描述",

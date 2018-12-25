@@ -86,7 +86,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="modal_detail_title">{{ view.items[0].file_name }} [{{ view.items[0].file_size }}KB]</h4>
             </div>
-            <div id="modal_detail_body" class="modal-body" touch-long="modal_view_touch(param_t)" touch-click="modal_view_click()" style="height:{{modal_max_height}}px;">
+            <div id="modal_detail_body" class="modal-body" data-ng-click="modal_view_click()" style="height:{{modal_max_height}}px;">
                 <image id="modal_image" style="margin: auto;display: block; max-width:100%;max-height:100%" src="{{image_url}}" />
             </div>
             <div class="modal-footer">

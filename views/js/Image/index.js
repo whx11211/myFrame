@@ -40,7 +40,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
                 	 field: 'file_name',
                      displayName: $scope.langs.file_name,
                      minWidth: "200",
-                     cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal">{{row.entity.file_name}}</div>'
+                     cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;"">{{row.entity.file_name}}</div>'
                  },
                  {
                      field: 'image_host_path',
@@ -65,7 +65,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
                     displayName: $scope.langs.file_size,
                     minWidth: "60",
                     visible:true,
-                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.file_size}}<br/>KB</div>'
+                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.file_size}}&nbsp;KB</div>'
                  },
                  $rootScope.ui_grid.get('create_time', false, 130),
                  $rootScope.ui_grid.get('last_mod_time', false, 130),
@@ -265,7 +265,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
         if (typeof(type) != 'undefined') {
             $scope.view_type = type;
         }
-        var post_data = { a:'view', page:seq, num:1 };console.log(angular.extend(post_data, $scope.search, $scope.orderby));
+        var post_data = { a:'view', page:seq, num:1 };
     	$http.post(api($scope.api_name), angular.extend(post_data, $scope.search, $scope.orderby)).then(function (respone) {
     		if (respone.data.r) {
     		    console_log(respone.data, '图片信息');
@@ -317,7 +317,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
         });
     }
     $scope.modal_view_click = function () {
-        if (window.event.x > window.innerWidth/2) {
+        if (window.event.pageX > window.innerWidth/2) {
             $scope.modal_view_jump(1);
         }
         else {
@@ -363,7 +363,27 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
     $scope.add_ext_load = function() {
         if (typeof($scope.add_ext_loaded) == 'undefined') {
 
-            $('#add_tags_select2').select2();
+            $('#add_tags_select2').select2().on('select2:select', function(e){
+                var new_tag_id = e.params.data.id;
+                var new_tag = [];
+                for (var i in $scope.image_tags_conf) {
+                    if ($scope.image_tags_conf[i].tag_id == new_tag_id) {
+                        new_tag = $scope.image_tags_conf[i].parent_ids;
+                    }
+                }
+
+                if (new_tag.length>0) {
+                    for (var i in new_tag) {
+                        if ($scope.add.tags.indexOf(new_tag[i]) == -1) {
+                            $scope.add.tags.push(new_tag[i]);
+                        }
+                    }
+                }
+                $scope.$apply();
+                $(this).trigger('change');
+            }).on('select2:unselect', function(e){
+
+            });
 
             $scope.add_ext_loaded = true;
         }
@@ -392,9 +412,21 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
             if (respone.data.r) {
                 $scope.image_tags_conf = respone.data.data.new_conf;
                 $scope.add.tags.push(respone.data.data.new_tag_id);
-                $('#add_tags_select2').select2({
-                    //tags:true
-                });
+                var new_tag = [];
+                for (var i in $scope.image_tags_conf) {
+                    if ($scope.image_tags_conf[i].tag_id == respone.data.data.new_tag_id) {
+                        new_tag = $scope.image_tags_conf[i].parent_ids;
+                    }
+                }
+
+                if (new_tag.length>0) {
+                    for (var i in new_tag) {
+                        if ($scope.add.tags.indexOf(new_tag[i]) == -1) {
+                            $scope.add.tags.push(new_tag[i]);
+                        }
+                    }
+                }
+
                 $scope.add_tag = '';
             }
             else {

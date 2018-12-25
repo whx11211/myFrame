@@ -453,11 +453,11 @@ class Model
         }
         $sql = $st . $this->table . ' (' . $key . ') values (' . $val . ');';
         $rs = $this->db->prepare($sql);
-        $res = $rs->execute($data);
-    
+        $rs->execute($data);
+
         // 记录日志
         $this->addLog('INSERT', $sql, $data);
-    
+
         return $this->db->lastInsertId();
     }
     
@@ -602,9 +602,9 @@ class Model
      * @param array $where_args
      *        删除条件
      */
-    public function insertByCondFromDb($insert_values)
+    public function insertByCondFromDb($insert_values, $type=1)
     {
-        return $this->insert($insert_values);
+        return $this->insert($insert_values, $type);
     }
     
     /**

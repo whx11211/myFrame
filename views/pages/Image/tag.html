@@ -40,6 +40,20 @@
                                 <input type="text" class="form-control" id="search_tag_name" name="search_tag_name" data-ng-model="search.tag_name" placeholder="{{langs.like_query}}">
                             </div>
                         </div>
+
+                        <!-- parent_id -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.parent }}：</label>
+                            <div class="col-sm-7">
+                                <select class="form-control" id="search_parent_select2" tabindex="-1" data-ng-model="search.parent_id">
+                                    <option value="">{{langs.all}}</option>
+                                    <option data-ng-repeat="tag in image_tags_conf" value="{{ tag.tag_id }}" >
+                                        {{ tag.tag_name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
                 </form>
             </div>
@@ -57,7 +71,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="modal_search_title">{{ langs[add.a] }}</h4>
+                <h4 class="modal-title">{{ langs[add.a] }}</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" name="modal_search_form" novalidate="novalidate">
@@ -68,6 +82,26 @@
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tag_name }}：</label>
                             <div class="col-sm-7">
                                 <input type="text" class="form-control tooltip-show" id="add_tag_name" name="add_tag_name" data-ng-model="add.tag_name" data-toggle="tooltip" title="{{langs.tag_name_title}}" />
+                            </div>
+                        </div>
+
+                        <!-- path -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.path }}：</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control tooltip-show" data-ng-model="add.path" data-toggle="tooltip" title="{{langs.path}}" />
+                            </div>
+                        </div>
+
+                        <!-- parent_id -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.parent }}：</label>
+                            <div class="col-sm-7">
+                                <select class="form-control" id="add_parent_select2" tabindex="-1" data-ng-model="add.parent_id">
+                                    <option data-ng-repeat="tag in image_tags_conf" data-ng-if="tag.tag_id!=add.tag_id" value="{{ tag.tag_id }}" >
+                                        {{ tag.tag_name }}
+                                    </option>
+                                </select>
                             </div>
                         </div>
 

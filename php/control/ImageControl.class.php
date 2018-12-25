@@ -119,7 +119,7 @@ class ImageControl extends Control
 
         $class->setViewData($image['id']);
 
-        $image['url_path'] = IMAGE_HOST . str_replace('\\', '/', substr($file_path, strlen(IMAGE_URL_BASE_PATH)));
+        $image['url_path'] = IMAGE_HOST . str_replace(DIRECTORY_SEPARATOR, '/', substr($file_path, strlen(IMAGE_URL_BASE_PATH)));
 
         if (in_array(RemoteInfo::getIP(), ['127.0.0.1', '::1'])) {
             $image['file_path'] = $file_path;
@@ -159,6 +159,7 @@ class ImageControl extends Control
     {
         $form_cond_conf = array(
             'tag_name'      =>  array("transform", array($this, 'likeFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
+            'parent_id'     =>  array("regex", 'number', ErrorCode::PARAM_ERROR, 'null_skip'),
         );
         $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
 
@@ -189,7 +190,9 @@ class ImageControl extends Control
     private function _modTag()
     {
         $form_mod_conf = array(
-            'tag_name' =>  array("length", array(1, 32), ErrorCode::PARAM_ERROR),
+            'tag_name'  =>  array("length", array(1, 32), ErrorCode::PARAM_ERROR),
+            'path'      =>  array("length", array(0, 1024), ErrorCode::PARAM_ERROR),
+            'parent_id' =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
         );
         $mod_args = RemoteInfo::getInsertFormArgs($form_mod_conf);
 
@@ -217,10 +220,15 @@ class ImageControl extends Control
 
         $class = Instance::getMedia('image_tag');
 
-        $id = $class->insertByCondFromDb($add_args);
+        $id = $class->insertByCondFromDb($add_args, 2);
+
+        if (!$id) {
+            $id = $class->select('tag_id')->where(['tag_name'=>$add_args['tag_name']])->getOne();
+        }
+
         $data['new_tag_id'] = $id;
         if (RemoteInfo::request('getTagConf')) {
-            $data['new_conf'] = $class->getAll();
+            $data['new_conf'] = $class->getTagMap();
         }
 
         Output::success($data);

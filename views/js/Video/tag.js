@@ -18,6 +18,24 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
     before.setDate(today.getDate()-29);
     $scope.add = {a:'add'};
 
+    $scope.get_tags_conf = function() {
+        $http.post(api('Video/index'), {a: 'getTagsConf'}).then(
+            function (respone) {
+                if (respone.data.r) {
+                    $rootScope.video_tags_conf = respone.data.data;
+                }
+                else {
+                    $rootScope.show_error(respone.data);
+                }
+            }
+        );
+    }
+
+    if (typeof($rootScope.video_tags_conf) == 'undefined' || $rootScope.video_tags_conf_refresh == true) {
+        $scope.get_tags_conf();
+        $rootScope.video_tags_conf_refresh = false;
+    }
+
     $scope.langs = $rootScope.langs;
     //加载语言包
     $http.post(lang($scope.api_name)).then(
@@ -27,7 +45,21 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
             $scope.gridOptions.columnDefs = [
                  $rootScope.ui_grid.get_seq(),
                  $rootScope.ui_grid.get('tag_id',false),
-                 $rootScope.ui_grid.get('tag_name'), 
+                 $rootScope.ui_grid.get('tag_name'),
+                {
+                    field: 'path',
+                    displayName: $scope.langs.path,
+                    minWidth: "300",
+                    visible:false,
+                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.path}}</div>'
+                },
+                {
+                    field: 'parent_id',
+                    displayName: $scope.langs.parent,
+                    minWidth: "80",
+                    visible:true,
+                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.parent_id | get_name_by_id:grid.appScope.video_tags_conf:"tag_id":"tag_name" }}</div>'
+                },
                  $rootScope.ui_grid.get('video_count'), 
                  $rootScope.ui_grid.get('search_count'),
                 $rootScope.ui_grid.get('create_time', true, 130),
@@ -145,7 +177,7 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
     $scope.search_ext_load = function() {
         if (typeof($scope.search_ext_loaded) == 'undefined') {
 
-
+            $('#search_parent_select2').select2();
 
             $scope.search_ext_loaded = true;
         }
@@ -163,7 +195,7 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
         $http.post(api($scope.api_name), $scope.del).then(function (respone) {
             if (respone.data.r) {
                 $rootScope.show_success($scope.del.a, $scope.get_data);
-                $rootScope.tags_conf_refresh = true
+                $rootScope.video_tags_conf_refresh = true
             }
             else {
                 $rootScope.show_error(respone.data);
@@ -186,6 +218,7 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
                 }
                 break;
         }
+        $scope.add_ext_load();
         $('#modal_add').modal('show');
     }
 
@@ -195,12 +228,27 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
         $http.post(api($scope.api_name), $scope.add).then(function (respone) {
             if (respone.data.r) {
                 $rootScope.show_success($scope.add.a, $scope.get_data);
-                $rootScope.tags_conf_refresh = true
+                $rootScope.video_tags_conf_refresh = true
             }
             else {
                 $rootScope.show_error(respone.data, $scope.modal_add);
             }
         });
     }
+
+    $scope.add_ext_load = function() {
+        if (typeof($scope.add_ext_loaded) == 'undefined') {
+
+            $('#add_parent_select2').select2();
+
+            $scope.add_ext_loaded = true;
+        }
+    }
+
+    $('#modal_add').on("shown.bs.modal", function(){
+        $('#add_parent_select2').select2({
+            //tags:true
+        });
+    });
 });
 

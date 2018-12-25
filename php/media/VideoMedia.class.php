@@ -54,7 +54,7 @@ class VideoMedia extends Media
                 Instance::getMedia('video_tag')->decreaseCount($old_tags);
             }
             System::delFile($video['path'] . "\\" . $video['file_name']);
-            System::delFile(FFMPEG_IMAGE_PATH  . $video['file_index'] . '.png');
+            System::delFile(FFMPEG_IMAGE_PATH  . $video['id'] . '.png');
         }
 
         $this->commit();
@@ -89,7 +89,6 @@ class VideoMedia extends Media
         if (($file_index = md5($insert_args['path']) . md5($insert_args['file_name'])) != $video['file_index']) {
             $insert_args['file_index'] = $file_index;
             System::moveFile($video['path'] . "\\" . $video['file_name'], $insert_args['path'] . "\\" . $insert_args['file_name'], 0);
-            System::moveFile(FFMPEG_IMAGE_PATH  . $video['file_index'] . '.png', FFMPEG_IMAGE_PATH  . $insert_args['file_index'] . '.png');
         }
 
         $res = parent::updateByCondFromDb($insert_args, $where_arg);

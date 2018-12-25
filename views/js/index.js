@@ -1,4 +1,4 @@
-angular.module('myApp').controller('System/userInfo', function($scope, $rootScope, $http) {
+angular.module('myApp').controller('System/userInfo', function($scope, $rootScope, $http, $timeout) {
 	$scope.api_name = 'System/userInfo';
 
 	$scope.user = {};
@@ -131,6 +131,11 @@ angular.module('myApp').controller('System/userInfo', function($scope, $rootScop
 		$('#modal_success').off('hidden.bs.modal').on('hidden.bs.modal', callback);
 		$('#modal_success').modal();
 	}
+    $('#modal_success').on('shown.bs.modal', function(){
+        $timeout(function(){
+            $('#modal_success').modal('hide');
+        },150);
+    });
 	
 //	//调用 show 方法后触发
 //	$('#modal_pay_res').on('show.bs.modal', function () {

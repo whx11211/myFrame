@@ -4,5 +4,7 @@
     "video_count":"视频数量",
     "search_count":"搜索次数",
     "create_time":"创建时间",
+    "path":"路径",
+    "parent":"父标签",
     "test":""
 }

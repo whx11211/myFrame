@@ -50,7 +50,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                      cellTooltip: '111111',
                      cellTemplate: '<div class="ui-grid-cell-contents" data-ng-click="grid.appScope.show_image(row.entity.preview_image_path)"'
                      //+ ' data-toggle="tooltip" data-placement="auto" data-html="true" '
-                     //+ ' title="<img style=\'max-width:600px;max-height:500px;\' src=\'images/ffmpeg/{{row.entity.file_index}}.png\'//>" '
+                     //+ ' title="<img style=\'max-width:600px;max-height:500px;\' src=\'images/ffmpeg/{{row.entity.id}}.png\'//>" '
                      + '><img data-ng-src="{{row.entity.preview_image_path}}" style="max-height: 100%;max-width:100%;"/></div>'
                  },
                  {
@@ -65,14 +65,14 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                     displayName: $scope.langs.file_size,
                     minWidth: "60",
                     visible:true,
-                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.file_size}}<br/>MB</div>'
+                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.file_size}}&nbsp;MB</div>'
                  },
                  {
                     field: 'duration',
                     displayName: $scope.langs.duration,
                     minWidth: "60",
                     visible:true,
-                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.duration}}<br/>min</div>'
+                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.duration}}&nbsp;min</div>'
                  },
                  $rootScope.ui_grid.get('create_time', false, 130),
                  $rootScope.ui_grid.get('last_mod_time', false, 130),
@@ -115,7 +115,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
         $http.post(api($scope.api_name), {a: 'getTagsConf'}).then(
             function (respone) {
                 if (respone.data.r) {
-                    $rootScope.tags_conf = respone.data.data;
+                    $rootScope.video_tags_conf = respone.data.data;
                 }
                 else {
                     $rootScope.show_error(respone.data);
@@ -124,9 +124,9 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
         );
     }
 
-    if (typeof($rootScope.tags_conf) == 'undefined' || $rootScope.tags_conf_refresh == true) {
+    if (typeof($rootScope.video_tags_conf) == 'undefined' || $rootScope.video_tags_conf_refresh == true) {
         $scope.get_tags_conf();
-        $rootScope.tags_conf_refresh = false;
+        $rootScope.video_tags_conf_refresh = false;
     }
 	
     // ui-grid
@@ -158,7 +158,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     		if (respone.data.r) {
     			$scope.data = respone.data.data;
     			for (var i in $scope.data.items) {
-                    $scope.data.items[i].preview_image_path = 'images/ffmpeg/'+$scope.data.items[i].file_index+'.png';
+                    $scope.data.items[i].preview_image_path = 'images/ffmpeg/'+$scope.data.items[i].id+'.png';
                     $scope.data.items[i].tags = $scope.data.items[i].tags.length>0 ? $scope.data.items[i].tags.split(',') : [];
                 }
     			console_log($scope.data, '视频数据');
@@ -259,6 +259,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     $scope.modal_play_obj = {
         play_video_html_sel:document.getElementById('modal_video'),
         is_playing:false,
+        is_bind:false,
         is_paused:function() {
             return this.play_video_html_sel.paused;
         },
@@ -285,6 +286,34 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
         swipe:function(x) {
             var s = parseInt(x/10);
             this.jump(s);
+        },
+        progress_jump:function() {
+            var e = window.event;
+            var total_progress_width = $('#modal_progress').width();
+            var current_progress_width = e.layerX;
+            var current_time = this.play_video_html_sel.duration / total_progress_width * current_progress_width;
+            this.play_video_html_sel.currentTime = current_time;
+        },
+        init:function() {
+            $scope.play.played_time = '00:00';
+            var a = $scope.play.duration.split('.');
+            var min = a[0] > 9 ? a[0] : ('0' + a[0]);
+            var s = Math.round(($scope.play.duration - a[0])*60);
+            s = s >9 ? s : ('0'+s);
+            $scope.play.duration = min + ':' + s;
+            $scope.play.progress = 0;
+            if (!this.is_bind) {
+                this.play_video_html_sel.addEventListener('timeupdate',function() {
+                    var min = Math.floor(Math.round(this.currentTime) / 60);
+                    min = min > 9 ? min : ('0' + min);
+                    var s = Math.round(this.currentTime%60);
+                    s = s >9 ? s : ('0'+s);
+                    $scope.play.played_time = min + ':' + s;
+                    $scope.play.progress = this.currentTime/this.duration*100;
+                    $scope.$apply();
+                });
+                this.is_bind = true;
+            }
         }
     };
     //播放模态框
@@ -293,7 +322,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     });
     $scope.play = {};
     $scope.play_type = 1;
-    $scope.modal_max_height = parseInt(window.innerHeight - 170);
+    $scope.modal_max_height = parseInt(window.innerHeight - 190);
     $scope.modal_play = function (obj, type) {
         $scope.play = obj;
         $scope.play_type = type;
@@ -301,8 +330,11 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     		if (respone.data.r) {
     		    console_log(respone.data, '播放信息');
     		    if ($scope.play_type==1) {
+    		        if ($scope.video_url != respone.data.data.url_path) {
+                        $scope.modal_play_obj.init();
+                    }
                     $scope.video_url = respone.data.data.url_path;
-                    var url = 'video.html?video=' + encodeURIComponent($scope.video_url) + '&title=' + encodeURIComponent($scope.play.file_name) + '&poster=' + encodeURIComponent($scope.play.preview_image_path);
+                    //var url = 'video.html?video=' + encodeURIComponent($scope.video_url) + '&title=' + encodeURIComponent($scope.play.file_name) + '&poster=' + encodeURIComponent($scope.play.preview_image_path);
                     //window.open(url);
                      $('#modal_play').modal({
                          backdrop: "static",//点击空白处不关闭对话框
@@ -351,7 +383,27 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     $scope.add_ext_load = function() {
         if (typeof($scope.add_ext_loaded) == 'undefined') {
 
-            $('#add_tags_select2').select2();
+            $('#add_tags_select2').select2().on('select2:select', function(e){
+                var new_tag_id = e.params.data.id;
+                var new_tag=[];
+                for (var i in $scope.video_tags_conf) {
+                    if ($scope.video_tags_conf[i].tag_id == new_tag_id) {
+                        new_tag = $scope.video_tags_conf[i].parent_ids;
+                    }
+                }
+
+                if (new_tag.length>0) {
+                    for (var i in new_tag) {
+                        if ($scope.add.tags.indexOf(new_tag[i]) == -1) {
+                            $scope.add.tags.push(new_tag[i]);
+                        }
+                    }
+                }
+                $scope.$apply();
+                $(this).trigger('change');
+            }).on('select2:unselect', function(e){
+
+            });
 
             $scope.add_ext_loaded = true;
         }
@@ -378,11 +430,23 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
         var tag = $scope.add_tag;
         $http.post(api('Video/tag'), {a:'add',getTagConf:1,tag_name:tag}).then(function (respone) {
             if (respone.data.r) {
-                $scope.tags_conf = respone.data.data.new_conf;
+                $scope.video_tags_conf = respone.data.data.new_conf;
                 $scope.add.tags.push(respone.data.data.new_tag_id);
-                $('#add_tags_select2').select2({
-                    //tags:true
-                });
+
+                var new_tag = [];
+                for (var i in $scope.video_tags_conf) {
+                    if ($scope.video_tags_conf[i].tag_id == respone.data.data.new_tag_id) {
+                        new_tag = $scope.video_tags_conf[i].parent_ids;
+                    }
+                }
+                if (new_tag.length>0) {
+                    for (var i in new_tag) {
+                        if ($scope.add.tags.indexOf(new_tag[i]) == -1) {
+                            $scope.add.tags.push(new_tag[i]);
+                        }
+                    }
+                }
+                console.log($scope.add.tags);
                 $scope.add_tag = '';
             }
             else {
