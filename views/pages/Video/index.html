@@ -87,18 +87,20 @@
                 <h4 class="modal-title" id="modal_detail_title">{{ play.file_name }} [{{ play.file_size }}MB]</h4>
             </div>
             <div id="modal_detail_body" class="modal-body" style="height:{{modal_max_height}}px;">
-                <video id="modal_video" touch-swipe="modal_play_obj.swipe(param_x)" style="margin: auto;display: block; max-width:100%;max-height:100%;" src="{{video_url}}" data-ng-click="modal_play_obj.toggle()" >
+                <video id="modal_video" touch-swipe="modal_play_obj.swipe(param_x)" style="margin: auto;display: block; max-width:100%;max-height:100%;margin-top:{{play.margin_top}}px" src="{{video_url}}" data-ng-click="modal_play_obj.toggle()" >
                     {{langs.not_support}}
                 </video>
             </div>
             <div class="modal-footer">
                 <div>
-                    <div class="col-sm-1 col-xs-2 text-center">{{play.played_time || 0}}</div>
+                    <div class="col-sm-1 col-xs-2 text-center">{{play.played_time | minute_format}}</div>
                     <div class="progress col-sm-10 col-xs-8" id="modal_progress" style="height:6px;margin:7px 0 7px 0;border-radius:2px;padding:0px;" data-ng-click="modal_play_obj.progress_jump()">
                         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="40" style="width: {{play.progress || 0}}%; padding:0;">
                         </div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="40" style="width: {{play.load_progress || 0}}%; padding:0;background: #ddd;">
+                        </div>
                     </div>
-                    <div class="col-sm-1 col-xs-2 text-center">{{play.duration || 0}}</div>
+                    <div class="col-sm-1 col-xs-2 text-center">{{play.duration2 | minute_format}}</div>
                 </div>
                 <div style="clear:both"></div>
                 <div style="margin-top:7px;">
@@ -114,7 +116,7 @@
 
 <!-- 模态框（图片） -->
 <div class="modal fade" id="modal_image" name="modal_image" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" style="width: 65%;">
+    <div class="modal-dialog">
         <img style="margin: auto;display: block;max-width:100%;max-height:{{modal_max_height}}px" src="{{image_url}}"/>
     </div><!-- /.modal -->
 </div>

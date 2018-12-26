@@ -51,7 +51,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
                      cellTemplate: '<div class="ui-grid-cell-contents" data-ng-click="grid.appScope.show_image(row.entity.image_host_path)"'
                      //+ ' data-toggle="tooltip" data-placement="auto" data-html="true" '
                      //+ ' title="<img style=\'max-width:600px;max-height:500px;\' src=\'images/ffmpeg/{{row.entity.file_index}}.png\'//>" '
-                     + '><img data-ng-src="{{row.entity.image_host_path}}" style="max-height: 100%;max-width:100%;"/></div>'
+                     + '><img data-ng-src="{{row.entity.preview_image}}" style="max-height: 100%;max-width:100%;"/></div>'
                  },
                  {
                      field: 'description',
@@ -265,13 +265,14 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
         if (typeof(type) != 'undefined') {
             $scope.view_type = type;
         }
-        var post_data = { a:'view', page:seq, num:1 };
+        var post_data = { a:'view', page:seq, num:1 ,height:$scope.modal_max_height, width:parseInt(window.innerWidth*0.95)};
     	$http.post(api($scope.api_name), angular.extend(post_data, $scope.search, $scope.orderby)).then(function (respone) {
     		if (respone.data.r) {
     		    console_log(respone.data, '图片信息');
                 $scope.view = respone.data.data;
     		    if ($scope.view_type==1) {
-                    $scope.image_url = respone.data.data.items[0].url_path;
+                    $scope.image_data = respone.data.data.items[0].image_data;
+                    $scope.path_url = respone.data.data.items[0].path_url;
                      $('#modal_view').modal({
                          backdrop: "static",//点击空白处不关闭对话框
                          show: true

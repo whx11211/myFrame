@@ -105,6 +105,9 @@ class ImageControl extends Control
         );
         $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
 
+        $width = (int)RemoteInfo::request('width');
+        $height = (int)RemoteInfo::request('height');
+
         $select_ary = array('id', 'path','file_index', 'file_name', 'file_size', 'create_time', 'last_mod_time', 'last_view_time', 'view_count', 'tags', 'description');
 
         $class = Instance::getMedia('image');
@@ -120,6 +123,7 @@ class ImageControl extends Control
         $class->setViewData($image['id']);
 
         $image['url_path'] = IMAGE_HOST . str_replace(DIRECTORY_SEPARATOR, '/', substr($file_path, strlen(IMAGE_URL_BASE_PATH)));
+        $image['image_data'] = (new Image($image['path']))->base64EncodeImage($image['file_name'], $width, $height);
 
         if (in_array(RemoteInfo::getIP(), ['127.0.0.1', '::1'])) {
             $image['file_path'] = $file_path;

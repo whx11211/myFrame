@@ -35,13 +35,14 @@ switch ($type) {
         if ($videos_index) {
             $videos_index = array_column($videos_index, 'file_index');
         }
+        $image = new Image(FFMPEG_IMAGE_PATH);
         add([VIDEO_BASE_PATH]);
         break;
     case 'update_tag':
         update_tag([VIDEO_BASE_PATH]);
         break;
-    case 'move_image':
-        move_image();
+    case 'compress_image':
+        compress_image();
         break;
     default:
         echo 'param error!';
@@ -75,7 +76,7 @@ function add($paths) {
         @$dir=opendir($base_dir);
 
         if ($dir !== false) {
-            show_msg("open_dir ", $base_dir);
+            show_msg("open_dir", $base_dir);
             while($f=readdir($dir)) {
                 if ($f == '.' || $f=='..') {
                     continue;
@@ -100,7 +101,7 @@ function add($paths) {
 
 
 function add_video($path) {
-    global $video, $video_exts,$videos_index,$tags,$tag;
+    global $video, $video_exts,$videos_index,$tags,$tag,$image;
     $index = md5(dirname($path)).md5(substr($path, strlen(dirname($path))+1));
     if (in_array($index, $videos_index)) {
         return true;
@@ -143,7 +144,8 @@ function add_video($path) {
             }
             $data['tags'] = implode(',', $video_tags);
             $video_id = $video->insertByCondFromDb($data, 2);
-            System::moveFile(FFMPEG_IMAGE_PATH . $data['file_index'] . '.png', FFMPEG_IMAGE_PATH . $video_id . '.png');
+            $image->thumb($data['file_index']  . '.png', $video_id . '.png');
+            System::delFile(FFMPEG_IMAGE_PATH . $data['file_index'] . '.png');
             show_msg("add_file ", $data['file_name']);
         }
         else {
@@ -207,16 +209,23 @@ function update_tag($paths) {
     }
 }
 
-function move_image() {
+
+function compress_image() {
     $videos = Instance::getMedia('video')->select('file_index, id')->getAll();
 
+    $image = new Image(FFMPEG_IMAGE_PATH);
     foreach($videos as $video) {
-        System::moveFile(FFMPEG_IMAGE_PATH . $video['file_index'] . '.png', FFMPEG_IMAGE_PATH . $video['id'] . '.png');
+        $image->thumb($video['id'] . '.png');
+        echo $video['id'] . '.png' . "\r\n";
     }
 }
 
 
 function show_msg($type, $msg) {
+    if ($type == 'open_dir') {
+        return;
+    }
+
     $str = getFormatDate() . "\t" . $type . "\t" . $msg . PHP_EOL;
 
     if (RUNNING_LOG) {

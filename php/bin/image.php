@@ -52,7 +52,7 @@ function add($paths) {
         @$dir=opendir($base_dir);
 
         if ($dir !== false) {
-            show_msg("open_dir ", $base_dir);
+            show_msg("open_dir", $base_dir);
             while($f=readdir($dir)) {
                 if ($f == '.' || $f=='..') {
                     continue;
@@ -189,6 +189,10 @@ function update_tag($paths) {
 }
 
 function show_msg($type, $msg) {
+    if ($type == 'open_dir') {
+        return;
+    }
+
     $str = getFormatDate() . "\t" . $type . "\t" . $msg . PHP_EOL;
 
     if (RUNNING_LOG) {

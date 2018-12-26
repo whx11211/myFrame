@@ -10,9 +10,14 @@ ng-include后：
             <a data-ng-if="data.page_current==1" href="javascript:void(0)" title="{{langs.box_footer_page_first}}"><i class="fa fa-angle-double-left"></i></a>
             <a data-ng-if="data.page_current!=1" href="javascript:void(0)" title="{{langs.box_footer_page_first}}" data-ng-click="jump(1)"><i class="fa fa-angle-double-left"></i></a>
         </li>
+
+        <!-- 前3页 -->
+        <li data-ng-if="0 && data.page_current>3">
+            <a href="javascript:void(0)" data-ng-click="jump(data.page_current-3)">{{data.page_current-3}}</a>
+        </li>
         
         <!-- 前2页 -->
-        <li data-ng-if="data.page_current+1>data.page_total && data.page_current>2">
+        <li data-ng-if="data.page_current>2">
             <a href="javascript:void(0)" data-ng-click="jump(data.page_current-2)">{{data.page_current-2}}</a>
         </li>
         
@@ -32,8 +37,14 @@ ng-include后：
         </li>
         
         <!-- 后2页 -->
-        <li data-ng-if="data.page_current<=1 && data.page_current+2<=data.page_total">
+        <li data-ng-if="data.page_current+2<=data.page_total">
             <a href="javascript:void(0)" data-ng-click="jump(data.page_current+2)">{{data.page_current+2}}</a>
+        </li>
+
+
+        <!-- 后3页 -->
+        <li data-ng-if="0 && data.page_current+3<=data.page_total">
+            <a href="javascript:void(0)" data-ng-click="jump(data.page_current+3)">{{data.page_current+3}}</a>
         </li>
         
         <!-- 尾页 -->

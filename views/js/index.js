@@ -99,7 +99,7 @@ angular.module('myApp').controller('System/userInfo', function($scope, $rootScop
 
 	
 	//错误提示模态框
-	$rootScope.show_error = function (data, callback) {console.log(data);
+	$rootScope.show_error = function (data, callback) {
 		var tip = '';
 		if (typeof(data.error) != 'undefined') {
 			if (data.error == '1001') {

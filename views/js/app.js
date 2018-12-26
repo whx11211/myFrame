@@ -151,7 +151,7 @@ app.directive('touchSwipe',['$swipe',function($swipe){
 
 //用法 {{ key | get_name_by_id:conf:key_name:val_name}}
 app.filter('get_name_by_id', function(){
-    return function(key, conf, key_name, val_name) {console.log(conf);
+    return function(key, conf, key_name, val_name) {
         if (typeof(key_name) == 'undefined') {
             if (typeof(val_name) == 'undefined') {
                 return conf[key];
@@ -196,6 +196,19 @@ app.filter('date2', function() { //可以注入依赖
                 }
          }
         return format;
+    }
+});
+
+app.filter('minute_format', function() { //可以注入依赖
+    return function(text) {
+        if (typeof(text) == 'undefined') {
+            return '--:--';
+        }
+        var a = text.toString().split('.');
+        var min = a[0] > 9 ? a[0] : ('0' + a[0]);
+        var s = Math.round((text - a[0])*60);
+        s = s >9 ? s : ('0'+s);
+        return min + ':' + s;
     }
 });
 

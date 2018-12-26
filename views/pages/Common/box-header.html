@@ -1,7 +1,7 @@
 <!-- ng-include后，该文件里面的$scope是新建的，如果需要使用页面变量，应该使用$parent处理 -->
 <label>
     {{langs.box_header_show}}
-    <select name="page_len" class="inline" data-ng-model="$parent.length_select" data-ng-change="set_default_page_number($parent.length_select);jump($parent.go_page);">
+    <select name="page_len" class="inline" data-ng-model="$parent.length_select" data-ng-change="set_default_page_number($parent.length_select);jump(1);">
         <option data-ng-repeat="x in page_number" value="{{ x }}">{{ x }}</option>
     </select>
     {{langs.box_header_entries}}

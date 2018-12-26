@@ -48,7 +48,8 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                      enableSorting: false,
                      minWidth: "170",
                      cellTooltip: '111111',
-                     cellTemplate: '<div class="ui-grid-cell-contents" data-ng-click="grid.appScope.show_image(row.entity.preview_image_path)"'
+                     cellTemplate: '<div class="ui-grid-cell-contents" '
+                     //+ ' data-ng-click="grid.appScope.show_image(row.entity.preview_image_path)"'
                      //+ ' data-toggle="tooltip" data-placement="auto" data-html="true" '
                      //+ ' title="<img style=\'max-width:600px;max-height:500px;\' src=\'images/ffmpeg/{{row.entity.id}}.png\'//>" '
                      + '><img data-ng-src="{{row.entity.preview_image_path}}" style="max-height: 100%;max-width:100%;"/></div>'
@@ -72,7 +73,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                     displayName: $scope.langs.duration,
                     minWidth: "60",
                     visible:true,
-                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.duration}}&nbsp;min</div>'
+                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.duration | minute_format}}</div>'
                  },
                  $rootScope.ui_grid.get('create_time', false, 130),
                  $rootScope.ui_grid.get('last_mod_time', false, 130),
@@ -294,23 +295,46 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
             var current_time = this.play_video_html_sel.duration / total_progress_width * current_progress_width;
             this.play_video_html_sel.currentTime = current_time;
         },
+        update_progress:function() {
+            $scope.play.played_time = this.currentTime/60;
+            $scope.play.progress = this.currentTime/this.duration*100;
+            if (this.buffered.length>0) {
+                var load = this.buffered.end(this.buffered.length-1);
+                $scope.play.load_progress = (load - this.currentTime)/this.duration*100;
+            }
+            $scope.$apply();
+        },
         init:function() {
-            $scope.play.played_time = '00:00';
-            var a = $scope.play.duration.split('.');
-            var min = a[0] > 9 ? a[0] : ('0' + a[0]);
-            var s = Math.round(($scope.play.duration - a[0])*60);
-            s = s >9 ? s : ('0'+s);
-            $scope.play.duration = min + ':' + s;
+            $scope.play.played_time = 0;
             $scope.play.progress = 0;
+            $scope.play.load_progress = 0;
+            $scope.play.margin_top = 0;
+            $scope.play.margin_top_need_refuse = false;
+            $scope.play.duration2 = $scope.play.duration;
+            //this.play_video_html_sel.poster = 'images/ffmpeg/' + $scope.play.id + '.png';
             if (!this.is_bind) {
-                this.play_video_html_sel.addEventListener('timeupdate',function() {
-                    var min = Math.floor(Math.round(this.currentTime) / 60);
-                    min = min > 9 ? min : ('0' + min);
-                    var s = Math.round(this.currentTime%60);
-                    s = s >9 ? s : ('0'+s);
-                    $scope.play.played_time = min + ':' + s;
-                    $scope.play.progress = this.currentTime/this.duration*100;
+                this.play_video_html_sel.addEventListener('timeupdate',this.update_progress);
+                this.play_video_html_sel.addEventListener('progress',this.update_progress);
+                this.play_video_html_sel.addEventListener('loadedmetadata',function(){
+                    var sel = $('#modal_detail_body');
+                    if (sel.height() > 0 && sel.width() > 0) {
+                        var width = sel.width();
+                        var height = sel.height();
+                        if (this.videoWidth / this.videoHeight > width / height) {
+                            var video_height = width / this.videoWidth * this.videoHeight;
+                            $scope.play.margin_top = (height - video_height) / 2;
+                        }
+                        else if (this.videoHeight < height) {
+                            $scope.play.margin_top = (height - this.videoHeight) / 2;
+                        }
+                    }
+                    else {
+                        $scope.play.margin_top_need_refuse = true;
+                    }
                     $scope.$apply();
+                });
+                this.play_video_html_sel.addEventListener('error',function(){
+                    $rootScope.show_error($scope.langs.not_support);
                 });
                 this.is_bind = true;
             }
@@ -320,11 +344,28 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     $('#modal_play').on("hide.bs.modal", function(){
         $scope.modal_play_obj.pause();
     });
+    $('#modal_play').on("shown.bs.modal", function(){
+        var sel = $('#modal_detail_body');
+        var video_sel = $scope.modal_play_obj.play_video_html_sel;
+        if ($scope.play.margin_top_need_refuse && video_sel.videoWidth > 0 && video_sel.videoHeight > 0) {
+            var width = sel.width();
+            var height = sel.height();
+            if (video_sel.videoWidth / video_sel.videoHeight > width / height) {
+                var video_height = width / video_sel.videoWidth * video_sel.videoHeight;
+                $scope.play.margin_top = (height - video_height) / 2;
+                $scope.play.margin_top_need_refuse = false;
+            }
+            else if (video_sel.videoHeight < height) {
+                $scope.play.margin_top = (height - video_sel.videoHeight) / 2;
+                $scope.play.margin_top_need_refuse = false;
+            }
+        }
+    });
     $scope.play = {};
     $scope.play_type = 1;
     $scope.modal_max_height = parseInt(window.innerHeight - 190);
     $scope.modal_play = function (obj, type) {
-        $scope.play = obj;
+        angular.extend($scope.play, obj);
         $scope.play_type = type;
     	$http.post(api($scope.api_name), angular.extend({a:'play'}, obj)).then(function (respone) {
     		if (respone.data.r) {
