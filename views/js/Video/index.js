@@ -304,13 +304,31 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
             }
             $scope.$apply();
         },
+        volume_toggle:function() {
+            if (this.play_video_html_sel.muted) {
+                this.play_video_html_sel.muted = false;
+                $('#model_video_volume_switch').removeClass('glyphicon-volume-off').addClass('glyphicon-volume-up');
+            }
+            else {
+                this.play_video_html_sel.muted = true;
+                $('#model_video_volume_switch').removeClass('glyphicon-volume-up').addClass('glyphicon-volume-off');
+            }
+        },
+        volume_jump:function() {
+            var e = window.event;
+            var total_progress_width = $('#modal_volume_progress').width();
+            var current_progress_width = e.layerX;
+            var volume = current_progress_width / total_progress_width;
+            this.play_video_html_sel.volume = volume;
+        },
         init:function() {
             $scope.play.played_time = 0;
             $scope.play.progress = 0;
             $scope.play.load_progress = 0;
             $scope.play.margin_top = 0;
-            $scope.play.margin_top_need_refuse = false;
+            $scope.play.margin_top_need_refresh = false;
             $scope.play.duration2 = $scope.play.duration;
+            $('#modal_video_loading').show();
             //this.play_video_html_sel.poster = 'images/ffmpeg/' + $scope.play.id + '.png';
             if (!this.is_bind) {
                 this.play_video_html_sel.addEventListener('timeupdate',this.update_progress);
@@ -329,12 +347,28 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                         }
                     }
                     else {
-                        $scope.play.margin_top_need_refuse = true;
+                        $scope.play.margin_top_need_refresh = true;
                     }
                     $scope.$apply();
                 });
                 this.play_video_html_sel.addEventListener('error',function(){
                     $rootScope.show_error($scope.langs.not_support);
+                    $scope.$apply();
+                });
+                this.play_video_html_sel.addEventListener('ended',function(){
+                    $scope.modal_play_obj.is_playing = false;
+                    $scope.$apply();
+                });
+                this.play_video_html_sel.addEventListener('canplay',function(){
+                    $('#modal_video_loading').hide();
+                });
+                this.play_video_html_sel.addEventListener('volumechange',function(){
+                    if (!this.muted) {
+                        $('#modal_volume_progress_bar').css('width', this.volume*100+'%');
+                    }
+                    else {
+                        $('#modal_volume_progress_bar').css('width', '0%');
+                    }
                 });
                 this.is_bind = true;
             }
@@ -347,17 +381,19 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     $('#modal_play').on("shown.bs.modal", function(){
         var sel = $('#modal_detail_body');
         var video_sel = $scope.modal_play_obj.play_video_html_sel;
-        if ($scope.play.margin_top_need_refuse && video_sel.videoWidth > 0 && video_sel.videoHeight > 0) {
+        if ($scope.play.margin_top_need_refresh && video_sel.videoWidth > 0 && video_sel.videoHeight > 0) {
             var width = sel.width();
             var height = sel.height();
             if (video_sel.videoWidth / video_sel.videoHeight > width / height) {
                 var video_height = width / video_sel.videoWidth * video_sel.videoHeight;
                 $scope.play.margin_top = (height - video_height) / 2;
-                $scope.play.margin_top_need_refuse = false;
+                $scope.play.margin_top_need_refresh = false;
+                $scope.$apply();
             }
             else if (video_sel.videoHeight < height) {
                 $scope.play.margin_top = (height - video_sel.videoHeight) / 2;
-                $scope.play.margin_top_need_refuse = false;
+                $scope.play.margin_top_need_refresh = false;
+                $scope.$apply();
             }
         }
     });

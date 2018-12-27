@@ -227,7 +227,11 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
         $('#modal_add').modal('hide');
         $http.post(api($scope.api_name), $scope.add).then(function (respone) {
             if (respone.data.r) {
-                $rootScope.show_success($scope.add.a, $scope.get_data);
+                $rootScope.show_success($scope.add.a, function() {
+                    $scope.get_data();
+                    $scope.get_tags_conf();
+                });
+                $scope.add = {};
                 $rootScope.video_tags_conf_refresh = true
             }
             else {

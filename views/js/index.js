@@ -136,6 +136,17 @@ angular.module('myApp').controller('System/userInfo', function($scope, $rootScop
             $('#modal_success').modal('hide');
         },150);
     });
+
+    //加载中
+    $rootScope.show_loading = function () {
+        $('#modal_loading').modal({
+            //backdrop: "static",//点击空白处不关闭对话框
+            show: true
+        });
+    }
+    $rootScope.hide_loading = function () {
+        $('#modal_loading').modal('hide');
+    }
 	
 //	//调用 show 方法后触发
 //	$('#modal_pay_res').on('show.bs.modal', function () {

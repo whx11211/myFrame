@@ -28,6 +28,7 @@
     "success":"成功",
     "fail":"失败",
     "all":"全部",
+    "none":"无",
     "box_header_show":"每页显示",
     "box_header_entries":"条数据",
     "box_header_print_title":"打印",

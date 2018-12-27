@@ -217,7 +217,9 @@ class VideoControl extends Control
     {
         $form_add_conf = array(
             'tag_name' =>  array("length", array(1, 32), ErrorCode::PARAM_ERROR),
-            'create_time'=>  array("auto", 'getFormatDate', ErrorCode::PARAM_ERROR)
+            'create_time'=>  array("auto", 'getFormatDate', ErrorCode::PARAM_ERROR),
+            'path'      =>  array("length", array(0, 1024), ErrorCode::PARAM_ERROR),
+            'parent_id' =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
         );
         $add_args = RemoteInfo::getInsertFormArgs($form_add_conf);
 

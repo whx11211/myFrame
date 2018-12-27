@@ -87,9 +87,12 @@
                 <h4 class="modal-title" id="modal_detail_title">{{ play.file_name }} [{{ play.file_size }}MB]</h4>
             </div>
             <div id="modal_detail_body" class="modal-body" style="height:{{modal_max_height}}px;">
-                <video id="modal_video" touch-swipe="modal_play_obj.swipe(param_x)" style="margin: auto;display: block; max-width:100%;max-height:100%;margin-top:{{play.margin_top}}px" src="{{video_url}}" data-ng-click="modal_play_obj.toggle()" >
+                <video id="modal_video" touch-swipe="modal_play_obj.swipe(param_x)" style="margin: auto;display: block; max-width:100%;max-height:100%;margin-top:{{play.margin_top}}px;" src="{{video_url}}" data-ng-click="modal_play_obj.toggle()" >
                     {{langs.not_support}}
                 </video>
+                <div id="modal_video_loading" aria-hidden="true" style="position: absolute;top:{{(modal_max_height - 85) / 2}}px;width:100%;" align="center">
+                    <i class="fa fa-5x fa-spin fa-spinner text-gray"></i>
+                </div>
             </div>
             <div class="modal-footer">
                 <div>
@@ -104,6 +107,13 @@
                 </div>
                 <div style="clear:both"></div>
                 <div style="margin-top:7px;">
+                    <button type="button" class="btn btn-info" title="{{langs.volume}}" style="width:40px;" data-ng-click="modal_play_obj.volume_toggle()">
+                        <i id="model_video_volume_switch" class="glyphicon glyphicon-volume-up"></i>
+                    </button>
+                    <button class="btn progress" id="modal_volume_progress" style="width:80px;height:6px;margin:7px 0 7px 0;border-radius:2px;padding:0px; display: inline-block;" data-ng-click="modal_play_obj.volume_jump()">
+                        <div class="progress-bar progress-bar-info" id="modal_volume_progress_bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="40" style="width: 100%; padding:0;">
+                        </div>
+                    </button>
                     <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(-15)" title="{{langs.backward}}"><i class="fa fa-backward"></i></button>
                     <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.toggle()" title="{{modal_play_obj.is_playing ? langs.pause : langs.play}}"><i class="fa {{modal_play_obj.is_playing ? 'fa-pause' : 'fa-play'}}"></i></button>
                     <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(15)" title="{{langs.forward}}"><i class="fa fa-forward"></i></button>

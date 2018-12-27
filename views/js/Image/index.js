@@ -147,7 +147,9 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
             }
     	}
     	var post_data = { page:page, num:$scope.length_select };
+        $rootScope.show_loading();
     	$http.post(api($scope.api_name), angular.extend(post_data, $scope.search,$scope.orderby)).then(function (respone) {
+            $rootScope.hide_loading();
     		if (respone.data.r) {
     			$scope.data = respone.data.data;
     			for (var i in $scope.data.items) {
@@ -266,8 +268,10 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
             $scope.view_type = type;
         }
         var post_data = { a:'view', page:seq, num:1 ,height:$scope.modal_max_height, width:parseInt(window.innerWidth*0.95)};
+        $rootScope.show_loading();
     	$http.post(api($scope.api_name), angular.extend(post_data, $scope.search, $scope.orderby)).then(function (respone) {
     		if (respone.data.r) {
+                $rootScope.hide_loading();
     		    console_log(respone.data, '图片信息');
                 $scope.view = respone.data.data;
     		    if ($scope.view_type==1) {

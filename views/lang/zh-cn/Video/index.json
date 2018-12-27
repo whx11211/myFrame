@@ -17,6 +17,7 @@
     "pause":"暂停",
     "backward":"快退",
     "forward":"快进",
+    "volume":"音量",
     "add_tag":"新增标签",
     "open_dir":"打开文件夹",
     "play_type_2_error":"目前只支持本地播放",

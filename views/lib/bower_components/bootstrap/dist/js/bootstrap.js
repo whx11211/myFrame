@@ -954,6 +954,9 @@ if (typeof jQuery === 'undefined') {
   Modal.TRANSITION_DURATION = 300
   Modal.BACKDROP_TRANSITION_DURATION = 150
 
+  Modal.originalBodyPad = document.body.style.paddingRight || ''
+  Modal.shownCount = document.body.style.paddingRight || ''
+
   Modal.DEFAULTS = {
     backdrop: true,
     keyboard: true,
@@ -973,10 +976,13 @@ if (typeof jQuery === 'undefined') {
     if (this.isShown || e.isDefaultPrevented()) return
 
     this.isShown = true
+    Modal.shownCount++
 
-    this.checkScrollbar()
-    this.setScrollbar()
-    this.$body.addClass('modal-open')
+    if(Modal.shownCount==1) {
+        this.checkScrollbar()
+        this.setScrollbar()
+        this.$body.addClass('modal-open')
+    }
 
     this.escape()
     this.resize()
@@ -1032,6 +1038,7 @@ if (typeof jQuery === 'undefined') {
     if (!this.isShown || e.isDefaultPrevented()) return
 
     this.isShown = false
+    Modal.shownCount--
 
     this.escape()
     this.resize()
@@ -1086,9 +1093,11 @@ if (typeof jQuery === 'undefined') {
     var that = this
     this.$element.hide()
     this.backdrop(function () {
-      that.$body.removeClass('modal-open')
-      that.resetAdjustments()
-      that.resetScrollbar()
+      if (Modal.shownCount==0) {
+          that.$body.removeClass('modal-open')
+          that.resetAdjustments()
+          that.resetScrollbar()
+      }
       that.$element.trigger('hidden.bs.modal')
     })
   }
@@ -1184,12 +1193,12 @@ if (typeof jQuery === 'undefined') {
 
   Modal.prototype.setScrollbar = function () {
     var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
-    this.originalBodyPad = document.body.style.paddingRight || ''
+
     if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
   }
 
   Modal.prototype.resetScrollbar = function () {
-    this.$body.css('padding-right', this.originalBodyPad)
+    this.$body.css('padding-right', Modal.originalBodyPad)
   }
 
   Modal.prototype.measureScrollbar = function () { // thx walsh
