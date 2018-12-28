@@ -43,7 +43,26 @@ class ImageControl extends Control
         $select_ary = array('id', 'path','file_index', 'file_name', 'file_size', 'create_time', 'last_mod_time', 'last_view_time', 'view_count', 'tags', 'description');
     
         $class = Instance::getMedia('image');
-        $data = $this->getPage($class, $select_ary, $where_arg);
+        $data = $this->getPage($class, $select_ary, $where_arg, true);
+
+        if ($data['items']) {
+            list($ms , $s) = explode(' ', microtime());
+            foreach ($data['items'] as &$v) {
+                $v['image_host_path'] = IMAGE_HOST . str_replace(DIRECTORY_SEPARATOR, '/', substr($v['path'] . DIRECTORY_SEPARATOR . $v['file_name'], strlen(IMAGE_URL_BASE_PATH)));
+                if (file_exists($v['path'] . DIRECTORY_SEPARATOR . $v['file_name'])) {
+
+                    $image = new Image($v['path']);
+                    $v['preview_image'] = $image->base64EncodeImage($v['file_name']);
+                }
+                else {
+                    $v['preview_image'] = 'images/not_found.png';
+                }
+            }
+            list($ms2, $s2) = explode(' ', microtime());
+            $data['time'] = ($s2 - $s)*1000 + round(($ms2-$ms)*1000);
+        }
+
+        Output::success($data);
     }
     /**
      * 删除
@@ -122,8 +141,15 @@ class ImageControl extends Control
 
         $class->setViewData($image['id']);
 
-        $image['url_path'] = IMAGE_HOST . str_replace(DIRECTORY_SEPARATOR, '/', substr($file_path, strlen(IMAGE_URL_BASE_PATH)));
-        $image['image_data'] = (new Image($image['path']))->base64EncodeImage($image['file_name'], $width, $height);
+        $image['image_data'] = IMAGE_HOST . str_replace(DIRECTORY_SEPARATOR, '/', substr($file_path, strlen(IMAGE_URL_BASE_PATH)));
+
+//        if (file_exists($image['path'] . DIRECTORY_SEPARATOR . $image['file_name'])) {
+//            $image['image_data'] = (new Image($image['path']))->base64EncodeImage($image['file_name'], $width, $height);
+//        }
+//        else {
+//            $image['image_data'] = 'images/not_found.png';
+//        }
+
 
         if (in_array(RemoteInfo::getIP(), ['127.0.0.1', '::1'])) {
             $image['file_path'] = $file_path;
@@ -220,17 +246,17 @@ class ImageControl extends Control
             'tag_name' =>  array("length", array(1, 32), ErrorCode::PARAM_ERROR),
             'create_time'=>  array("auto", 'getFormatDate', ErrorCode::PARAM_ERROR),
             'path'      =>  array("length", array(0, 1024), ErrorCode::PARAM_ERROR),
-            'parent_id' =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
+            'parent_id' =>  array("int"),
         );
         $add_args = RemoteInfo::getInsertFormArgs($form_add_conf);
 
         $class = Instance::getMedia('image_tag');
 
-        $id = $class->insertByCondFromDb($add_args, 2);
-
+        $id = $class->select('tag_id')->where(['tag_name'=>$add_args['tag_name']])->getOne();
         if (!$id) {
-            $id = $class->select('tag_id')->where(['tag_name'=>$add_args['tag_name']])->getOne();
+            $id = $class->insertByCondFromDb($add_args, 2);
         }
+
 
         $data['new_tag_id'] = $id;
         if (RemoteInfo::request('getTagConf')) {

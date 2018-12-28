@@ -235,9 +235,9 @@ class Image {
         }
         /* 等比例缩放的算法 */
         if($imgInfo["width"]*$size["width"] > $imgInfo["height"] * $size["height"]){
-            $size["height"] = round($imgInfo["height"]*$size["width"]/$imgInfo["width"]);
-        }else{
             $size["width"] = round($imgInfo["width"]*$size["height"]/$imgInfo["height"]);
+        }else{
+            $size["height"] = round($imgInfo["height"]*$size["width"]/$imgInfo["width"]);
         }
 
         return $size;

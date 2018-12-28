@@ -271,12 +271,10 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
         $rootScope.show_loading();
     	$http.post(api($scope.api_name), angular.extend(post_data, $scope.search, $scope.orderby)).then(function (respone) {
     		if (respone.data.r) {
-                $rootScope.hide_loading();
     		    console_log(respone.data, '图片信息');
                 $scope.view = respone.data.data;
     		    if ($scope.view_type==1) {
                     $scope.image_data = respone.data.data.items[0].image_data;
-                    $scope.path_url = respone.data.data.items[0].path_url;
                      $('#modal_view').modal({
                          backdrop: "static",//点击空白处不关闭对话框
                          show: true
@@ -287,6 +285,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
                 }
     		}
     		else {
+                $rootScope.hide_loading();
     			$rootScope.show_error(respone.data);
     		}
     	});
@@ -340,6 +339,13 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
             }
         };
     }();
+    $('#modal_image').on('load', function(){
+        $rootScope.hide_loading();
+    }).on('error', function () {
+        $rootScope.hide_loading();
+        $scope.image_data = 'images/not_found.png';
+        $scope.$apply();
+    });
 
     //添加/修改模态框唤起
     $('#modal_add').on("shown.bs.modal", function(){

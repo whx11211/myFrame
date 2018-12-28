@@ -72,7 +72,7 @@
 
                 <p>
                   {{ langs.lastLoginTime }}
-                  <small>{{ user.lastLoginTime*1000 | date:"yyyy-MM-dd HH:mm:ss" }}</small>
+                  <small>{{ user.lastLoginTime | date2:"yyyy-MM-dd HH:mm:ss" }}</small>
                 </p>
               </li>
               <li class="user-footer">

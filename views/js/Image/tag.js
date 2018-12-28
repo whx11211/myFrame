@@ -12,6 +12,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
 
     //查询条件
     $scope.search = {};
+    $scope.orderby = {orderby:{tag_id:'desc'}};
     // ====时间范围初始化
     var today = new Date();
     var before = new Date();
@@ -46,13 +47,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
                  $rootScope.ui_grid.get_seq(),
                  $rootScope.ui_grid.get('tag_id',false),
                  $rootScope.ui_grid.get('tag_name'),
-                {
-                    field: 'path',
-                    displayName: $scope.langs.path,
-                    minWidth: "300",
-                    visible:false,
-                    cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope"  style="white-space:normal;word-break: break-all;">{{row.entity.path}}</div>'
-                },
+                 $rootScope.ui_grid.get('path', false, 300),
                 {
                     field: 'parent_id',
                     displayName: $scope.langs.parent,
@@ -149,7 +144,6 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
     // ====外部排序
     // ========开启
     $scope.gridOptions.useExternalSorting = true;
-    $scope.orderby = {};
     // ========事件处理
     $scope.sortChanged = function ( grid, sortColumns ) {
         $scope.orderby.orderby = {};
@@ -231,7 +225,9 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
                     $scope.get_data();
                     $scope.get_tags_conf();
                 });
-                $scope.add = {};
+                $scope.add.tag_name = '';
+                $scope.add.parent = 0;
+                $scope.add.path = '';
                 $scope.get_tags_conf();
             }
             else {

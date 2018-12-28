@@ -1,4 +1,4 @@
-#
+﻿#
 # Database "my_frame"
 #
 
@@ -89,3 +89,20 @@ CREATE TABLE `user` (
 #
 
 INSERT INTO `user` VALUES (1,'admin','92d9ea2abcbefbd549a110fd115e4875',1515721151,1),(2,'whx','cc57e350f2a2bb83e2da4bbf623aa045',1522215711,1),(12,'test','60474c9c10d7142b7508ce7a50acf414',1512388795,1);
+
+
+CREATE TABLE `toutiao_video` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` bigint(11) unsigned NOT NULL default '0',
+  `title` varchar(256) NOT NULL default '',
+  `video_play_count` int(11) unsigned NOT NULL default '0',
+  `comments_count` int(11) unsigned NOT NULL default '0',
+  `behot_time` int(11) unsigned NOT NULL default '0',
+  `is_feed_ad` tinyint(3) NOT NULL default '0',
+  `source` varchar(64) NOT NULL default '',
+  `video_id` varchar(64) NOT NULL DEFAULT '',
+  `video_duration_str` varchar(16) NOT NULL DEFAULT '',
+  `tag` varchar(16) NOT NULL DEFAULT '',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `group_id_idx` (`group_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;

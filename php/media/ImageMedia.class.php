@@ -16,27 +16,6 @@ class ImageMedia extends Media
      */
     protected $table = 'image';
 
-    /**
-     * @param string $select_strings
-     * @param array $where_args
-     * @param int $page
-     * @param int $num
-     * @param array $orderby_args
-     * @return array
-     */
-    public function getByCondFromDb($select_strings = '*', $where_args, $page = 1, $num = 10, $orderby_args = array())
-    {
-        $data = parent::getByCondFromDb($select_strings, $where_args, $page, $num, $orderby_args);
-        if ($data['items']) {
-            foreach ($data['items'] as &$v) {
-                $image = new Image($v['path']);
-                $v['image_host_path'] = IMAGE_HOST . str_replace(DIRECTORY_SEPARATOR, '/', substr($v['path'] . DIRECTORY_SEPARATOR . $v['file_name'], strlen(IMAGE_URL_BASE_PATH)));
-                $v['preview_image'] = $image->base64EncodeImage($v['file_name']);
-            }
-        }
-
-        return $data;
-    }
 
     /**
      * 插入

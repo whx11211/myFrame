@@ -26,7 +26,7 @@ switch ($type) {
         break;
     case 'add':
         $tag = Instance::getMedia('video_tag');
-        $tags = $tag->getAll() ?: [];
+        $tags = $tag->where("path !=''")->getAll() ?: [];
         if ($tags) {
             $tags = array_column($tags, 'tag_id', 'path');
         }
@@ -36,13 +36,22 @@ switch ($type) {
             $videos_index = array_column($videos_index, 'file_index');
         }
         $image = new Image(FFMPEG_IMAGE_PATH);
-        add([VIDEO_BASE_PATH]);
-        break;
-    case 'update_tag':
-        update_tag([VIDEO_BASE_PATH]);
-        break;
-    case 'compress_image':
-        compress_image();
+
+        if (isset($argv[2])) {
+            if (is_dir($argv[2])) {
+                add([$argv[2]]);
+            }
+            else if (file_exists($argv[2])) {
+                add_video($argv[2]);
+            }
+            else {
+                echo "dir or file not exists!";
+                exit;
+            }
+        }
+        else {
+            add([VIDEO_BASE_PATH]);
+        }
         break;
     default:
         echo 'param error!';

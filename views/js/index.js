@@ -1,7 +1,7 @@
 angular.module('myApp').controller('System/userInfo', function($scope, $rootScope, $http, $timeout) {
 	$scope.api_name = 'System/userInfo';
 
-	$scope.user = {};
+    $rootScope.user = {};
 	$http.post(api($scope.api_name)).then(function (respone) {
 		if (respone.data.r) {
             $rootScope.user = respone.data.data;

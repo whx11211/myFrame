@@ -29,6 +29,7 @@ class ErrorCode
     //文件不存在
     const FILE_NOT_EXISTS = 1301;
     const VIDEO_PATH_ERROR = 1302;
+    const IMAGE_PATH_ERROR = 1303;
 }
 
 ?>

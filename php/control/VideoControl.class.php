@@ -219,15 +219,15 @@ class VideoControl extends Control
             'tag_name' =>  array("length", array(1, 32), ErrorCode::PARAM_ERROR),
             'create_time'=>  array("auto", 'getFormatDate', ErrorCode::PARAM_ERROR),
             'path'      =>  array("length", array(0, 1024), ErrorCode::PARAM_ERROR),
-            'parent_id' =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
+            'parent_id' =>  array("int"),
         );
         $add_args = RemoteInfo::getInsertFormArgs($form_add_conf);
 
         $class = Instance::getMedia('video_tag');
 
-        $id = $class->insertByCondFromDb($add_args, 2);
+        $id = $class->select('tag_id')->where(['tag_name'=>$add_args['tag_name']])->getOne();
         if (!$id) {
-            $id = $class->select('tag_id')->where(['tag_name'=>$add_args['tag_name']])->getOne();
+            $id = $class->insertByCondFromDb($add_args, 2);
         }
 
         $data['new_tag_id'] = $id;

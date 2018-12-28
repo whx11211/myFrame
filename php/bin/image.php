@@ -25,7 +25,7 @@ $type = $argv[1];
 switch ($type) {
     case 'add':
         $tag = Instance::getMedia('image_tag');
-        $tags = $tag->getAll() ?: [];
+        $tags = $tag->where("path !=''")->getAll() ?: [];
         if ($tags) {
             $tags = array_column($tags, 'tag_id', 'path');
         }
@@ -34,11 +34,21 @@ switch ($type) {
         if ($images_index) {
             $images_index = array_column($images_index, 'file_index');
         }
-        add([IMAGE_BASE_PATH]);
-        break;
-    case 'update_tag':
-        update_tag([IMAGE_BASE_PATH]);
-        break;
+        if (isset($argv[2])) {
+            if (is_dir($argv[2])) {
+                add([$argv[2]]);
+            }
+            else if (file_exists($argv[2])) {
+                add_image($argv[2]);
+            }
+            else {
+                echo "dir or file not exists!";
+                exit;
+            }
+        }
+        else {
+            add([VIDEO_BASE_PATH]);
+        }
         break;
     default:
         echo 'param error!';
