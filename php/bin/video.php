@@ -26,7 +26,7 @@ switch ($type) {
         break;
     case 'add':
         $tag = Instance::getMedia('video_tag');
-        $tags = $tag->where("path !=''")->getAll() ?: [];
+        $tags = $tag->where("path != ''")->getAll() ?: [];
         if ($tags) {
             $tags = array_column($tags, 'tag_id', 'path');
         }

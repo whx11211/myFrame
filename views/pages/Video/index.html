@@ -87,10 +87,10 @@
                 <h4 class="modal-title" id="modal_detail_title">{{ play.file_name }} [{{ play.file_size }}MB]</h4>
             </div>
             <div id="modal_detail_body" class="modal-body" style="height:{{modal_max_height}}px;">
-                <video id="modal_video" touch-swipe="modal_play_obj.swipe(param_x)" style="margin: auto;display: block; max-width:100%;max-height:100%;margin-top:{{play.margin_top}}px;" src="{{video_url}}" data-ng-click="modal_play_obj.toggle()" >
+                <video id="modal_video" touch-swipe="modal_play_obj.swipe(param_x)" style="margin: auto;display: block; max-width:100%;max-height:100%;margin-top:{{play.margin_top}}px;" src="{{video_url}}" preload="auto" data-ng-click="modal_play_obj.toggle()" >
                     {{langs.not_support}}
                 </video>
-                <div id="modal_video_loading" aria-hidden="true" style="position: absolute;top:{{(modal_max_height - 85) / 2}}px;width:100%;" align="center">
+                <div id="modal_video_loading" aria-hidden="true" style="position: absolute;top:{{(modal_max_height - 85) / 2}}px;width:100%;display: none;" align="center">
                     <i class="fa fa-5x fa-spin fa-spinner text-gray"></i>
                 </div>
             </div>

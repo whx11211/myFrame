@@ -25,7 +25,7 @@ $type = $argv[1];
 switch ($type) {
     case 'add':
         $tag = Instance::getMedia('image_tag');
-        $tags = $tag->where("path !=''")->getAll() ?: [];
+        $tags = $tag->where("path != ''")->getAll() ?: [];
         if ($tags) {
             $tags = array_column($tags, 'tag_id', 'path');
         }

@@ -328,7 +328,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
             $scope.play.margin_top = 0;
             $scope.play.margin_top_need_refresh = false;
             $scope.play.duration2 = $scope.play.duration;
-            $('#modal_video_loading').show();
+            //$('#modal_video_loading').show();
             //this.play_video_html_sel.poster = 'images/ffmpeg/' + $scope.play.id + '.png';
             if (!this.is_bind) {
                 this.play_video_html_sel.addEventListener('timeupdate',this.update_progress);
@@ -352,6 +352,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                     $scope.$apply();
                 });
                 this.play_video_html_sel.addEventListener('error',function(){
+                    //$('#modal_video_loading').hide();
                     $rootScope.show_error($scope.langs.not_support);
                     $scope.$apply();
                 });
@@ -360,7 +361,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                     $scope.$apply();
                 });
                 this.play_video_html_sel.addEventListener('canplay',function(){
-                    $('#modal_video_loading').hide();
+                    //$('#modal_video_loading').hide();
                 });
                 this.play_video_html_sel.addEventListener('volumechange',function(){
                     if (!this.muted) {
