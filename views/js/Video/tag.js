@@ -47,7 +47,7 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
                  $rootScope.ui_grid.get_seq(),
                  $rootScope.ui_grid.get('tag_id',false),
                  $rootScope.ui_grid.get('tag_name'),
-                 $rootScope.ui_grid.get('path', true, 300),
+                 $rootScope.ui_grid.get('path', false, 300),
                 {
                     field: 'parent_id',
                     displayName: $scope.langs.parent,
