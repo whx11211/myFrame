@@ -29,8 +29,14 @@ class Image {
         }
         /* 获取图片宽度、高度、及类型信息 */
         $imgInfo = $this->getInfo($name);
+        if (!$imgInfo) {
+            return null;
+        }
         /* 获取背景图片的资源 */
         $srcImg = $this->getImg($name, $imgInfo);
+        if (!$srcImg) {
+            return null;
+        }
         /* 获取新图片尺寸 */
         $size = $this->getNewSize($name,$width, $height,$imgInfo);
         /* 获取新的图片资源 */
@@ -49,8 +55,14 @@ class Image {
     function base64EncodeImage ($name, $width=200, $height=100) {
         /* 获取图片宽度、高度、及类型信息 */
         $imgInfo = $this->getInfo($name);
+        if (!$imgInfo) {
+            return null;
+        }
         /* 获取背景图片的资源 */
         $srcImg = $this->getImg($name, $imgInfo);
+        if (!$srcImg) {
+            return null;
+        }
         /* 获取新图片尺寸 */
         $size = $this->getNewSize($name,$width, $height,$imgInfo);
         /* 获取新的图片资源 */
@@ -189,7 +201,10 @@ class Image {
     private function getInfo($name, $path=".") {
         $spath = $path=="." ? rtrim($this->path,DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR : $path.DIRECTORY_SEPARATOR;
 
-        $data = getimagesize($spath.$name);
+        $data = @getimagesize($spath.$name);
+        if (!$data) {
+            return null;
+        }
         $imgInfo["width"]  = $data[0];
         $imgInfo["height"] = $data[1];
         $imgInfo["type"]  = $data[2];
@@ -206,13 +221,13 @@ class Image {
 
         switch ($imgInfo["type"]) {
             case 1:         //gif
-                $img = imagecreatefromgif($srcPic);
+                $img = @imagecreatefromgif($srcPic);
                 break;
             case 2:         //jpg
-                $img = imagecreatefromjpeg($srcPic);
+                $img = @imagecreatefromjpeg($srcPic);
                 break;
             case 3:         //png
-                $img = imagecreatefrompng($srcPic);
+                $img = @imagecreatefrompng($srcPic);
                 break;
             default:
                 return false;
@@ -235,9 +250,9 @@ class Image {
         }
         /* 等比例缩放的算法 */
         if($imgInfo["width"]*$size["width"] > $imgInfo["height"] * $size["height"]){
-            $size["width"] = round($imgInfo["width"]*$size["height"]/$imgInfo["height"]);
-        }else{
             $size["height"] = round($imgInfo["height"]*$size["width"]/$imgInfo["width"]);
+        }else{
+            $size["width"] = round($imgInfo["width"]*$size["height"]/$imgInfo["height"]);
         }
 
         return $size;

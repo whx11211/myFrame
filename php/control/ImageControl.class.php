@@ -52,7 +52,7 @@ class ImageControl extends Control
                 if (file_exists($v['path'] . DIRECTORY_SEPARATOR . $v['file_name'])) {
 
                     $image = new Image($v['path']);
-                    $v['preview_image'] = $image->base64EncodeImage($v['file_name']);
+                    $v['preview_image'] = $image->base64EncodeImage($v['file_name']) ?: 'images/not_found.png';
                 }
                 else {
                     $v['preview_image'] = 'images/not_found.png';

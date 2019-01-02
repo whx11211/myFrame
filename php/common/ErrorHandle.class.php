@@ -35,6 +35,9 @@ class ErrorHandle
             }
             LogFile::addLog($errno, array(), 'php_error', $errormsg);
         }
+        if ($errno & E_NOTICE) {
+            return;
+        }
         OutPut::fail($errstr);
     }
     
