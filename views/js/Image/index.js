@@ -253,7 +253,9 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
 
     //播放模态框
     $scope.view = {};
+    $scope.view_next = null;
     $scope.view_type = 1;
+    $scope.seq = 0;
     $scope.modal_max_height = parseInt(window.innerHeight - 170);
     $scope.refresh_data = false;
     $('#modal_view').on("hide.bs.modal", function(){
@@ -262,13 +264,23 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
             $scope.get_data(current_pag);
         }
         $scope.refresh_data = false;
+        $scope.view_next = null;
     });
     $scope.modal_view = function (seq, type) {
         if (typeof(type) != 'undefined') {
             $scope.view_type = type;
         }
+        $scope.seq = seq;
         var post_data = { a:'view', page:seq, num:1 ,height:$scope.modal_max_height, width:parseInt(window.innerWidth*0.95)};
         $rootScope.show_loading();
+
+        if ($scope.view_next && seq>=$scope.view.page_current && $scope.view_type==1) {
+            $scope.view = $scope.view_next;
+            $scope.image_data = $scope.view.items[0].image_data;
+            $scope.view_next = null;
+            return;
+        }
+
     	$http.post(api($scope.api_name), angular.extend(post_data, $scope.search, $scope.orderby)).then(function (respone) {
             $rootScope.hide_loading();
     		if (respone.data.r) {
@@ -290,6 +302,17 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
     		}
     	});
     }
+    $scope.preload_view = function() {
+        var seq = $scope.seq + 1;
+        var post_data = { a:'view', page:seq, num:1 ,height:$scope.modal_max_height, width:parseInt(window.innerWidth*0.95)};
+        $http.post(api($scope.api_name), angular.extend(post_data, $scope.search, $scope.orderby)).then(function (respone) {
+            if (respone.data.r) {
+                console_log(respone.data, '预加载图片信息');
+                $scope.view_next = respone.data.data;
+                $scope.preload_img = respone.data.data.items[0].image_data;
+            }
+        });
+    }
     $scope.modal_view_jump = function(step) {
         var new_seq = $scope.view.page_current + step;
         if (new_seq < 1) {
@@ -308,6 +331,10 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
             if (respone.data.r) {
                 $scope.refresh_data = true;
                 $scope.view.page_total -= 1;
+                if ($scope.view_next) {
+                    $scope.view_next.page_total -= 1;
+                    $scope.view_next.page_current -= 1;
+                }
                 if ($scope.view.page_current > 1 && $scope.view.page_current > $scope.view.page_total) {
                     $scope.modal_view_jump(-1);
                 }
@@ -341,9 +368,12 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
     }();
     $('#modal_image').on('load', function(){
         $rootScope.hide_loading();
+        $scope.preload_view();
+        $scope.$apply();
     }).on('error', function () {
         $rootScope.hide_loading();
         $scope.image_data = 'images/not_found.png';
+        $scope.preload_view();
         $scope.$apply();
     });
 

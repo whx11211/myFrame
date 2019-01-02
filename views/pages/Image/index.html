@@ -90,6 +90,7 @@
                 <image id="modal_image" style="margin: auto;display: block; max-width:100%;max-height:100%" src="{{image_data}}" />
             </div>
             <div class="modal-footer">
+                <img preload data-ng-src="{{preload_img || 'images/not_found.png'}}" alt="alt" style="width:0px;height: 0px;" onerror="this.src='images/not_found.png'"/>
                 <button type="button" class="btn btn-danger" data-ng-click="modal_view_del_direct(view.items[0])" title="{{langs.del}}"><i class="fa fa-times"></i></button>
                 <button type="button" class="btn btn-primary" data-ng-click="modal_view_jump(-1)" title="{{langs.backword}}"><i class="fa fa-backward"></i></button>
                 <button type="button" class="btn btn-primary" data-ng-click="modal_view_jump(1)" title="{{langs.forward}}"><i class="fa fa-forward"></i></button>
