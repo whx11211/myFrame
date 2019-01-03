@@ -162,7 +162,7 @@ class SystemControl extends Control
         $Login = Instance::get('login');
         
         $form_cond_conf = array(
-            'loginIp'   =>  array("transform", array($this, 'ipFormat'), ErrorCode::PARAM_ERROR),
+            'loginIp'   =>  array("transform", array($this, 'likeFormat'), ErrorCode::PARAM_ERROR),
             'loginTime' =>  array("transform", array($this, 'betweenTimeFormat'), ErrorCode::PARAM_ERROR),
             'userId'    =>  array("int"),
         );

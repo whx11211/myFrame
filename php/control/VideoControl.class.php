@@ -31,6 +31,7 @@ class VideoControl extends Control
         $form_cond_conf = array(
             'tags'          =>  array("transform", array($this, 'findInSetFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
             'file_name'     =>  array("transform", array($this, 'likeFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
+            'path'          =>  array("transform", array($this, 'rightLikeFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
             'last_mod_time' =>  array("transform", array($this, 'betweenDateFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
         );
         $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);

@@ -270,21 +270,6 @@ class Control
 
         return null;
     }
-
-    /**
-     * ip格式化（查询条件）
-     * 
-     * @param string $ip        
-     * @return array(like=>%ip%) || null
-     */
-    public function ipFormat($ip)
-    {
-        if ($ip) {
-            return array('like' => '%' . $ip . '%');
-        }
-        
-        return null;
-    }
     
     /**
      * 模糊查询格式化（查询条件）
@@ -295,6 +280,7 @@ class Control
     public function likeFormat($val)
     {
         if ($val) {
+            $val = str_replace('\\', '\\\\', $val);
             return array('like' => '%' . $val . '%');
         }
     
@@ -302,14 +288,15 @@ class Control
     }
 
     /**
-     * uri格式化（查询条件）
+     * rightlike格式化（查询条件）
      * 
      * @param string $uri        
      * @return array(like=>uri%) || null
      */
-    public function uriFormat($uri)
+    public function rightLikeFormat($uri)
     {
         if ($uri) {
+            $uri = str_replace('\\', '\\\\', $uri);
             return array('like' => $uri . '%');
         }
         
