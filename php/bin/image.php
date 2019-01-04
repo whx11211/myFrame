@@ -47,7 +47,7 @@ switch ($type) {
             }
         }
         else {
-            add([VIDEO_BASE_PATH]);
+            add([IMAGE_BASE_PATH]);
         }
         break;
     default:

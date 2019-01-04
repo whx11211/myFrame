@@ -284,6 +284,9 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
         jump:function(s) {
             this.play_video_html_sel.currentTime += s;
         },
+        full_screen:function() {
+            this.play_video_html_sel.requestFullscreen();
+        },
         swipe:function(x) {
             var s = parseInt(x/10);
             this.jump(s);
