@@ -121,6 +121,7 @@ class ImageControl extends Control
         $form_cond_conf = array(
             'tags'          =>  array("transform", array($this, 'findInSetFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
             'file_name'     =>  array("transform", array($this, 'likeFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
+            'path'          =>  array("transform", array($this, 'rightLikeFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
             'last_mod_time' =>  array("transform", array($this, 'betweenDateFormat'), ErrorCode::PARAM_ERROR, 'null_skip'),
         );
         $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
@@ -142,7 +143,7 @@ class ImageControl extends Control
 
         $class->setViewData($image['id']);
 
-        $image['image_data'] = IMAGE_HOST . str_replace(DIRECTORY_SEPARATOR, '/', substr($file_path, strlen(IMAGE_URL_BASE_PATH)));
+        $image['image_data'] = IMAGE_HOST . str_replace(DIRECTORY_SEPARATOR, '/', url_path_format(substr($file_path, strlen(IMAGE_URL_BASE_PATH))));
 
 //        if (file_exists($image['path'] . DIRECTORY_SEPARATOR . $image['file_name'])) {
 //            $image['image_data'] = (new Image($image['path']))->base64EncodeImage($image['file_name'], $width, $height);
@@ -245,7 +246,7 @@ class ImageControl extends Control
     {
         $form_add_conf = array(
             'tag_name' =>  array("length", array(1, 32), ErrorCode::PARAM_ERROR),
-            'create_time'=>  array("auto", 'getFormatDate', ErrorCode::PARAM_ERROR),
+            'create_time'=>  array("auto", 'get_format_date', ErrorCode::PARAM_ERROR),
             'path'      =>  array("length", array(0, 1024), ErrorCode::PARAM_ERROR),
             'parent_id' =>  array("int"),
         );

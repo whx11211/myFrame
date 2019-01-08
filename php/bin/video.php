@@ -235,7 +235,7 @@ function show_msg($type, $msg) {
         return;
     }
 
-    $str = getFormatDate() . "\t" . $type . "\t" . $msg . PHP_EOL;
+    $str = get_format_date() . "\t" . $type . "\t" . $msg . PHP_EOL;
 
     if (RUNNING_LOG) {
         file_put_contents(LOG_PATH . 'video_running.log', $str, FILE_APPEND);

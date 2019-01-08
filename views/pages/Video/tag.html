@@ -53,9 +53,8 @@
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.parent }}：</label>
                             <div class="col-sm-7">
-                                <select class="form-control" id="search_parent_select2" tabindex="-1" data-ng-model="search.parent_id">
-                                    <option value="">{{langs.all}}</option>
-                                    <option data-ng-repeat="tag in video_tags_conf" value="{{ tag.tag_id }}" >
+                                <select class="form-control" id="search_parent_select2" tabindex="-1" data-ng-model="search.parent_id" style="width: 100%;">
+                                    <option data-ng-repeat="tag in video_tags_conf" value="{{ tag.tag_id }}" data-ng-pre-attr="{{ tag.pre_attr }}">
                                         {{ tag.tag_name }}
                                     </option>
                                 </select>
@@ -105,9 +104,8 @@
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.parent }}：</label>
                             <div class="col-sm-7">
                                 <select class="form-control" id="add_parent_select2" tabindex="-1" data-ng-model="add.parent_id">
-                                    <option value="0">{{langs.none}}</option>
-                                    <option data-ng-repeat="tag in video_tags_conf" data-ng-if="tag.tag_id!=add.tag_id" value="{{ tag.tag_id }}" >
-                                        {{ tag.tag_name }}
+                                    <option data-ng-repeat="tag in video_tags_conf" data-ng-if="tag.tag_id!=add.tag_id" value="{{ tag.tag_id }}"  data-ng-pre-attr="{{ tag.pre_attr }}" >
+                                       {{ tag.tag_name }}
                                     </option>
                                 </select>
                             </div>

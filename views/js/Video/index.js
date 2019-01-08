@@ -86,11 +86,11 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                 enableSorting: false,
                 minWidth: 100,
                 cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope">'
-                             + '<button data-ng-click="grid.appScope.modal_play(row.entity, 2)" class="btn btn-xs btn-primary btn-video"  title="{{grid.appScope.langs.detail}}"><i class="fa fa-television"></i></button>'
-                + '<button data-ng-click="grid.appScope.modal_play(row.entity, 1)" class="btn btn-xs btn-success btn-video"  title="{{grid.appScope.langs.detail}}"><i class="glyphicon glyphicon-eye-open"></i></button>'
-                + '<button data-ng-if="grid.appScope.user.is_local" data-ng-click="grid.appScope.open_dir(row.entity)" class="btn btn-xs btn-info btn-video"  title="{{grid.appScope.langs.open_dir}}"><i class="fa fa-folder-open-o"></i></button>'
-                + '<button data-ng-click="grid.appScope.modal_add(\'mod\',row.entity)" class="btn btn-xs btn-warning btn-video"  title="{{grid.appScope.langs.mod}}"><i class="fa fa-edit"></i></button>'
-                			 + '<button data-ng-click="grid.appScope.modal_del(row.entity)" class="btn btn-xs btn-danger btn-video"  title="{{grid.appScope.langs.del}}"><i class="fa fa-times"></i></button>'
+                             + '<button data-ng-click="grid.appScope.modal_play(row.entity, 2)" class="btn btn-xs btn-primary btn-oper"  title="{{grid.appScope.langs.local_play}}"><i class="fa fa-television"></i></button>'
+                + '<button data-ng-click="grid.appScope.modal_play(row.entity, 1)" class="btn btn-xs btn-success btn-oper"  title="{{grid.appScope.langs.html_play}}"><i class="glyphicon glyphicon-eye-open"></i></button>'
+                + '<button data-ng-if="grid.appScope.user.is_local" data-ng-click="grid.appScope.open_dir(row.entity)" class="btn btn-xs btn-info btn-oper"  title="{{grid.appScope.langs.open_dir}}"><i class="fa fa-folder-open-o"></i></button>'
+                + '<button data-ng-click="grid.appScope.modal_add(\'mod\',row.entity)" class="btn btn-xs btn-warning btn-oper"  title="{{grid.appScope.langs.mod}}"><i class="fa fa-edit"></i></button>'
+                			 + '<button data-ng-click="grid.appScope.modal_del(row.entity)" class="btn btn-xs btn-danger btn-oper"  title="{{grid.appScope.langs.del}}"><i class="fa fa-times"></i></button>'
                 			 + '</div><a></a>'
             });
             
@@ -285,7 +285,14 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
             this.play_video_html_sel.currentTime += s;
         },
         full_screen:function() {
-            this.play_video_html_sel.requestFullscreen();
+            var ele = this.play_video_html_sel;
+            if (ele.requestFullscreen) {
+                ele.requestFullscreen();
+            } else if (ele.mozRequestFullScreen) {
+                ele.mozRequestFullScreen();
+            } else if (ele.webkitRequestFullScreen) {
+                ele.webkitRequestFullScreen();
+            }
         },
         swipe:function(x) {
             var s = parseInt(x/10);
@@ -328,8 +335,6 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
             $scope.play.played_time = 0;
             $scope.play.progress = 0;
             $scope.play.load_progress = 0;
-            $scope.play.margin_top = 0;
-            $scope.play.margin_top_need_refresh = false;
             $scope.play.duration2 = $scope.play.duration;
             //$('#modal_video_loading').show();
             //this.play_video_html_sel.poster = 'images/ffmpeg/' + $scope.play.id + '.png';
@@ -337,22 +342,6 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                 this.play_video_html_sel.addEventListener('timeupdate',this.update_progress);
                 this.play_video_html_sel.addEventListener('progress',this.update_progress);
                 this.play_video_html_sel.addEventListener('loadedmetadata',function(){
-                    var sel = $('#modal_detail_body');
-                    if (sel.height() > 0 && sel.width() > 0) {
-                        var width = sel.width();
-                        var height = sel.height();
-                        if (this.videoWidth / this.videoHeight > width / height) {
-                            var video_height = width / this.videoWidth * this.videoHeight;
-                            $scope.play.margin_top = (height - video_height) / 2;
-                        }
-                        else if (this.videoHeight < height) {
-                            $scope.play.margin_top = (height - this.videoHeight) / 2;
-                        }
-                    }
-                    else {
-                        $scope.play.margin_top_need_refresh = true;
-                    }
-                    $scope.$apply();
                 });
                 this.play_video_html_sel.addEventListener('error',function(){
                     //$('#modal_video_loading').hide();
@@ -383,27 +372,14 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
         $scope.modal_play_obj.pause();
     });
     $('#modal_play').on("shown.bs.modal", function(){
-        var sel = $('#modal_detail_body');
-        var video_sel = $scope.modal_play_obj.play_video_html_sel;
-        if ($scope.play.margin_top_need_refresh && video_sel.videoWidth > 0 && video_sel.videoHeight > 0) {
-            var width = sel.width();
-            var height = sel.height();
-            if (video_sel.videoWidth / video_sel.videoHeight > width / height) {
-                var video_height = width / video_sel.videoWidth * video_sel.videoHeight;
-                $scope.play.margin_top = (height - video_height) / 2;
-                $scope.play.margin_top_need_refresh = false;
-                $scope.$apply();
-            }
-            else if (video_sel.videoHeight < height) {
-                $scope.play.margin_top = (height - video_sel.videoHeight) / 2;
-                $scope.play.margin_top_need_refresh = false;
-                $scope.$apply();
-            }
-        }
     });
     $scope.play = {};
     $scope.play_type = 1;
     $scope.modal_max_height = parseInt(window.innerHeight - 190);
+    $scope.modal_max_height_reset = function(){
+        $scope.modal_max_height = parseInt(window.innerWidth - 190);
+    }
+    window.onorientationchange = $scope.modal_max_height_reset;
     $scope.modal_play = function (obj, type) {
         angular.extend($scope.play, obj);
         $scope.play_type = type;
@@ -480,8 +456,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                         }
                     }
                 }
-                $scope.$apply();
-                $(this).trigger('change');
+                $(this).val($scope.add.tags).trigger('change');
             }).on('select2:unselect', function(e){
 
             });

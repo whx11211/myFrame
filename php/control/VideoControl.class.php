@@ -114,7 +114,7 @@ class VideoControl extends Control
 
         $class->setViewData($where_arg['id']);
 
-        $data['url_path'] = VIDEO_HOST . str_replace(DIRECTORY_SEPARATOR, '/', substr($file_path, strlen(VIDEO_URL_BASE_PATH)));
+        $data['url_path'] = VIDEO_HOST . str_replace(DIRECTORY_SEPARATOR, '/', url_path_format(substr($file_path, strlen(VIDEO_URL_BASE_PATH))));
 
         if (in_array(RemoteInfo::getIP(), ['127.0.0.1', '::1'])) {
             $data['vlc_play'] = 'webbin://vlcplay/?f=' . urlencode($file_path);
@@ -218,7 +218,7 @@ class VideoControl extends Control
     {
         $form_add_conf = array(
             'tag_name' =>  array("length", array(1, 32), ErrorCode::PARAM_ERROR),
-            'create_time'=>  array("auto", 'getFormatDate', ErrorCode::PARAM_ERROR),
+            'create_time'=>  array("auto", 'get_format_date', ErrorCode::PARAM_ERROR),
             'path'      =>  array("length", array(0, 1024), ErrorCode::PARAM_ERROR),
             'parent_id' =>  array("int"),
         );

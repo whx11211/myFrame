@@ -36,9 +36,7 @@
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.file_name }}：</label>
                             <div class="col-sm-7">
-                                <div class="input-group">
-                                    <input type="text" class="form-control pull-left" data-ng-model="search.file_name">
-                                </div>
+                                <input type="text" class="form-control pull-left" data-ng-model="search.file_name">
                             </div>
                         </div>
 
@@ -46,9 +44,7 @@
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.path }}：</label>
                             <div class="col-sm-7">
-                                <div class="input-group">
-                                    <input type="text" class="form-control pull-left" data-ng-model="search.path">
-                                </div>
+                                <input type="text" class="form-control pull-left" data-ng-model="search.path">
                             </div>
                         </div>
 
@@ -56,9 +52,7 @@
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.last_mod_time }}：</label>
                             <div class="col-sm-7">
-                                <div class="input-group">
-                                    <input type="text" class="form-control pull-left" id="search_last_mod_time" name="search_last_mod_time" data-ng-model="search.last_mod_time">
-                                </div>
+                                <input type="text" class="form-control pull-left" id="search_last_mod_time" name="search_last_mod_time" data-ng-model="search.last_mod_time">
                             </div>
                         </div>
                         
@@ -67,7 +61,7 @@
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tags }}：</label>
                             <div class="col-sm-7">
                                 <select multiple class="form-control select2" tabindex="-1" id="search_tags_select2" data-ng-model="search.tags" style="width:100%">
-                                    <option data-ng-repeat="tag in image_tags_conf" value="{{ tag.tag_id }}" >
+                                    <option data-ng-repeat="tag in image_tags_conf" value="{{ tag.tag_id }}" data-ng-pre-attr="{{ tag.pre_attr }}">
                                         {{ tag.tag_name }}
                                     </option>
                                 </select>
@@ -93,8 +87,8 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="modal_detail_title">{{ view.items[0].file_name }} [{{ view.items[0].file_size }}KB]</h4>
             </div>
-            <div id="modal_detail_body" class="modal-body" data-ng-click="modal_view_click()" style="height:{{modal_max_height}}px;">
-                <image id="modal_image" style="margin: auto;display: block; max-width:100%;max-height:100%" src="{{image_data}}" />
+            <div id="modal_detail_body" class="modal-body center" data-ng-click="modal_view_click()" style="height:{{modal_max_height}}px;">
+                <image id="modal_image" class="container" src="{{image_data}}" />
             </div>
             <div class="modal-footer">
                 <img preload data-ng-src="{{preload_img || 'images/not_found.png'}}" alt="alt" style="width:0px;height: 0px;" onerror="this.src='images/not_found.png'"/>
@@ -151,7 +145,7 @@
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.tags }}：</label>
                             <div class="col-sm-7">
                                 <select multiple class="form-control" id="add_tags_select2" tabindex="-1" data-ng-model="add.tags" style="width:100%">
-                                    <option data-ng-repeat="tag in image_tags_conf" value="{{ tag.tag_id }}" >
+                                    <option data-ng-repeat="tag in image_tags_conf" value="{{ tag.tag_id }}" data-ng-pre-attr="{{ tag.pre_attr }}">
                                         {{ tag.tag_name }}
                                     </option>
                                 </select>

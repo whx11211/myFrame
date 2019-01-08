@@ -75,24 +75,35 @@ class VideoTagMedia extends Media
 
     public function getTagMap()
     {
-        $data = $this->select('tag_id, tag_name, parent_id')->getAll() ?: [];
-        if (!function_exists('get_parents')) {
-            function get_parents($parent_id, $data, $parent_ids=[]) {
-                foreach ($data as $t) {
-                    if ($t['tag_id'] == $parent_id && !in_array($t['tag_id'], $parent_ids)) {
-                        $parent_ids[] = $parent_id;
-                        $parent_ids = get_parents($t['parent_id'], $data, $parent_ids);
+        $data = $this->select('tag_id, tag_name, parent_id')->order('tag_id desc')->getAll() ?: [];
+        if (!function_exists('tag_map_format')) {
+            function tag_map_format($data, $parent_id=0, $parent_ids=[], $pre_attr=0) {
+                $format_data = [];
+                foreach ($data as $k => $t) {
+                    if ($t['parent_id'] == $parent_id) {
+                        unset($data[$k]);
+                        if ($parent_id) {
+                            $parent_ids[] = $parent_id;
+                        }
+                        $t['pre_attr'] = $pre_attr;
+                        $t['parent_ids'] = $parent_ids;
+                        $format_data[] = $t;
+                        $format_data = array_merge($format_data, tag_map_format($data, $t['tag_id'], $parent_ids, $pre_attr+1));
                     }
                 }
-                return $parent_ids;
+                return $format_data;
             }
         }
 
-        foreach ($data as &$v) {
-            $v['parent_ids'] = get_parents($v['parent_id'], $data);
+        $format_data = tag_map_format($data);
+        $format_data_ids = array_column($format_data, 'tag_id');
+        foreach ($data as $v) {
+            if (!in_array($v['tag_id'], $format_data_ids)) {
+                $format_data[] = $v;
+            }
         }
 
-        return $data;
+        return $format_data;
     }
 }
 

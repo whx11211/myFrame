@@ -13,6 +13,8 @@
     "detail":"查看视频",
     "preview_image":"预览图",
     "play_info":"播放",
+    "local_play":"本地播放",
+    "html_play":"网页播放",
     "play":"播放",
     "pause":"暂停",
     "backward":"快退",

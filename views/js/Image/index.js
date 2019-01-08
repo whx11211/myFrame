@@ -78,11 +78,11 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
                 enableSorting: false,
                 minWidth: 100,
                 cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope">'
-                             + '<button data-ng-if="grid.appScope.user.is_local" data-ng-click="grid.appScope.modal_view(grid.renderContainers.body.visibleRowCache.indexOf(row)+1+(grid.appScope.data.page_current-1)* grid.appScope.data.items_per_page, 2)" class="btn btn-xs btn-primary btn-video"  title="{{grid.appScope.langs.local_open}}"><i class="fa fa-file-image-o"></i></button>'
-                + '<button data-ng-click="grid.appScope.modal_view(grid.renderContainers.body.visibleRowCache.indexOf(row)+1+(grid.appScope.data.page_current-1)* grid.appScope.data.items_per_page, 1)" class="btn btn-xs btn-success btn-video"  title="{{grid.appScope.langs.detail}}"><i class="glyphicon glyphicon-eye-open"></i></button>'
-                + '<button data-ng-if="grid.appScope.user.is_local" data-ng-click="grid.appScope.open_dir(row.entity)" class="btn btn-xs btn-info btn-video"  title="{{grid.appScope.langs.open_dir}}"><i class="fa fa-folder-open-o"></i></button>'
-                + '<button data-ng-click="grid.appScope.modal_add(\'mod\',row.entity)" class="btn btn-xs btn-warning btn-video"  title="{{grid.appScope.langs.mod}}"><i class="fa fa-edit"></i></button>'
-                			 + '<button data-ng-click="grid.appScope.modal_del(row.entity)" class="btn btn-xs btn-danger btn-video"  title="{{grid.appScope.langs.del}}"><i class="fa fa-times"></i></button>'
+                             + '<button data-ng-if="grid.appScope.user.is_local" data-ng-click="grid.appScope.modal_view(grid.renderContainers.body.visibleRowCache.indexOf(row)+1+(grid.appScope.data.page_current-1)* grid.appScope.data.items_per_page, 2)" class="btn btn-xs btn-primary btn-oper"  title="{{grid.appScope.langs.local_open}}"><i class="fa fa-file-image-o"></i></button>'
+                + '<button data-ng-click="grid.appScope.modal_view(grid.renderContainers.body.visibleRowCache.indexOf(row)+1+(grid.appScope.data.page_current-1)* grid.appScope.data.items_per_page, 1)" class="btn btn-xs btn-success btn-oper"  title="{{grid.appScope.langs.detail}}"><i class="glyphicon glyphicon-eye-open"></i></button>'
+                + '<button data-ng-if="grid.appScope.user.is_local" data-ng-click="grid.appScope.open_dir(row.entity)" class="btn btn-xs btn-info btn-oper"  title="{{grid.appScope.langs.open_dir}}"><i class="fa fa-folder-open-o"></i></button>'
+                + '<button data-ng-click="grid.appScope.modal_add(\'mod\',row.entity)" class="btn btn-xs btn-warning btn-oper"  title="{{grid.appScope.langs.mod}}"><i class="fa fa-edit"></i></button>'
+                			 + '<button data-ng-click="grid.appScope.modal_del(row.entity)" class="btn btn-xs btn-danger btn-oper"  title="{{grid.appScope.langs.del}}"><i class="fa fa-times"></i></button>'
                 			 + '</div><a></a>'
             });
             
@@ -257,6 +257,11 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
     $scope.view_type = 1;
     $scope.seq = 0;
     $scope.modal_max_height = parseInt(window.innerHeight - 170);
+    $scope.modal_max_height_reset = function(){
+        $scope.modal_max_height = parseInt(window.innerWidth - 190);
+        $scope.$apply();
+    }
+    window.onorientationchange = $scope.modal_max_height_reset;
     $scope.refresh_data = false;
     $('#modal_view').on("hide.bs.modal", function(){
         var current_pag = Math.ceil($scope.view.page_current/$scope.data.items_per_page);
@@ -420,8 +425,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
                         }
                     }
                 }
-                $scope.$apply();
-                $(this).trigger('change');
+                $(this).val($scope.add.tags).trigger('change');
             }).on('select2:unselect', function(e){
 
             });

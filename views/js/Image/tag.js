@@ -65,6 +65,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
                 enableSorting: false,
                 minWidth: 40,
                 cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope">'
+                             + '<button data-ng-click="grid.appScope.modal_view(1, row.entity)" class="btn btn-xs btn-primary btn-oper"  title="{{grid.appScope.langs.image_detail}}"><i class="fa fa-image"></i></button>'
                              + '<button data-ng-click="grid.appScope.modal_add(\'mod\', row.entity)" class="btn btn-xs btn-warning btn-oper" title="{{grid.appScope.langs.mod}}"><i class="fa fa-edit"></i></button>'
                              + '<button data-ng-click="grid.appScope.modal_del(row.entity)" class="btn btn-xs btn-danger btn-oper"  title="{{grid.appScope.langs.del}}"><i class="fa fa-times"></i></button>'
                              + '</div>'
@@ -249,6 +250,139 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
         $('#add_parent_select2').select2({
             //tags:true
         });
+    });
+
+
+    //播放模态框
+    $scope.view = {};
+    $scope.view_next = null;
+    $scope.view_type = 1;
+    $scope.seq = 0;
+    $scope.modal_max_height = parseInt(window.innerHeight - 170);
+    $scope.modal_max_height_reset = function(){
+        $scope.modal_max_height = parseInt(window.innerWidth - 170);
+        $scope.$apply();
+    }
+    window.onorientationchange = $scope.modal_max_height_reset;
+    $scope.refresh_data = false;
+    $scope.view_tag = null;
+    $('#modal_view').on("hide.bs.modal", function(){
+        var current_pag = Math.ceil($scope.view.page_current/$scope.data.items_per_page);
+        if ($scope.refresh_data || current_pag != $scope.data.page_current) {
+            $scope.get_data(current_pag);
+        }
+        $scope.refresh_data = false;
+        $scope.view_next = null;
+    });
+    $scope.modal_view = function (seq, tag) {
+        if (typeof(tag) != 'undefined') {
+            $scope.view_tag = tag.tag_id;
+        }
+        $scope.seq = seq;
+        var post_data = { a:'view', page:seq, num:1 ,height:$scope.modal_max_height, width:parseInt(window.innerWidth*0.95)};
+        $rootScope.show_loading();
+
+        if ($scope.view_next && seq>=$scope.view.page_current && $scope.view_type==1) {
+            $scope.view = $scope.view_next;
+            $scope.image_data = $scope.view.items[0].image_data;
+            $scope.view_next = null;
+            return;
+        }
+
+        $http.post(api('Image/index'), angular.extend(post_data, {tags:[$scope.view_tag],orderby:{id:'asc'}})).then(function (respone) {
+            $rootScope.hide_loading();
+            if (respone.data.r) {
+                console_log(respone.data, '图片信息');
+                $scope.view = respone.data.data;
+                if ($scope.view_type==1) {
+                    $scope.image_data = respone.data.data.items[0].image_data;
+                    $('#modal_view').modal({
+                        backdrop: "static",//点击空白处不关闭对话框
+                        show: true
+                    });
+                }
+                else if($scope.view_type==2) {
+                    window.location.href= 'webbin://open/?path=' + encodeURIComponent(respone.data.data.items[0].file_path);
+                }
+            }
+            else {
+                $rootScope.show_error(respone.data);
+            }
+        });
+    }
+    $scope.preload_view = function() {
+        var seq = $scope.seq + 1;
+        var post_data = { a:'view', page:seq, num:1 ,height:$scope.modal_max_height, width:parseInt(window.innerWidth*0.95)};
+        $http.post(api('Image/index'), angular.extend(post_data, {tags:[$scope.view_tag],orderby:{id:'asc'}})).then(function (respone) {
+            if (respone.data.r) {
+                console_log(respone.data, '预加载图片信息');
+                $scope.view_next = respone.data.data;
+                $scope.preload_img = respone.data.data.items[0].image_data;
+            }
+        });
+    }
+    $scope.modal_view_jump = function(step) {
+        var new_seq = $scope.view.page_current + step;
+        if (new_seq < 1) {
+            $scope.show_error($scope.langs.reach_first_img);
+            return;
+        }
+        else if (new_seq > $scope.view.page_total) {
+            $scope.show_error($scope.langs.reach_last_img);
+            return;
+        }
+        $scope.modal_view(new_seq);
+    }
+    $scope.modal_view_del_direct = function (obj) {
+        $('#modal_del').modal('hide');
+        $http.post(api($scope.api_name), angular.extend({a:'del'}, obj)).then(function (respone) {
+            if (respone.data.r) {
+                $scope.refresh_data = true;
+                $scope.view.page_total -= 1;
+                if ($scope.view_next) {
+                    $scope.view_next.page_total -= 1;
+                    $scope.view_next.page_current -= 1;
+                }
+                if ($scope.view.page_current > 1 && $scope.view.page_current > $scope.view.page_total) {
+                    $scope.modal_view_jump(-1);
+                }
+                else {
+                    $scope.modal_view_jump(0);
+                }
+            }
+            else {
+                $rootScope.show_error(respone.data);
+            }
+        });
+    }
+    $scope.modal_view_click = function () {
+        if (window.event.pageX > window.innerWidth/2) {
+            $scope.modal_view_jump(1);
+        }
+        else {
+            $scope.modal_view_jump(-1);
+        }
+    }
+    $scope.modal_view_touch = function() {
+        var is_long_press_del = null;
+        return function(t) {
+            if (is_long_press_del === null) {
+                is_long_press_del = confirm($scope.langs.long_press_del_tip);
+            }
+            if (is_long_press_del) {
+                $scope.modal_view_del_direct($scope.view.items[0]);
+            }
+        };
+    }();
+    $('#modal_image').on('load', function(){
+        $rootScope.hide_loading();
+        $scope.preload_view();
+        $scope.$apply();
+    }).on('error', function () {
+        $rootScope.hide_loading();
+        $scope.image_data = 'images/not_found.png';
+        $scope.preload_view();
+        $scope.$apply();
     });
 });
 

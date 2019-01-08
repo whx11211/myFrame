@@ -45,9 +45,8 @@
                         <div class="form-group col-sm-10 col-sm-offset-1">
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.parent }}：</label>
                             <div class="col-sm-7">
-                                <select class="form-control" id="search_parent_select2" tabindex="-1" data-ng-model="search.parent_id">
-                                    <option value="">{{langs.all}}</option>
-                                    <option data-ng-repeat="tag in image_tags_conf" value="{{ tag.tag_id }}" >
+                                <select class="form-control" id="search_parent_select2" tabindex="-1" data-ng-model="search.parent_id" style="width: 100%;">
+                                    <option data-ng-repeat="tag in image_tags_conf" value="{{ tag.tag_id }}" data-ng-pre-attr="{{ tag.pre_attr }}" >
                                         {{ tag.tag_name }}
                                     </option>
                                 </select>
@@ -59,6 +58,28 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" data-ng-click="modal_search_ok()">{{ langs.modal_search_ok }}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 模态框（view） -->
+<div class="modal fade" id="modal_view" name="modal_view" role="dialog" aria-labelledby="modal_detail" aria-hidden="true">
+    <div class="modal-dialog" style="width: 95%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal_detail_title">{{ view.items[0].file_name }} [{{ view.items[0].file_size }}KB]</h4>
+            </div>
+            <div id="modal_detail_body" class="modal-body center" data-ng-click="modal_view_click()" style="height:{{modal_max_height}}px;">
+                <image id="modal_image" class="container" src="{{image_data}}" />
+            </div>
+            <div class="modal-footer">
+                <img preload data-ng-src="{{preload_img || 'images/not_found.png'}}" alt="alt" style="width:0px;height: 0px;" onerror="this.src='images/not_found.png'"/>
+                <button type="button" class="btn btn-danger" data-ng-click="modal_view_del_direct(view.items[0])" title="{{langs.del}}"><i class="fa fa-times"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="modal_view_jump(-1)" title="{{langs.backword}}"><i class="fa fa-backward"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="modal_view_jump(1)" title="{{langs.forward}}"><i class="fa fa-forward"></i></button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
             </div>
         </div><!-- /.modal-content -->
@@ -98,8 +119,7 @@
                             <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.parent }}：</label>
                             <div class="col-sm-7">
                                 <select class="form-control" id="add_parent_select2" tabindex="-1" data-ng-model="add.parent_id">
-                                    <option value="0">{{langs.none}}</option>
-                                    <option data-ng-repeat="tag in image_tags_conf" data-ng-if="tag.tag_id!=add.tag_id" value="{{ tag.tag_id }}" >
+                                    <option data-ng-repeat="tag in image_tags_conf" data-ng-if="tag.tag_id!=add.tag_id" value="{{ tag.tag_id }}" data-ng-pre-attr="{{ tag.pre_attr }}" >
                                         {{ tag.tag_name }}
                                     </option>
                                 </select>

@@ -101,7 +101,7 @@ class ImageMedia extends Media
 
     public function setViewData($id)
     {
-        return $this->execSql('update '.$this->table.' set view_count=view_count+1,last_view_time=? where id=?', [getFormatDate(),$id]);
+        return $this->execSql('update '.$this->table.' set view_count=view_count+1,last_view_time=? where id=?', [get_format_date(),$id]);
     }
 }
 
