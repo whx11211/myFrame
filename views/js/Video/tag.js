@@ -63,7 +63,7 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
                 field: 'operation',
                 displayName: $scope.langs.operation,
                 enableSorting: false,
-                minWidth: 40,
+                minWidth: 75,
                 cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope">'
                              + '<button data-ng-click="grid.appScope.modal_add(\'mod\', row.entity)" class="btn btn-xs btn-warning btn-oper" title="{{grid.appScope.langs.mod}}"><i class="fa fa-edit"></i></button>'
                              + '<button data-ng-click="grid.appScope.modal_del(row.entity)" class="btn btn-xs btn-danger btn-oper"  title="{{grid.appScope.langs.del}}"><i class="fa fa-times"></i></button>'

@@ -63,7 +63,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
                 field: 'operation',
                 displayName: $scope.langs.operation,
                 enableSorting: false,
-                minWidth: 40,
+                minWidth: 100,
                 cellTemplate: '<div class="ui-grid-cell-contents ng-binding ng-scope">'
                              + '<button data-ng-click="grid.appScope.modal_view(1, row.entity)" class="btn btn-xs btn-primary btn-oper"  title="{{grid.appScope.langs.image_detail}}"><i class="fa fa-image"></i></button>'
                              + '<button data-ng-click="grid.appScope.modal_add(\'mod\', row.entity)" class="btn btn-xs btn-warning btn-oper" title="{{grid.appScope.langs.mod}}"><i class="fa fa-edit"></i></button>'
