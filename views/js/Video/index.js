@@ -292,7 +292,12 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                 ele.mozRequestFullScreen();
             } else if (ele.webkitRequestFullScreen) {
                 ele.webkitRequestFullScreen();
+            } else if (ele.webkitEnterFullscreen) {
+                ele.webkitEnterFullscreen();
             }
+        },
+        html_full_toggle:function() {
+            $('#modal_play .modal-content').toggleClass('modal-play-full');
         },
         swipe:function(x) {
             var s = parseInt(x/10);
@@ -375,11 +380,6 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     });
     $scope.play = {};
     $scope.play_type = 1;
-    $scope.modal_max_height = parseInt(window.innerHeight - 190);
-    $scope.modal_max_height_reset = function(){
-        $scope.modal_max_height = parseInt(window.innerWidth - 190);
-    }
-    window.onorientationchange = $scope.modal_max_height_reset;
     $scope.modal_play = function (obj, type) {
         angular.extend($scope.play, obj);
         $scope.play_type = type;

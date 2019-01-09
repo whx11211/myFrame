@@ -81,55 +81,55 @@
 
 <!-- 模态框（播放） -->
 <div class="modal fade" id="modal_play" name="modal_play" role="dialog" aria-labelledby="modal_detail" aria-hidden="true">
-    <div class="modal-dialog" style="width: 95%;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="modal_detail_title">{{ play.file_name }} [{{ play.file_size }}MB]</h4>
-            </div>
-            <div id="modal_detail_body" class="modal-body center" style="height:{{modal_max_height}}px;" data-ng-click="modal_play_obj.toggle()">
-                <video id="modal_video" class="container" touch-swipe="modal_play_obj.swipe(param_x)" src="{{video_url}}" preload="auto" >
+    <div class="modal-dialog modal-content modal-play-full">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
+            <button type="button" class="close" style="margin-right:5px;" data-ng-click="modal_play_obj.html_full_toggle()" aria-hidden="true"><i class="glyphicon glyphicon-modal-window"></i></button>
+            <h4 class="modal-title" id="modal_detail_title">{{ play.file_name }} [{{ play.file_size }}MB]</h4>
+        </div>
+        <div class="modal-body no-padding" >
+            <div id="modal_detail_body" class="center" data-ng-click="modal_play_obj.toggle()">
+                <video id="modal_video" class="container" touch-swipe="modal_play_obj.swipe(param_x)" src="{{video_url}}" preload="auto">
                     {{langs.not_support}}
                 </video>
-                <div id="modal_video_loading" aria-hidden="true" style="position: absolute;top:{{(modal_max_height - 85) / 2}}px;width:100%;display: none;" align="center">
-                    <i class="fa fa-5x fa-spin fa-spinner text-gray"></i>
-                </div>
+                <i id="modal_video_loading" class="fa fa-5x fa-spin fa-spinner text-gray container hide"></i>
             </div>
-            <div class="modal-footer">
-                <div>
-                    <div class="col-sm-1 col-xs-2 text-center">{{play.played_time | minute_format}}</div>
-                    <div class="progress col-sm-10 col-xs-8" id="modal_progress" style="height:6px;margin:7px 0 7px 0;border-radius:2px;padding:0px;" data-ng-click="modal_play_obj.progress_jump()">
-                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="40" style="width: {{play.progress || 0}}%; padding:0;">
-                        </div>
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="40" style="width: {{play.load_progress || 0}}%; padding:0;background: #ddd;">
-                        </div>
+        </div>
+        <div class="modal-footer">
+            <div>
+                <div class="col-sm-1 col-xs-2 text-center">{{play.played_time | minute_format}}</div>
+                <div class="progress col-sm-10 col-xs-8" id="modal_progress" style="height:6px;margin:7px 0 7px 0;border-radius:2px;padding:0px;" data-ng-click="modal_play_obj.progress_jump()">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="40" style="width: {{play.progress || 0}}%; padding:0;">
                     </div>
-                    <div class="col-sm-1 col-xs-2 text-center">{{play.duration2 | minute_format}}</div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="40" style="width: {{play.load_progress || 0}}%; padding:0;background: #ddd;">
+                    </div>
                 </div>
-                <div style="clear:both"></div>
-                <div style="margin-top:7px;">
-                    <button type="button" class="btn btn-info" title="{{langs.volume}}" style="width:40px;" data-ng-click="modal_play_obj.volume_toggle()">
-                        <i id="model_video_volume_switch" class="glyphicon glyphicon-volume-up"></i>
-                    </button>
-                    <button class="btn progress" id="modal_volume_progress" style="width:80px;height:6px;margin:7px 0 7px 0;border-radius:2px;padding:0px; display: inline-block;" data-ng-click="modal_play_obj.volume_jump()">
-                        <div class="progress-bar progress-bar-info" id="modal_volume_progress_bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="40" style="width: 100%; padding:0;">
-                        </div>
-                    </button>
-                    <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(-15)" title="{{langs.backward}}"><i class="fa fa-backward"></i></button>
-                    <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.toggle()" title="{{modal_play_obj.is_playing ? langs.pause : langs.play}}"><i class="fa {{modal_play_obj.is_playing ? 'fa-pause' : 'fa-play'}}"></i></button>
-                    <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(15)" title="{{langs.forward}}"><i class="fa fa-forward"></i></button>
-                    <button type="button" class="btn btn-default" data-ng-click="modal_play_obj.full_screen()" title="{{langs.full_screen}}"><i class="fa fa-arrows-alt"></i></button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
-                </div>
+                <div class="col-sm-1 col-xs-2 text-center">{{play.duration2 | minute_format}}</div>
             </div>
-        </div><!-- /.modal-content -->
+            <div style="clear:both"></div>
+            <div style="margin-top:7px;">
+                <button type="button" class="btn btn-info" title="{{langs.volume}}" style="width:40px;" data-ng-click="modal_play_obj.volume_toggle()">
+                    <i id="model_video_volume_switch" class="glyphicon glyphicon-volume-up"></i>
+                </button>
+                <button class="btn progress" id="modal_volume_progress" style="width:80px;height:6px;margin:7px 0 7px 0;border-radius:2px;padding:0px; display: inline-block;" data-ng-click="modal_play_obj.volume_jump()">
+                    <div class="progress-bar progress-bar-info" id="modal_volume_progress_bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="40" style="width: 100%; padding:0;">
+                    </div>
+                </button>
+                <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(-15)" title="{{langs.backward}}"><i class="fa fa-backward"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.toggle()" title="{{modal_play_obj.is_playing ? langs.pause : langs.play}}"><i class="fa {{modal_play_obj.is_playing ? 'fa-pause' : 'fa-play'}}"></i></button>
+                <button type="button" class="btn btn-primary" data-ng-click="modal_play_obj.jump(15)" title="{{langs.forward}}"><i class="fa fa-forward"></i></button>
+                <!-- <button type="button" class="btn btn-default" data-ng-click="modal_play_obj.full_screen()" title="{{langs.full_screen}}"><i class="fa fa-arrows-alt"></i></button> -->
+                <button type="button" class="btn btn-default" data-ng-click="modal_play_obj.full_screen()" title="{{langs.full_screen}}"><i class="fa fa-arrows-alt"></i></button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
+            </div>
+        </div>
     </div><!-- /.modal -->
 </div>
 
 <!-- 模态框（图片） -->
 <div class="modal fade" id="modal_image" name="modal_image" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog">
-        <img style="margin: auto;display: block;max-width:100%;max-height:{{modal_max_height}}px" src="{{image_url}}"/>
+        <img style="margin: auto;display: block;max-width:100%;" src="{{image_url}}"/>
     </div><!-- /.modal -->
 </div>
 

@@ -114,7 +114,7 @@ class VideoControl extends Control
 
         $class->setViewData($where_arg['id']);
 
-        $data['url_path'] = VIDEO_HOST . str_replace(DIRECTORY_SEPARATOR, '/', url_path_format(substr($file_path, strlen(VIDEO_URL_BASE_PATH))));
+        $data['url_path'] = VIDEO_HOST . url_path_format(str_replace(DIRECTORY_SEPARATOR, '/', substr($file_path, strlen(VIDEO_URL_BASE_PATH))));
 
         if (in_array(RemoteInfo::getIP(), ['127.0.0.1', '::1'])) {
             $data['vlc_play'] = 'webbin://vlcplay/?f=' . urlencode($file_path);

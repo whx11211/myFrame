@@ -47,9 +47,8 @@ class ImageControl extends Control
         $data = $this->getPage($class, $select_ary, $where_arg, true);
 
         if ($data['items']) {
-            list($ms , $s) = explode(' ', microtime());
             foreach ($data['items'] as &$v) {
-                $v['image_host_path'] = IMAGE_HOST . str_replace(DIRECTORY_SEPARATOR, '/', substr($v['path'] . DIRECTORY_SEPARATOR . $v['file_name'], strlen(IMAGE_URL_BASE_PATH)));
+                $v['image_host_path'] = IMAGE_HOST . url_path_format(str_replace(DIRECTORY_SEPARATOR, '/', substr($v['path'] . DIRECTORY_SEPARATOR . $v['file_name'], strlen(IMAGE_URL_BASE_PATH))));
                 if (file_exists($v['path'] . DIRECTORY_SEPARATOR . $v['file_name'])) {
 
                     $image = new Image($v['path']);
@@ -59,8 +58,6 @@ class ImageControl extends Control
                     $v['preview_image'] = 'images/not_found.png';
                 }
             }
-            list($ms2, $s2) = explode(' ', microtime());
-            $data['time'] = ($s2 - $s)*1000 + round(($ms2-$ms)*1000);
         }
 
         Output::success($data);
@@ -143,7 +140,7 @@ class ImageControl extends Control
 
         $class->setViewData($image['id']);
 
-        $image['image_data'] = IMAGE_HOST . str_replace(DIRECTORY_SEPARATOR, '/', url_path_format(substr($file_path, strlen(IMAGE_URL_BASE_PATH))));
+        $image['image_data'] = IMAGE_HOST . url_path_format(str_replace(DIRECTORY_SEPARATOR, '/', substr($file_path, strlen(IMAGE_URL_BASE_PATH))));
 
 //        if (file_exists($image['path'] . DIRECTORY_SEPARATOR . $image['file_name'])) {
 //            $image['image_data'] = (new Image($image['path']))->base64EncodeImage($image['file_name'], $width, $height);

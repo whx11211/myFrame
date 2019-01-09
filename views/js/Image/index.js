@@ -256,12 +256,9 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
     $scope.view_next = null;
     $scope.view_type = 1;
     $scope.seq = 0;
-    $scope.modal_max_height = parseInt(window.innerHeight - 170);
-    $scope.modal_max_height_reset = function(){
-        $scope.modal_max_height = parseInt(window.innerWidth - 190);
-        $scope.$apply();
-    }
-    window.onorientationchange = $scope.modal_max_height_reset;
+    $scope.modal_view_html_full_toggle = function(){
+        $('#modal_view .modal-content').toggleClass('modal-view-full');
+    };
     $scope.refresh_data = false;
     $('#modal_view').on("hide.bs.modal", function(){
         var current_pag = Math.ceil($scope.view.page_current/$scope.data.items_per_page);
@@ -276,7 +273,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
             $scope.view_type = type;
         }
         $scope.seq = seq;
-        var post_data = { a:'view', page:seq, num:1 ,height:$scope.modal_max_height, width:parseInt(window.innerWidth*0.95)};
+        var post_data = { a:'view', page:seq, num:1};
         $rootScope.show_loading();
 
         if ($scope.view_next && seq>=$scope.view.page_current && $scope.view_type==1) {
@@ -309,7 +306,7 @@ angular.module('myApp').controller('Image/index', function($scope, $rootScope, $
     }
     $scope.preload_view = function() {
         var seq = $scope.seq + 1;
-        var post_data = { a:'view', page:seq, num:1 ,height:$scope.modal_max_height, width:parseInt(window.innerWidth*0.95)};
+        var post_data = { a:'view', page:seq, num:1};
         $http.post(api($scope.api_name), angular.extend(post_data, $scope.search, $scope.orderby)).then(function (respone) {
             if (respone.data.r) {
                 console_log(respone.data, '预加载图片信息');

@@ -66,24 +66,28 @@
 
 <!-- 模态框（view） -->
 <div class="modal fade" id="modal_view" name="modal_view" role="dialog" aria-labelledby="modal_detail" aria-hidden="true">
-    <div class="modal-dialog" style="width: 95%;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="modal_detail_title">{{ view.items[0].file_name }} [{{ view.items[0].file_size }}KB]</h4>
-            </div>
-            <div id="modal_detail_body" class="modal-body center" data-ng-click="modal_view_click()" style="height:{{modal_max_height}}px;">
+    <div class="modal-dialog modal-content modal-view-full">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
+            <button type="button" class="close" style="margin-right:5px;" data-ng-click="modal_view_html_full_toggle()" aria-hidden="true"><i class="glyphicon glyphicon-modal-window"></i></button>
+            <h4 class="modal-title" id="modal_detail_title">{{ view.items[0].file_name }} [{{ view.items[0].file_size }}KB]</h4>
+        </div>
+        <div class="modal-body no-padding" >
+            <div id="modal_detail_body" class="center" data-ng-click="modal_view_click()">
                 <image id="modal_image" class="container" src="{{image_data}}" />
             </div>
-            <div class="modal-footer">
-                <img preload data-ng-src="{{preload_img || 'images/not_found.png'}}" alt="alt" style="width:0px;height: 0px;" onerror="this.src='images/not_found.png'"/>
-                <button type="button" class="btn btn-danger" data-ng-click="modal_view_del_direct(view.items[0])" title="{{langs.del}}"><i class="fa fa-times"></i></button>
-                <button type="button" class="btn btn-primary" data-ng-click="modal_view_jump(-1)" title="{{langs.backword}}"><i class="fa fa-backward"></i></button>
-                <button type="button" class="btn btn-primary" data-ng-click="modal_view_jump(1)" title="{{langs.forward}}"><i class="fa fa-forward"></i></button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
+        </div>
+        <div class="modal-footer">
+            <h4 class="pull-left">
+                <span class="text-bold">{{view.page_current}}</span> / {{view.page_total}}
+            </h4>
+            <img preload data-ng-src="{{preload_img || 'images/not_found.png'}}" alt="alt" style="width:0px;height: 0px;" onerror="this.src='images/not_found.png'"/>
+            <button type="button" class="btn btn-danger" data-ng-click="modal_view_del_direct(view.items[0])" title="{{langs.del}}"><i class="fa fa-times"></i></button>
+            <button type="button" class="btn btn-primary" data-ng-click="modal_view_jump(-1)" title="{{langs.backword}}"><i class="fa fa-arrow-left"></i></button>
+            <button type="button" class="btn btn-primary" data-ng-click="modal_view_jump(1)" title="{{langs.forward}}"><i class="fa fa-arrow-right"></i></button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+        </div>
+    </div><!-- /.modal-content -->
 </div>
 
 <!-- 模态框（新增/修改） -->

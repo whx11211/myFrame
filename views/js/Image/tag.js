@@ -258,12 +258,9 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
     $scope.view_next = null;
     $scope.view_type = 1;
     $scope.seq = 0;
-    $scope.modal_max_height = parseInt(window.innerHeight - 170);
-    $scope.modal_max_height_reset = function(){
-        $scope.modal_max_height = parseInt(window.innerWidth - 170);
-        $scope.$apply();
-    }
-    window.onorientationchange = $scope.modal_max_height_reset;
+    $scope.modal_view_html_full_toggle = function(){
+        $('#modal_view .modal-content').toggleClass('modal-view-full');
+    };
     $scope.refresh_data = false;
     $scope.view_tag = null;
     $('#modal_view').on("hide.bs.modal", function(){
@@ -279,7 +276,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
             $scope.view_tag = tag.tag_id;
         }
         $scope.seq = seq;
-        var post_data = { a:'view', page:seq, num:1 ,height:$scope.modal_max_height, width:parseInt(window.innerWidth*0.95)};
+        var post_data = { a:'view', page:seq, num:1};
         $rootScope.show_loading();
 
         if ($scope.view_next && seq>=$scope.view.page_current && $scope.view_type==1) {
@@ -312,7 +309,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
     }
     $scope.preload_view = function() {
         var seq = $scope.seq + 1;
-        var post_data = { a:'view', page:seq, num:1 ,height:$scope.modal_max_height, width:parseInt(window.innerWidth*0.95)};
+        var post_data = { a:'view', page:seq, num:1};
         $http.post(api('Image/index'), angular.extend(post_data, {tags:[$scope.view_tag],orderby:{id:'asc'}})).then(function (respone) {
             if (respone.data.r) {
                 console_log(respone.data, '预加载图片信息');
@@ -335,7 +332,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
     }
     $scope.modal_view_del_direct = function (obj) {
         $('#modal_del').modal('hide');
-        $http.post(api($scope.api_name), angular.extend({a:'del'}, obj)).then(function (respone) {
+        $http.post(api('Image/index'), angular.extend({a:'del'}, obj)).then(function (respone) {
             if (respone.data.r) {
                 $scope.refresh_data = true;
                 $scope.view.page_total -= 1;
