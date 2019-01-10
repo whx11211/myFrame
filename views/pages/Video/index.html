@@ -84,8 +84,8 @@
     <div class="modal-dialog modal-content modal-play-full">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
-            <button type="button" class="close" style="margin-right:5px;" data-ng-click="modal_play_obj.html_full_toggle()" aria-hidden="true"><i class="glyphicon glyphicon-modal-window"></i></button>
-            <h4 class="modal-title" id="modal_detail_title">{{ play.file_name }} [{{ play.file_size }}MB]</h4>
+            <button type="button" class="close" style="margin-right:10px;" data-ng-click="modal_play_obj.html_full_toggle()" aria-hidden="true"><i class="glyphicon glyphicon-modal-window"></i></button>
+            <h4 class="modal-title text-over-ellipsis" id="modal_detail_title">{{ play.file_name }} [{{ play.file_size }}MB]</h4>
         </div>
         <div class="modal-body no-padding" >
             <div id="modal_detail_body" class="center" data-ng-click="modal_play_obj.toggle()">

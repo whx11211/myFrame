@@ -38,6 +38,12 @@
     padding: 7px 14px;
 }
 
+.text-over-ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .center {
     display: flex;
     align-items:center;

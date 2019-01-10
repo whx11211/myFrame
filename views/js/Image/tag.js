@@ -264,12 +264,12 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
     $scope.refresh_data = false;
     $scope.view_tag = null;
     $('#modal_view').on("hide.bs.modal", function(){
-        var current_pag = Math.ceil($scope.view.page_current/$scope.data.items_per_page);
-        if ($scope.refresh_data || current_pag != $scope.data.page_current) {
-            $scope.get_data(current_pag);
-        }
-        $scope.refresh_data = false;
-        $scope.view_next = null;
+        // var current_pag = Math.ceil($scope.view.page_current/$scope.data.items_per_page);
+        // if ($scope.refresh_data || current_pag != $scope.data.page_current) {
+        //     $scope.get_data(current_pag);
+        // }
+        // $scope.refresh_data = false;
+        // $scope.view_next = null;
     });
     $scope.modal_view = function (seq, tag) {
         if (typeof(tag) != 'undefined') {
