@@ -1,6 +1,6 @@
 app.controller('System/login', function($scope, $rootScope, $http) {
 	$scope.api_name = 'System/login';
-    $scope.serach = {};
+    $scope.search = {};
     
 	$rootScope.langs = {};
 	$http.post(lang('main')).then(
@@ -10,6 +10,12 @@ app.controller('System/login', function($scope, $rootScope, $http) {
     );
     
     $scope.login = function () {
+        if (typeof($scope.search.loginname) == 'undefined') {
+            $scope.search.loginname = $(':input[name=userName]').val();
+        }
+        if (typeof($scope.search.pwd) == 'undefined') {
+            $scope.search.pwd = $(':input[name=password]').val();
+        }
     	$http.post(api($scope.api_name), $scope.search).then(function (respone) {
     		if (respone.data.r) {
     			$rootScope.longin_data = respone.data;
