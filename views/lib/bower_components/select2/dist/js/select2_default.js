@@ -12,5 +12,4 @@ $.fn.select2.defaults.set("templateResult", function(state){
     }
     return $state;
 });
-$.fn.select2.defaults.set("allowClear", true);
 $.fn.select2.defaults.set("placeholder", '');

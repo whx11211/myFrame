@@ -172,7 +172,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
     $scope.search_ext_load = function() {
         if (typeof($scope.search_ext_loaded) == 'undefined') {
 
-            $('#search_parent_select2').select2();
+            $('#search_parent_select2').select2({allowClear:true});
 
             $scope.search_ext_loaded = true;
         }
@@ -240,7 +240,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
     $scope.add_ext_load = function() {
         if (typeof($scope.add_ext_loaded) == 'undefined') {
 
-            $('#add_parent_select2').select2();
+            $('#add_parent_select2').select2({allowClear:true});
 
             $scope.add_ext_loaded = true;
         }
@@ -249,6 +249,7 @@ angular.module('myApp').controller('Image/tag', function($scope, $rootScope, $ht
     $('#modal_add').on("shown.bs.modal", function(){
         $('#add_parent_select2').select2({
             //tags:true
+            allowClear:true
         });
     });
 
