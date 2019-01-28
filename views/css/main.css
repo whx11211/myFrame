@@ -1,3 +1,15 @@
+@media screen and (max-width: 400px) {
+    .page-tag-3 {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .page-tag-2 {
+        display: none !important;
+    }
+}
+
 .btn-oper {
     margin: -2px 4px 6px 0;
     width: 25px;
@@ -91,4 +103,8 @@
 
 .modal-view-full .modal-footer {
     position:absolute;bottom:0px;width:100%;
+}
+
+img {
+    max-width:100%;
 }

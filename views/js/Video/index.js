@@ -77,7 +77,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
                  },
                  $rootScope.ui_grid.get('create_time', false, 130),
                  $rootScope.ui_grid.get('last_mod_time', false, 130),
-                 $rootScope.ui_grid.get('last_view_time', false, 130),
+                 $rootScope.ui_grid.get('last_view_time', true, 130),
                  $rootScope.ui_grid.get('view_count', false, 50)
             ];
             $scope.gridOptions.columnDefs.push({
