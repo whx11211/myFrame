@@ -52,7 +52,7 @@ class FFMpeg {
         $res = self::exec('ffprobe "'.$file.'" -print_format json -show_format -v quiet');
         $res = json_decode($res, true);
 
-        if (!isset($res['format']['duration']) || $res['format']['duration'] < 10) {
+        if (!isset($res['format']['duration']) || $res['format']['duration'] < 1) {
             return null;
         }
 

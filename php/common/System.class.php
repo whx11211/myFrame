@@ -31,7 +31,13 @@ abstract class System
         return true;
     }
 
-
+    public static function delPath($path)
+    {
+        @shell_exec('rd /s /q "' . $path . '"');
+        if (is_dir($path)) {   
+            file_put_contents(LOG_PATH . 'system_fail.log', 'rd /s /q "' . $path . '"' . PHP_EOL, FILE_APPEND);
+        }
+    }
 }
 
 ?>

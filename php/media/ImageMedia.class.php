@@ -42,23 +42,20 @@ class ImageMedia extends Media
      */
     public function delByCondFromDb($cond_ary)
     {
-        $this->beginTransaction();
-        $video = $this->where($cond_ary)->getRow();
+        $videos = $this->where($cond_ary)->getAll();
         if ($video === false) {
             Output::fail(ErrorCode::FILE_NOT_EXISTS);
         }
 
-        $res = parent::delByCondFromDb($cond_ary);
-        if ($res) {
+        foreach ($videos as $video) {
             if ($video['tags']) {
                 $old_tags = explode(',', $video['tags']);
                 Instance::getMedia('image_tag')->decreaseCount($old_tags);
             }
+            parent::delByCondFromDb(['id'=>$video['id']]);
             System::delFile($video['path'] . "\\" . $video['file_name']);
         }
-
-        $this->commit();
-        return $res;
+        return true;
     }
 
     /**

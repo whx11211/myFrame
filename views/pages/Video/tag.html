@@ -1,4 +1,5 @@
 <!-- 数据显示box -->
+<!-- 数据显示box -->
 <div class="main-box" data-ng-show="r">
     <div class="box">
 
@@ -116,6 +117,36 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" data-ng-click="modal_add_ok()">{{ langs.submit }}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 模态框（删除文件夹） -->
+<div class="modal fade" id="modal_del_path" name="modal_del_path" role="dialog" aria-labelledby="modal_del_path" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">{{ langs.modal_del_path_header }}</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" name="modal_del_path_form" novalidate="novalidate">
+                    <div class="row">
+
+                        <!-- path -->
+                        <div class="form-group col-sm-10 col-sm-offset-1">
+                            <label class="col-sm-4 col-sm-offset-1 control-label">{{ langs.path }}：</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control tooltip-show" data-ng-model="del_path.path" data-toggle="tooltip" title="{{langs.path}}" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-ng-click="modal_del_path_ok()">{{ langs.del }}</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ langs.modal_close_btn }}</button>
             </div>
         </div><!-- /.modal-content -->

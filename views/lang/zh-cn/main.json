@@ -5,6 +5,7 @@
     "tip":"请先登录",
     "login":"登录",
     "modal_search_header":"请选择查询条件",
+    "modal_del_path_header":"删除文件夹",
     "lastLoginTime":"最近登录时间",
     "help":"帮助",
     "loginOut":"退出",

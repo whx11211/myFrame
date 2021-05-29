@@ -19,7 +19,7 @@ $video_exts = [
 ];
 
 $type = $argv[1];
-switch ($type) {
+switch ($type) {v
     case 'check_ext':
         $video = Instance::getMedia('video');
         check_ext();

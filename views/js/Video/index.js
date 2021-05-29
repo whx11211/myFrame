@@ -383,7 +383,7 @@ angular.module('myApp').controller('Video/index', function($scope, $rootScope, $
     $scope.modal_play = function (obj, type) {
         angular.extend($scope.play, obj);
         $scope.play_type = type;
-    	$http.post(api($scope.api_name), angular.extend({a:'play'}, obj)).then(function (respone) {
+    	$http.post(api($scope.api_name), angular.extend(obj,{a:'play'})).then(function (respone) {
     		if (respone.data.r) {
     		    console_log(respone.data, '播放信息');
     		    if ($scope.play_type==1) {

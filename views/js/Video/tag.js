@@ -9,6 +9,7 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
     //$scope.headfunc.download = 1;
     $scope.headfunc.manage = 1;
     $scope.headfunc.export = 1;
+    $scope.headfunc.del_path = 1;
 
     //查询条件
     $scope.search = {};
@@ -232,6 +233,25 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
             }
             else {
                 $rootScope.show_error(respone.data, $scope.modal_add);
+            }
+        });
+    }
+
+    //删除文件夹模态框
+    $scope.modal_del_path = function (obj) {
+        $scope.del_path = {a:'delPath',path:''};
+        $('#modal_del_path').modal('show');
+    }
+
+    $scope.modal_del_path_ok = function () {
+        $('#modal_del_path').modal('hide');
+        $http.post(api($scope.api_name), $scope.del_path).then(function (respone) {
+            if (respone.data.r) {
+                $rootScope.show_success('del', $scope.get_data);
+                $rootScope.video_tags_conf_refresh = true
+            }
+            else {
+                $rootScope.show_error(respone.data);
             }
         });
     }

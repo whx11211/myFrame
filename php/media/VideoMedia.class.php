@@ -41,24 +41,24 @@ class VideoMedia extends Media
      */
     public function delByCondFromDb($cond_ary)
     {
-        $this->beginTransaction();
-        $video = $this->where($cond_ary)->getRow();
-        if ($video === false) {
+        $videos = $this->where($cond_ary)->getAll();
+        if ($videos === false) {
             Output::fail(ErrorCode::FILE_NOT_EXISTS);
         }
 
-        $res = parent::delByCondFromDb($cond_ary);
-        if ($res) {
+        foreach ($videos as $video) {
             if ($video['tags']) {
                 $old_tags = explode(',', $video['tags']);
-                Instance::getMedia('video_tag')->decreaseCount($old_tags);
+                
+                @Instance::getMedia('video_tag')->decreaseCount($old_tags);
+                
             }
+            parent::delByCondFromDb(['id'=>$video['id']]);
             System::delFile($video['path'] . "\\" . $video['file_name']);
             System::delFile(FFMPEG_IMAGE_PATH  . $video['id'] . '.png');
         }
-
-        $this->commit();
-        return $res;
+        
+        return true;
     }
 
     /**

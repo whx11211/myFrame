@@ -71,7 +71,14 @@ class VideoControl extends Control
             'file_name' =>  array("length", array(1, 1024), ErrorCode::PARAM_ERROR),
             'description' =>  array("length", array(0, 10240), ErrorCode::PARAM_ERROR),
             'duration'  =>  array("regex", 'double', ErrorCode::PARAM_ERROR, 'null_skip'),
-            'tags'      =>  array('transform', function($t){return implode(',', $t ?: []);}, ErrorCode::PARAM_ERROR)
+            'tags'      =>  array('transform', function($t){return implode(',', $t ?: []);}, ErrorCode::PARAM_ERROR),
+            'last_view_time' => array('transform', function($d) {
+                if ($d == "0000-00-00 00:00:00") {
+                    return get_format_date();
+                }
+                    
+                return $d;
+            }),
         );
         $insert_args = RemoteInfo::getInsertFormArgs($form_add_conf);
 
@@ -83,7 +90,6 @@ class VideoControl extends Control
         $class = Instance::getMedia('video');
 
         $this->update($class, $insert_args, $where_arg);
-
     }
 
     /**
@@ -151,6 +157,9 @@ class VideoControl extends Control
             case 'add':
                 $this->_addTag();
                 break;
+            case 'delPath':
+                $this->_delPath();
+                break;
             default:
                 $this->_getTag();
                 break;
@@ -197,7 +206,7 @@ class VideoControl extends Control
         $form_mod_conf = array(
             'tag_name' =>  array("length", array(1, 32), ErrorCode::PARAM_ERROR),
             'path'      =>  array("length", array(0, 1024), ErrorCode::PARAM_ERROR),
-            'parent_id' =>  array("regex", 'number', ErrorCode::PARAM_ERROR),
+            'parent_id' =>  array("transform", 'intval', ErrorCode::PARAM_ERROR),
         );
         $mod_args = RemoteInfo::getInsertFormArgs($form_mod_conf);
 
@@ -236,6 +245,44 @@ class VideoControl extends Control
         if (RemoteInfo::request('getTagConf')) {
             $data['new_conf'] = $class->getTagMap();
         }
+
+        Output::success($data);
+    }
+
+    /**
+     * 删除文件夹
+     */
+    private function _delPath()
+    {
+        $form_cond_conf = array(
+            'path'      =>  array("length", array(0, 1024), ErrorCode::PARAM_ERROR),
+        );        
+        $like_form_cond_conf = array(
+            'path'          =>  array("transform", array($this, 'rightLikeFormat'), ErrorCode::PARAM_ERROR),
+        );
+        $where_arg = RemoteInfo::getSearchFormArgs($form_cond_conf);
+        $like_where_arg = RemoteInfo::getSearchFormArgs($like_form_cond_conf);
+        
+        $class = Instance::getMedia('video');
+
+        $class->delByCondFromDb($like_where_arg);
+
+        $tag_class = Instance::getMedia('video_tag');
+        $tags = $tag_class->where($like_where_arg)->getALL() ?: [];
+        foreach ($tags as $tag) {
+            $tag_class->delByCondFromDb(['tag_id'=>$tag['tag_id']]);
+        }
+
+        $class = Instance::getMedia('image');
+
+        $class->delByCondFromDb($like_where_arg);
+
+        $tag_class = Instance::getMedia('image_tag');
+        $tags = $tag_class->where($like_where_arg)->getALL() ?: [];
+        foreach ($tags as $tag) {
+            $tag_class->delByCondFromDb(['tag_id'=>$tag['tag_id']]);
+        }
+        System::delPath($where_arg['path']);
 
         Output::success($data);
     }

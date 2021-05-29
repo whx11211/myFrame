@@ -37,23 +37,31 @@ define('MOVIE_DB_PWD', 'root');
 define('MOVIE_DB_NAME', 'my_movie');
 
 // Video数据库类型，请填写PDO识别的标准名称 如mysql
-define('VIDEO_DB_TYPE', 'mysql');
+define('MEDIA_DB_TYPE', 'mysql');
 // Video论坛数据库IP
-define('VIDEO_DB_IP', '127.0.0.1');
+define('MEDIA_DB_IP', '127.0.0.1');
 // Video论坛数据库端口，默认3306，一般不需修改
-define('VIDEO_DB_PORT', 33306);
+define('MEDIA_DB_PORT', 33306);
 // Video论坛数据库IP
-define('VIDEO_DB_USER', 'root');
+define('MEDIA_DB_USER', 'root');
 // Video论坛数据库密码
-define('VIDEO_DB_PWD', 'root');
+define('MEDIA_DB_PWD', 'root');
 // Video论坛默认数据库名
-define('VIDEO_DB_NAME', 'my_video');
+define('MEDIA_DB_NAME', 'my_media');
 
-define('FFMPEG_IMAGE_PATH', dirname(ROOT) . '/views/images/ffmpeg/');
-define('VIDEO_BASE_PATH', 'D:\phpStudy\PHPTutorial\WWW\video\video');
-define('VIDEO_URL_BASE_PATH', 'D:\phpStudy\PHPTutorial\WWW\video\video\\');
-define('VIDEO_HOST', 'http://loc.video.com/');
-define('FFMPEG_PATH', 'E:\ffmpeg-20181206-b44a571-win64-static\bin\\');
+define('FFMPEG_IMAGE_PATH', str_replace('/', '\\', dirname(ROOT)) . '\views\images\ffmpeg\\');
+define('VIDEO_BASE_PATH', 'H:\Progrom\Common Files\Videos');
+define('VIDEO_URL_BASE_PATH', 'H:\Progrom\Common Files\Videos\\');
+if (isset($_SERVER['HTTP_HOST'])) {
+	define('VIDEO_HOST', 'http://' . $_SERVER['HTTP_HOST'] . ':8000/');
+}
+define('FFMPEG_PATH', 'D:\软件\ffmpeg-20181208-6b1c4ce-win64-static\bin\\');
+
+define('IMAGE_BASE_PATH', 'H:\Progrom\Common Files\Videos\图片收藏');
+define('IMAGE_URL_BASE_PATH', 'H:\Progrom\Common Files\Videos\\');
+if (isset($_SERVER['HTTP_HOST'])) {
+	define('IMAGE_HOST', 'http://' . $_SERVER['HTTP_HOST'] . ':8000/');
+}
 
 //缓存配置
 define('CACHE_HOST', '127.0.0.1');

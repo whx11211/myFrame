@@ -14,5 +14,7 @@
 <button style="margin-left: 5px;" data-ng-if="$parent.headfunc.export" class="btn btn-primary btn-sm pull-right" data-ng-click="export()" title="{{langs.box_header_export_title}}"><i class="glyphicon glyphicon-export"></i></button>
 <!-- 下载 -->
 <button style="margin-left: 5px;" data-ng-if="$parent.headfunc.download" class="btn btn-primary btn-sm pull-right" data-ng-click="download()" title="{{langs.box_header_download_title}}"><i class="glyphicon glyphicon-cloud-download"></i></button>
+<!-- 删除文件夹 -->
+<button style="margin-left: 5px;" data-ng-if="$parent.headfunc.del_path" class="btn btn-danger btn-sm pull-right" data-ng-click="modal_del_path()" title="{{langs.modal_del_path_header}}"><i class="fa fa-trash"></i></button>
 <!-- 添加 -->
 <button style="margin-left: 5px;" data-ng-if="$parent.headfunc.manage" class="btn btn-success btn-sm pull-right" data-ng-click="modal_add('add')" title="{{langs.add}}"><i class="fa fa-plus"></i></button>
