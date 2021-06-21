@@ -104,7 +104,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li data-ng-repeat="x in menu" class="treeview" data-repeat-finish="sidebarmenu_done()">
-          <a href="#">
+          <a id="menu-{{x.func}}" href="#">
             <i class="{{x.icon}}"></i> <span>{{langs[x.func]}}</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -112,7 +112,7 @@
           </a>
           <ul class="treeview-menu">
             <li data-ng-if="xx.sub" data-ng-repeat="xx in x.sub" class="treeview">
-                <a href="#" class="treemenu2"><i class="fa fa-plus-circle"></i> {{langs[xx.func]}}</a>
+                <a id="menu-{{xx.func.replace('/', '-')}}" href="#" class="treemenu2"><i class="fa fa-plus-circle"></i> {{langs[xx.func]}}</a>
                 <ul class="treeview-menu">
                     <li data-ng-repeat="xxx in xx.sub" class="active">
                         <a href="#/{{xxx.func}}"><i class="{{ xxx.icon }}"></i> {{langs[xxx.func]}}</a>

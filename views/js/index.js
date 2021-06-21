@@ -411,7 +411,15 @@ angular.module('myApp').controller('System/menu', function($scope, $rootScope, $
                 element_i.removeClass().addClass('fa fa-plus-circle');
             }
         });
-        
+
+        setTimeout(function(){
+            var current_menu = String(/(?<=#\/)[\S]+(?=\/)/.exec(window.location.href));
+            var current_menus = current_menu.split('/');
+            if (current_menus.length > 1) {
+                $('#menu-' + current_menus[0]).click();
+            }
+            $('#menu-' + current_menu.replace('/', '-')).click();
+        }, 30);
         
         //重置导航栏，防止菜单数据加载比较慢，导致导航栏不正常显示
         $rootScope.set_breadcrumb();

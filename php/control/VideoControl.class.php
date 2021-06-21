@@ -206,7 +206,7 @@ class VideoControl extends Control
         $form_mod_conf = array(
             'tag_name' =>  array("length", array(1, 32), ErrorCode::PARAM_ERROR),
             'path'      =>  array("length", array(0, 1024), ErrorCode::PARAM_ERROR),
-            'parent_id' =>  array("transform", 'intval', ErrorCode::PARAM_ERROR),
+            'parent_id' =>  array("int"),
         );
         $mod_args = RemoteInfo::getInsertFormArgs($form_mod_conf);
 

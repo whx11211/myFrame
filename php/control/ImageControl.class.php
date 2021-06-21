@@ -53,6 +53,7 @@ class ImageControl extends Control
 
                     $image = new Image($v['path']);
                     $v['preview_image'] = $image->base64EncodeImage($v['file_name']) ?: 'images/not_found.png';
+                    unset($image);
                 }
                 else {
                     $v['preview_image'] = 'images/not_found.png';

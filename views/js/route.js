@@ -176,6 +176,15 @@ app.config(['$routeProvider','$locationProvider',function ($routeProvider, $loca
             }]
         }
      })
+	.when('/t/tt/ttt',{
+		templateUrl:'welcome.html',
+		controller:"welcome",
+		resolve:{
+			deps:["$ocLazyLoad",function($ocLazyLoad){
+				return $ocLazyLoad.load("js/welcome.js");
+			}]
+		}
+	})
      .otherwise({redirectTo:'/welcome'});
 	
  }]);
