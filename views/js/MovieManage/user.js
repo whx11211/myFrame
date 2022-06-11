@@ -22,7 +22,7 @@ angular.module('myApp').controller('MovieManage/user', function($scope, $rootSco
 
     $scope.langs = $rootScope.langs;
     //加载语言包
-    $http.post(lang($scope.api_name)).then(
+    $http.get(lang($scope.api_name)).then(
         function (respone) {
             angular.extend($scope.langs, respone.data);
             // ====gridOptions.columnDefs初始化(语言包加载完成后执行)

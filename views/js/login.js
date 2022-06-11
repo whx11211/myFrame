@@ -3,7 +3,7 @@ app.controller('System/login', function($scope, $rootScope, $http) {
     $scope.search = {};
     
 	$rootScope.langs = {};
-	$http.post(lang('main')).then(
+	$http.get(lang('main')).then(
     	function (respone) {
     		$rootScope.langs = respone.data;
     	}

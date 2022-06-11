@@ -40,7 +40,7 @@ angular.module('myApp').controller('Video/tag', function($scope, $rootScope, $ht
 
     $scope.langs = $rootScope.langs;
     //加载语言包
-    $http.post(lang($scope.api_name)).then(
+    $http.get(lang($scope.api_name)).then(
         function (respone) {
             angular.extend($scope.langs, respone.data);
             // ====gridOptions.columnDefs初始化(语言包加载完成后执行)

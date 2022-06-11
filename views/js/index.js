@@ -30,7 +30,7 @@ angular.module('myApp').controller('System/userInfo', function($scope, $rootScop
 	
 	//加载主语言包
 	$rootScope.langs = {};
-	$http.post(lang('main')).then(
+	$http.get(lang('main')).then(
     	function (respone) {
     		$rootScope.langs = respone.data;
     	}
@@ -413,7 +413,11 @@ angular.module('myApp').controller('System/menu', function($scope, $rootScope, $
         });
 
         setTimeout(function(){
-            var current_menu = String(/(?<=#\/)[\S]+(?=\/)/.exec(window.location.href));
+            var path = window.location.href.split('#/');
+            if (path.leng < 2) {
+                return;
+            }
+            var current_menu = path[1];
             var current_menus = current_menu.split('/');
             if (current_menus.length > 1) {
                 $('#menu-' + current_menus[0]).click();
