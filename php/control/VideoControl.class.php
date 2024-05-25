@@ -132,6 +132,7 @@ class VideoControl extends Control
                     break;
                 case 'iphone':
                 case 'ipad':
+                case 'mac':
                 case 'android':
                     $data['vlc_play'] = 'vlc://' . $data['url_path'];
                     break;

@@ -78,7 +78,7 @@ class Instance
     /**
      * 获取VIDEO数据库实例
      *
-     * @param $table 表名
+     * @param $table
      *
      * return 数据库实例
      */

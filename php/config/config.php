@@ -55,7 +55,7 @@ define('VIDEO_URL_BASE_PATH', 'H:\Progrom\Common Files\Videos\\');
 if (isset($_SERVER['HTTP_HOST'])) {
 	define('VIDEO_HOST', 'http://' . $_SERVER['HTTP_HOST'] . ':8000/');
 }
-define('FFMPEG_PATH', 'D:\软件\ffmpeg-20181208-6b1c4ce-win64-static\bin\\');
+define('FFMPEG_PATH', 'D:\phpstudy_pro\Extensions\ffmpeg\bin\\');
 
 define('IMAGE_BASE_PATH', 'H:\Progrom\Common Files\Videos\图片收藏');
 define('IMAGE_URL_BASE_PATH', 'H:\Progrom\Common Files\Videos\\');

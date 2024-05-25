@@ -15,11 +15,11 @@ define('RUNNING_LOG', true);
 require_once __DIR__.'/../common/init.php';
 
 $video_exts = [
-    'avi','rmvb','rm','asf','divx','mpg','mpeg','mpe','wmv','mp4','mkv','vob','flv','mov','tp','m4a','m4v','mpg','mts','vob','td'
+    'avi','rmvb','rm','asf','divx','mpg','mpeg','mpe','wmv','mp4','mkv','vob','flv','mov','tp','m4a','m4v','mpg','mts','vob','td','ts'
 ];
 
 $type = $argv[1];
-switch ($type) {v
+switch ($type) {
     case 'check_ext':
         $video = Instance::getMedia('video');
         check_ext();
@@ -116,7 +116,7 @@ function add_video($path) {
         return true;
     }
     $path_info = pathinfo($path);
-    if (in_array(strtolower($path_info['extension']) ,$video_exts)) {
+    if (in_array(strtolower($path_info['extension'] ?? '') ,$video_exts)) {
         $data = FFMpeg::getVideoDetail($path);
         if ($data) {
             if (!isset($tags[$data['path']]) && $data['path'] != VIDEO_BASE_PATH) {
